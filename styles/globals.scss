@@ -1,0 +1,15 @@
+@import "mixins";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu !important;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@import "media-queries";
