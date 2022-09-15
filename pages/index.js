@@ -1,7 +1,9 @@
+import Landing from "../components/Landing";
+
 function HomePage() {
     return (
         <div>
-            HomePage
+            <Landing />
         </div>
     )
 }
