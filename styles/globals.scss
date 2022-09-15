@@ -12,4 +12,81 @@ body {
   box-sizing: border-box;
 }
 
+.navbar{
+  .header-name{
+    font-size: 25px;
+  }
+
+  .logo{
+    height: 46px;
+  }
+
+  .input-field {
+    width: 100%;
+    padding-left: 31px;
+  }
+
+  .links{
+    color: grey;
+  }
+
+  .links:hover{
+    color: white;
+  }
+
+  .search{
+    color:grey;
+    position: absolute;
+    min-width: 31px;
+    padding-top: 12px;
+  }
+
+  .bag{
+    color: white;
+    font-size: 24px;
+  }
+}
+
+
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #efefef;
+
+  .footer-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1{
+    font-size: 17px;
+  }
+
+  ul{
+    margin-left: -33px;
+  }
+
+  li{
+    font-size: 13px;
+    list-style: none;
+  }
+
+  a{
+    color: black;
+    text-decoration: none;
+  }
+
+  .footer-bottom{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  p{
+    font-size: 13px;
+  }
+
+}
+
 @import "media-queries";
