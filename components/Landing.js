@@ -1,42 +1,72 @@
-import useWindowDimensions from "../hooks/useWindowDimensions";
-import Image from "next/image";
+import LandingItem from "./elements/LandingItem";
+import heroImage1 from "../public/images/landing/iphone14sm.jpg";
+import heroImage2 from "../public/images/landing/iphone14.jpg";
+import section2 from "../public/images/landing/heroSec2.jpg";
+import section3 from "../public/images/landing/heroSec3.jpg";
+import section4 from "../public/images/landing/heroSec4.jpg";
+import section5 from "../public/images/landing/heroSec5.jpg";
+import section6 from "../public/images/landing/heroSec6.jpg";
+import section7 from "../public/images/landing/heroSec7.jpg";
+import LandingSmallItem from "./elements/LandingSmallItem";
+
 
 
 
 function Landing() {
 
-    const [windowDimension] = useWindowDimensions()
-
-    const renderFirstImg = () => {
-
-        if (windowDimension){
-            const {width} = windowDimension
-            if (width < 768){
-                return <div id="hero-image-1"></div>
-            }else{
-                return <div id='hero-image-2'></div>
-            }
-        }else return null
-    }
-
     return(
-            <div className="container-fluid section-1">
+            <div className='landing'>
+                <LandingItem title='iPhone 14 Pro'
+                             subhead ='Pro. Beyond.'
+                             multiple={true}
+                             image={[heroImage1.src,heroImage2.src]}
+                             textColor='text-white'
+                />
 
-                    {renderFirstImg()}
+                <LandingItem title='iPhone 14'
+                             subhead ='Bigger and Bigger.'
+                             image={section2.src}
+                />
 
-                <div className="top-title">
-                    <h1 className="headline">iPhone 14 Pro</h1>
-                    <h2 className="subhead" role="presentation">Pro. Beyond.</h2>
-                    <p className="text-muted" aria-label="Available starting September 16" role="text">Available starting 9.16 </p>
-                    <div className="cta-links">
-                        <a href="https://www.apple.com/iphone-14-pro/" aria-label="Learn more about iphone 14 pro">learn more <Image
-                            src="/images/right-arrow-blue.svg" alt="" width="12px" height="12px" /></a>
-                        <a href="https://www.apple.com/iphone-14-pro/" aria-label="Learn more about iphone 14 pro">Pre-order <Image
-                            src="/images/right-arrow-blue.svg" alt="" width="12px" height="12px"/></a>
-                    </div>
+                <LandingItem title='AirPods Pro'
+                             subhead ='Rebuilt from the sound up.'
+                             image={section3.src}
+                             textColor='text-white'
+                />
+
+                <div className="row">
+
+                        <LandingSmallItem title='WATCH'
+                                          subhead ='Adventure awaits.'
+                                          image={section4.src}
+                        />
+
+                        <LandingSmallItem title='WATCH'
+                                          subhead ='A healthy leap ahead.'
+                                          image={section5.src}
+                                          textColor='text-white'
+                        />
+
                 </div>
-            </div>
 
+                <div className="row">
+
+                    <LandingSmallItem title='Fitness+'
+                                          subhead ='New Artist spotlight workouts with music by the weekend.'
+                                          image={section6.src}
+                                          textColor='text-white'
+
+                    />
+
+                    <LandingSmallItem title='WATCH'
+                                          subhead ='A great deal to love.'
+                                          image={section7.src}
+
+                    />
+
+                </div>
+
+            </div>
     )
 }
 
