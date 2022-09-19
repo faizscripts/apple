@@ -1,0 +1,73 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu !important;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.navbar .header-name {
+  font-size: 25px;
+}
+.navbar .logo {
+  height: 46px;
+}
+.navbar .input-field {
+  width: 100%;
+  padding-left: 31px;
+}
+.navbar .links {
+  color: grey;
+}
+.navbar .links:hover {
+  color: white;
+}
+.navbar .search {
+  color: grey;
+  position: absolute;
+  min-width: 31px;
+  padding-top: 12px;
+}
+.navbar .bag {
+  color: white;
+  font-size: 24px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #efefef;
+}
+.footer .footer-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer h1 {
+  font-size: 17px;
+}
+.footer ul {
+  margin-left: -33px;
+}
+.footer li {
+  font-size: 13px;
+  list-style: none;
+}
+.footer a {
+  color: black;
+  text-decoration: none;
+}
+.footer .footer-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.footer p {
+  font-size: 13px;
+}
+
+/*# sourceMappingURL=globals.css.map */
