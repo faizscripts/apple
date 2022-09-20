@@ -83,7 +83,7 @@ body {
   width: 100%;
   position: relative;
   overflow: hidden;
-  margin: 10px 5px;
+  margin-bottom: 10px;
 
 
 
@@ -137,14 +137,11 @@ body {
   }
   }
 
-.navbar{
-  .header-name{
-    font-size: 25px;
-  }
-
-  .logo{
-    height: 46px;
-  }
+.navbar.navbar-expand-lg{
+  background-color: black;
+  position: inherit;
+  //z-index: 999;
+  width: 100%;
 
   .input-field {
     width: 100%;
@@ -152,7 +149,7 @@ body {
   }
 
   .links{
-    color: grey;
+    color:grey;
   }
 
   .links:hover{
@@ -160,7 +157,7 @@ body {
   }
 
   .search{
-    color:grey;
+    color:black;
     position: absolute;
     min-width: 31px;
     padding-top: 12px;
@@ -173,7 +170,7 @@ body {
 }
 
 .footer{
-  position: fixed;
+  position: relative;
   left: 0;
   bottom: 0;
   background-color: #efefef;

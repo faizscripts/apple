@@ -40,9 +40,9 @@ function Footer() {
                  <h1>Contacts</h1>
                  <ul>
                          <li>Apple Express Ltd</li>
-                         <li><FontAwesomeIcon icon={faPhone} aria-hidden="phone" className="phone"></FontAwesomeIcon>  +254 723 456 789</li>
-                         <li><FontAwesomeIcon icon={faLocation} aria-hidden='location' className='arrow-location'/> Nairobi, Kenya</li>
-                         <li><FontAwesomeIcon icon={faEnvelope} aria-hidden='enveloper' className='envelope'/> info@appleexpress.co.ke</li>
+                         <li><FontAwesomeIcon icon={faPhone} aria-hidden="false" className="phone"></FontAwesomeIcon>  +254 723 456 789</li>
+                         <li><FontAwesomeIcon icon={faLocation} aria-hidden='false' className='arrow-location'/> Nairobi, Kenya</li>
+                         <li><FontAwesomeIcon icon={faEnvelope} aria-hidden='false' className='envelope'/> info@appleexpress.co.ke</li>
                  </ul>
              </div>
         </div>
