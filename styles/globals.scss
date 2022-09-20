@@ -151,8 +151,10 @@ body {
   left: 0;
   bottom: 0;
   background-color: #efefef;
+  margin-top: 52px;
 
   .footer-top{
+    padding-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -274,7 +276,7 @@ body {
 
   .compact-container{
     display: grid;
-    grid-template-columns: repeat(4,200px);
+    grid-template-columns: repeat(4,230px);
   }
 
   h5{

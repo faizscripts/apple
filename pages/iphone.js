@@ -92,7 +92,7 @@ function iphone() {
                         <hr/>
                         <div className='d-flex'>
                             <div>
-                                <img src="./images/products/series-7-midnight-leather.jpg.webp" alt="airpods pro"
+                                <img src="./images/products/series-7.webp" alt="Watch Series 7"
                                      className='top-rated-img'/>
                             </div>
                             <div className='mx-3'>
