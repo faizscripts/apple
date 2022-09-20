@@ -6,115 +6,206 @@ body {
   margin: 0;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu !important;
   scroll-behavior: smooth;
-  height: 100%;
+
 }
 
 * {
   box-sizing: border-box;
 }
 
+.landing-section{
+  height: 570px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
 
-.navbar {
-  .header-name {
-    font-size: 25px;
+
+
+  .backgroundImg{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    //top: -10%;
+    flex-grow: 1;
   }
 
-  .logo {
-    height: 46px;
+  .top-title{
+    margin-top: 52px;
+    text-align: center;
+    z-index: 3;
+
+    .headline{
+      font-size: 48px;
+      line-height: 1.08349;
+      font-weight: 600;
+      letter-spacing: -.002em;
+      font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    }
+    .subhead{
+      margin-top: 3px;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.16667;
+      letter-spacing: .009em;
+      font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    }
+    .subParagraph{
+      font-size: 19px;
+      line-height: 1.21053;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+
+    .cta-links{
+
+      a{
+        color: #2997ff;
+        text-decoration: none;
+        font-size: 21px;
+        font-weight: 400;
+
+        &:nth-child(2){
+          margin-left: 30px;
+        }
+      }
+    }
   }
+}
+
+.landing-section-small{
+  height: 570px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
+
+
+
+  .backgroundImg{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    //top: -10%;
+    flex-grow: 1;
+  }
+
+  .top-title{
+    margin-top: 52px;
+    text-align: center;
+    z-index: 3;
+
+    .headline{
+      font-size: 40px;
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: 0;
+      font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    }
+    .subhead{
+      margin-top: 3px;
+      font-size: 21px;
+      font-weight: 400;
+      line-height: 1.2381;
+      letter-spacing: .016em;
+      font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    }
+
+    .cta-links{
+
+      a{
+        color: #2997ff;
+        text-decoration: none;
+        font-size: 17px;
+        font-weight: 400;
+
+        &:nth-child(2){
+          margin-left: 30px;
+        }
+      }
+    }
+  }
+}
+
+.navbar.navbar-expand-lg{
+  background-color: black;
+  position: inherit;
+  //z-index: 999;
+  width: 100%;
 
   .input-field {
     width: 100%;
     padding-left: 31px;
   }
 
-  .links {
-    color: grey;
+  .links{
+    color:grey;
   }
 
-  .links:hover {
+  .links:hover{
     color: white;
   }
 
-  .search {
-    color: grey;
+  .search{
+    color:black;
     position: absolute;
     min-width: 31px;
     padding-top: 12px;
   }
 
-  .bag {
+  .bag{
     color: white;
     font-size: 24px;
   }
 }
 
-.section-1 {
-  height: 570px;
-  width: 100%;
+.footer{
   position: relative;
-  overflow: hidden;
-
-
-}
-
-#hero-image-1 {
-  background-image: url("../public/images/iphone14sm.jpg");
-  position: absolute;
-  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 120%;
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-  top: -13%;
-}
-
-#hero-image-2 {
-  background-image: url("../public/images/iphone14.jpg");
-  position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 120%;
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-  top: -13%;
-}
+  background-color: #efefef;
 
-.top-title {
-  margin-top: 52px;
-  color: white;
-  text-align: center;
-  z-index: 3;
-
-  h1 {
-    font-size: 52px;
-    font-weight: 500;
-    letter-spacing: -1px;
+  .footer-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  h2 {
-    margin-top: 3px;
-    font-size: 26px;
-    font-weight: 400;
+  h1{
+    font-size: 17px;
   }
 
-  .cta-links {
-    margin-top: 12px;
+  ul{
+    margin-left: -33px;
+  }
 
-    a {
-      color: #2997ff;
-      text-decoration: none;
-      font-size: 21px;
-      font-weight: 400;
+  li{
+    font-size: 13px;
+    list-style: none;
+  }
 
-      &:nth-child(2) {
-        margin-left: 30px;
-      }
-    }
+  a{
+    color: black;
+    text-decoration: none;
+  }
+
+  .footer-bottom{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  p{
+    font-size: 13px;
   }
 }
 
@@ -158,7 +249,7 @@ body {
   }
 
   h3{
-   font-size: 17px;
+    font-size: 17px;
   }
 
   .form-range{
@@ -253,49 +344,5 @@ body {
   }
 
 }
-
-
-.footer {
-  position: relative;
-  left: 0;
-  bottom: 0;
-  background-color: #efefef;
-  margin-top: 100px;
-
-  .footer-top {
-    padding-top: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  h1 {
-    font-size: 17px;
-  }
-
-  ul {
-    margin-left: -33px;
-  }
-
-  li {
-    font-size: 13px;
-    list-style: none;
-  }
-
-  a {
-    color: black;
-    text-decoration: none;
-  }
-
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  p {
-    font-size: 15px;
-  }
-}
-
 
 @import "media-queries";
