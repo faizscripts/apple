@@ -43,75 +43,75 @@ body {
 
 .landing-section{
 
-    .headline{
-      font-size: 48px;
-      line-height: 1.08349;
-      font-weight: 600;
-      letter-spacing: -.002em;
-      font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
-    }
-    .subhead{
-      margin-top: 3px;
-      font-size: 24px;
+  .headline{
+    font-size: 48px;
+    line-height: 1.08349;
+    font-weight: 600;
+    letter-spacing: -.002em;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+  }
+  .subhead{
+    margin-top: 3px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.16667;
+    letter-spacing: .009em;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+  }
+  .subParagraph{
+    font-size: 19px;
+    line-height: 1.21053;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .cta-links{
+
+    a{
+      color: #2997ff;
+      text-decoration: none;
+      font-size: 21px;
       font-weight: 400;
-      line-height: 1.16667;
-      letter-spacing: .009em;
-      font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
-    }
-    .subParagraph{
-      font-size: 19px;
-      line-height: 1.21053;
-      font-weight: 400;
-      letter-spacing: 0;
-    }
 
-    .cta-links{
-
-      a{
-        color: #2997ff;
-        text-decoration: none;
-        font-size: 21px;
-        font-weight: 400;
-
-        &:nth-child(2){
-          margin-left: 30px;
-        }
+      &:nth-child(2){
+        margin-left: 30px;
       }
     }
   }
+}
 
 .landing-section.small{
 
-    .headline{
-      font-size: 40px;
-      line-height: 1.1;
-      font-weight: 600;
-      letter-spacing: 0;
-      font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
-    }
-    .subhead{
-      margin-top: 3px;
-      font-size: 21px;
+  .headline{
+    font-size: 40px;
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: 0;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+  }
+  .subhead{
+    margin-top: 3px;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.2381;
+    letter-spacing: .016em;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+  }
+
+  .cta-links{
+
+    a{
+      color: #2997ff;
+      text-decoration: none;
+      font-size: 17px;
       font-weight: 400;
-      line-height: 1.2381;
-      letter-spacing: .016em;
-      font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
-    }
 
-    .cta-links{
-
-      a{
-        color: #2997ff;
-        text-decoration: none;
-        font-size: 17px;
-        font-weight: 400;
-
-        &:nth-child(2){
-          margin-left: 30px;
-        }
+      &:nth-child(2){
+        margin-left: 30px;
       }
     }
   }
+}
 
 
 .navbar.navbar-expand-lg{
@@ -247,9 +247,6 @@ body {
     font-size: 16px;
   }
 
-  .products-container{
-    margin-left: -30px;
-  }
 
   .price{
     color:#0066CC;
@@ -276,7 +273,7 @@ body {
 
   .compact-container{
     display: grid;
-    grid-template-columns: repeat(4,230px);
+    grid-template-columns: repeat(4,218px);
   }
 
   h5{
@@ -284,7 +281,7 @@ body {
   }
 
   .product-image{
-    height: 240px;
+    height: 220px;
   }
 
   .div-colors{

@@ -71,7 +71,7 @@ function CategoryPage({title,children}) {
                         <h3 className='my-3'>TOP RATED PRODUCTS</h3>
                         <div className='d-flex'>
                             <div>
-                                <img src="./images/products/airpod-pros.jpg.webp" alt="airpods pro"
+                                <img src="./images/products/AirPods/airpod-pros.jpg.webp" alt="airpods pro"
                                      className='top-rated-img'/>
                             </div>
                             <div className='mx-3'>
@@ -82,7 +82,7 @@ function CategoryPage({title,children}) {
                         <hr/>
                         <div className='d-flex'>
                             <div>
-                                <img src="./images/products/iphone-13-dual.jpg.png" alt="iphone 13"
+                                <img src="./images/products/iphone/iphone-13-dual.jpg.png" alt="iphone 13"
                                      className='top-rated-img'/>
                             </div>
                             <div className='mx-3'>
@@ -93,7 +93,7 @@ function CategoryPage({title,children}) {
                         <hr/>
                         <div className='d-flex'>
                             <div>
-                                <img src="./images/products/series-7.webp" alt="airpods pro"
+                                <img src="./images/products/Watch/series-7.webp" alt="airpods pro"
                                      className='top-rated-img'/>
                             </div>
                             <div className='mx-3'>

@@ -2,7 +2,7 @@ function ProductItem({img,category,price,productName,options,colors}) {
     function renderOptions() {
         if (options){
             return(
-                <div>
+                <div className='product-size'>
                     <h5>38MM</h5>
                     <h5>42MM</h5>
                 </div>
