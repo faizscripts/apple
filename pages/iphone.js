@@ -9,7 +9,7 @@ function iphone() {
         <div className='categories-container'>
             <div className='container-fluid img-background' style={{backgroundImage: `url('${gadgets.src}')`}}>
                 <div className='secondary-container'>
-                    <h1><FontAwesomeIcon icon={faArrowLeft} aria-hidden='arrow-left' className='arrow-left'/> IPHONE
+                    <h1><FontAwesomeIcon icon={faArrowLeft} aria-hidden='arrow-left' className='arrow-left'/> iPhone
                     </h1>
                     <div className='d-flex container categories-list d-flex justify-content-center'>
                         <div className='cards mx-4'>
@@ -70,7 +70,7 @@ function iphone() {
                         <h3 className='my-3'>TOP RATED PRODUCTS</h3>
                         <div className='d-flex'>
                             <div>
-                                <img src="./images/products/airpod-pros.jpg.webp" alt="airpods pro"
+                                <img src="./images/products/AirPods/airpod-pros.jpg.webp" alt="airpods pro"
                                      className='top-rated-img'/>
                             </div>
                             <div className='mx-3'>
@@ -81,7 +81,7 @@ function iphone() {
                         <hr/>
                         <div className='d-flex'>
                             <div>
-                                <img src="./images/products/iphone-13-dual.jpg.png" alt="iphone 13"
+                                <img src="./images/products/iphone/iphone-13-dual.jpg.png" alt="iphone 13"
                                      className='top-rated-img'/>
                             </div>
                             <div className='mx-3'>
@@ -92,7 +92,7 @@ function iphone() {
                         <hr/>
                         <div className='d-flex'>
                             <div>
-                                <img src="./images/products/series-7-midnight-leather.jpg.webp" alt="airpods pro"
+                                <img src="./images/products/Watch/series-7.webp" alt="Watch Series 7"
                                      className='top-rated-img'/>
                             </div>
                             <div className='mx-3'>
@@ -105,27 +105,27 @@ function iphone() {
 
                 <div className='products-container col-8'>
                     <div className='d-flex justify-content-between mt-3'>
-                    <h3 className='header-products'><span>Home</span> / iPhone</h3>
-                    <div className='d-flex align-items-center justify-content-between'>
-                        <div className='me-5'>
-                            <h3 className='header-products'>Show :<span> 9 /</span><span> 12 / </span><span>18 / </span><span>24</span> </h3>
-                        </div>
-                        <div className='me-5'>
-                            <FontAwesomeIcon icon={faTableCellsLarge} aria-hidden='2 row and 2 coloumns' className='icons'/>
-                            <FontAwesomeIcon icon={faTableCells} aria-hidden='3 row and 3 coloumns' className='icons'/>
-                        </div>
-                        <div className="dropdown me-5">
-                            <div className="dropdown-toggle dropdown-div" type="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                               Default Sorting
+                        <h3 className='header-products'><span>Home</span> / iPhone</h3>
+                        <div className='d-flex align-items-center justify-content-between'>
+                            <div className='me-5'>
+                                <h3 className='header-products'>Show :<span> 9 /</span><span> 12 / </span><span>18 / </span><span>24</span> </h3>
                             </div>
-                            <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="#">Action</a></li>
-                                <li><a className="dropdown-item" href="#">Another action</a></li>
-                                <li><a className="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
+                            <div className='me-5'>
+                                <FontAwesomeIcon icon={faTableCellsLarge} aria-hidden='2 row and 2 coloumns' className='icons'/>
+                                <FontAwesomeIcon icon={faTableCells} aria-hidden='3 row and 3 coloumns' className='icons'/>
+                            </div>
+                            <div className="dropdown me-5">
+                                <div className="dropdown-toggle dropdown-div" type="button"
+                                     data-bs-toggle="dropdown" aria-expanded="false">
+                                    Default Sorting
+                                </div>
+                                <ul className="dropdown-menu">
+                                    <li><a className="dropdown-item" href="#">Action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     <div className='mt-5 compact-container'>
                         <div className='d-flex mt-4'>
@@ -133,21 +133,21 @@ function iphone() {
                                 <h5>64GB</h5>
                                 <h5>128GB</h5>
                             </div>
-                        <div className='products-container'>
-                            <img src="./images/products/iphone-13-256gb.png" alt="" className='product-image'/>
-                            <div className='d-flex justify-content-center mt-2'>
-                                <div className='div-colors red me-2'></div>
-                                <div className='div-colors yellow me-2'></div>
-                                <div className='div-colors blue me-2'></div>
-                                <div className='div-colors green me-2'></div>
-                                <div className='div-colors purple me-2'></div>
+                            <div className='products-container'>
+                                <img src="./images/products/iphone/iphone-13-256gb.png" alt="" className='product-image'/>
+                                <div className='d-flex justify-content-center mt-2'>
+                                    <div className='div-colors red me-2'></div>
+                                    <div className='div-colors yellow me-2'></div>
+                                    <div className='div-colors blue me-2'></div>
+                                    <div className='div-colors green me-2'></div>
+                                    <div className='div-colors purple me-2'></div>
+                                </div>
+                                <div className='d-flex justify-content-center products-description'>
+                                    <div><h3 className='product-header mt-2'>iPhone 13</h3></div>
+                                    <div><span className='product-name mt-2'>iPhone</span></div>
+                                    <div><p className='price mt-2'>Ksh 118,000</p></div>
+                                </div>
                             </div>
-                            <div className='d-flex justify-content-center products-description'>
-                                <div><h3 className='product-header mt-2'>iPhone 13</h3></div>
-                                <div><span className='product-name mt-2'>iPhone</span></div>
-                                <div><p className='price mt-2'>Ksh 118,000</p></div>
-                            </div>
-                        </div>
                         </div>
 
                         <div className='d-flex mt-4'>
@@ -158,7 +158,7 @@ function iphone() {
                                 <h5>1TB</h5>
                             </div>
                             <div className='products-container'>
-                                <img src="./images/products/iphone-13-pro-max1.png" alt="" className='product-image'/>
+                                <img src="./images/products/iphone/iphone-13-pro-max1.png" alt="" className='product-image'/>
                                 <div className='d-flex justify-content-center mt-2'>
                                     <div className='div-colors red me-2'></div>
                                     <div className='div-colors yellow me-2'></div>
@@ -182,7 +182,7 @@ function iphone() {
                                 <h5>1TB</h5>
                             </div>
                             <div className='products-container'>
-                                <img src="./images/products/iphone-13-pro-alpine-green.png" alt="" className='product-image'/>
+                                <img src="./images/products/iphone/iphone-13-pro-alpine-green.png" alt="" className='product-image'/>
                                 <div className='d-flex justify-content-center mt-2'>
                                     <div className='div-colors red me-2'></div>
                                     <div className='div-colors yellow me-2'></div>
@@ -205,7 +205,7 @@ function iphone() {
                                 <h5>512GB</h5>
                             </div>
                             <div className='products-container'>
-                                <img src="./images/products/iphone-13-mini1.png" alt="" className='product-image'/>
+                                <img src="./images/products/iphone/iphone-13-mini1.png" alt="" className='product-image'/>
                                 <div className='d-flex justify-content-center mt-2'>
                                     <div className='div-colors red me-2'></div>
                                     <div className='div-colors yellow me-2'></div>
@@ -227,7 +227,7 @@ function iphone() {
                                 <h5>128GB</h5>
                             </div>
                             <div className='products-container'>
-                                <img src="./images/products/iphone-13-dual.jpg.png" alt="" className='product-image'/>
+                                <img src="./images/products/iphone/iphone-13-dual.jpg.png" alt="" className='product-image'/>
                                 <div className='d-flex justify-content-center mt-2'>
                                     <div className='div-colors red me-2'></div>
                                     <div className='div-colors yellow me-2'></div>
@@ -249,7 +249,7 @@ function iphone() {
                                 <h5>128GB</h5>
                             </div>
                             <div className='products-container'>
-                                <img src="./images/products/iphone-12-black-64gb.png" alt="" className='product-image'/>
+                                <img src="./images/products/iphone/iphone-12-black-64gb.png" alt="" className='product-image'/>
                                 <div className='d-flex justify-content-center mt-2'>
                                     <div className='div-colors red me-2'></div>
                                     <div className='div-colors yellow me-2'></div>
