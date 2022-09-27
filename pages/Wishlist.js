@@ -2,7 +2,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMultiply} from "@fortawesome/free-solid-svg-icons";
 import gadgets from '../public/images/categories/accessories-page-title.jpg'
 
-function iphone() {
+function WishList() {
     return (
         <div className='wishlist-container'>
             <div className='container-fluid img-background' style={{backgroundImage: `url('${gadgets.src}')`}}>
@@ -145,4 +145,4 @@ function iphone() {
     )
 }
 
-export default iphone
+export default WishList
