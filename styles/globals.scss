@@ -535,11 +535,51 @@ body {
   }
 
   .product-image{
-    height: 250px;
+    height: 320px;
   }
 
   h5 {
     font-size: 12px;
+  }
+
+  .products-description{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .div-colors {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+  }
+
+  .compact-container{
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+  }
+
+  .remove-button{
+    margin: -15px 12px 11px 100px;
+  }
+
+  .red {
+    background: red;
+  }
+
+  .yellow {
+    background: yellow;
+  }
+
+  .green {
+    background: green;
+  }
+
+  .purple {
+    background: purple;
+  }
+
+  .blue {
+    background: blue;
   }
 }
 
