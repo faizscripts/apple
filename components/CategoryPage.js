@@ -6,9 +6,54 @@ import gadgets from '../public/images/categories/accessories-page-title.jpg'
 import ProductItem from "./ProductItem";
 
 function CategoryPage({title,children}) {
+
+
     return (
         <div className='categories-container'>
             <div className='container-fluid img-background' style={{backgroundImage: `url('${gadgets.src}')`}}>
+                <div className='accordion-container'>
+                    <div className="accordion accordion-flush" id="accordionFlushExample">
+                        <div className="accordion-item">
+                            <h2 className="accordion-header" id="flush-headingOne">
+                                <button className="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                        aria-expanded="false" aria-controls="flush-collapseOne">
+                                    Accordion Item #1
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" className="accordion-collapse collapse"
+                                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div className="accordion-body">
+                                    <div>
+                                        <h2>MACBOOK</h2>
+                                        <p>4 PRODUCTS</p>
+                                    </div>
+                                    <div>
+                                        <h2>IPAD</h2>
+                                        <p>0 PRODUCTS</p>
+                                    </div>
+                                    <div>
+                                        <h2>IPHONE</h2>
+                                        <p>9 PRODUCTS</p>
+                                    </div>
+                                    <div>
+                                        <h2>WATCH</h2>
+                                        <p>4 PRODUCTS</p>
+                                    </div>
+                                    <div>
+                                        <h2>AIRPODS</h2>
+                                        <p>4 PRODUCTS</p>
+                                    </div>
+                                    <div>
+                                        <h2>ACCESSORIES</h2>
+                                        <p>2 PRODUCTS</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div className='secondary-container'>
                     <h1><FontAwesomeIcon icon={faArrowLeft}  className='arrow-left'/> {title}
                     </h1>
@@ -41,8 +86,7 @@ function CategoryPage({title,children}) {
                 </div>
             </div>
 
-            <div className='main-container row'>
-                <div className='col-1'></div>
+            <div className='main-container row d-flex justify-content-center'>
                 <div className='filter-container col-3'>
                     <div>
                         <h3 className='my-3'>FILTER BY PRICE</h3>
@@ -59,7 +103,7 @@ function CategoryPage({title,children}) {
                     <div>
                         <h3 className='my-3'>STOCK STATUS</h3>
                         <form>
-                            <input type="checkbox" name="" id="on-sale" for='on-sale' placeholder='on sale'/>
+                            <input type="checkbox" name="" id="on-sale" htmlFor='on-sale' placeholder='on sale'/>
                             <label htmlFor="on-sale" className='ms-2'>on sale</label>
                             <br/>
                             <input type="checkbox" name="" id="on-sale" htmlFor='in-site' placeholder='in site'/>
@@ -103,7 +147,6 @@ function CategoryPage({title,children}) {
                         </div>
                     </div>
                 </div>
-
                 <div className='products-container col-8'>
                     <div className='d-flex justify-content-between mt-3'>
                         <h3 className='header-products'><span>Home</span> / {title}</h3>

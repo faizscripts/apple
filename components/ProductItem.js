@@ -1,4 +1,4 @@
-function ProductItem({img,category,price,productName,options,colors,space}) {
+function ProductItem({img,category,price,productName,options,colors}) {
 
     function renderOptions() {
         if (options){
@@ -20,7 +20,6 @@ function ProductItem({img,category,price,productName,options,colors,space}) {
                         )
                 }
             )
-
     }
 
 
