@@ -1,16 +1,28 @@
-function ProductItem({img,category,price,productName,options,colors}) {
+function ProductItem({img,category,price,productName,options,colors,space}) {
+
     function renderOptions() {
         if (options){
             return(
                 <div className='product-size'>
-                    <h5>38MM</h5>
-                    <h5>42MM</h5>
+                    {loopOptions()}
                 </div>
             )
         } else {
             return null
         }
     }
+
+    function loopOptions() {
+            return options.map(
+                option=>{
+                    return(
+                        <h5 key={option}>{option}</h5>
+                        )
+                }
+            )
+
+    }
+
 
     function renderedColor() {
         if (colors){
