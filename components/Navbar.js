@@ -54,7 +54,7 @@ function Navbar() {
                             <FontAwesomeIcon icon={faMagnifyingGlass} aria-hidden={false} className='search'/>
                             <input className="form-control me-2 input-field" type="search" placeholder="Search" aria-label="Search"/>
                         </form>
-                        <div className='cart'>
+                        <div className='cart mt-2'>
                             <FontAwesomeIcon icon={faBagShopping} aria-hidden={false} className="bag" />
                         </div>
                     </div>
