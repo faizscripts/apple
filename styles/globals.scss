@@ -122,9 +122,8 @@ body {
 }
 
 .sidebar-container{
-  height: 100vh;
+  height: 750px;
 .sidebar{
-  overflow-y: scroll;
   background: #f3efef;
   position: relative;
   top: 0;
@@ -211,7 +210,7 @@ body {
 }
 
 .categories-container {
-
+   position: relative;
   .img-background {
     position: relative;
     height: 280px;
@@ -219,17 +218,43 @@ body {
     background-position: center;
   }
 
+  .hr-medium-width{
+    display: none;
+  }
+
+  .bars{
+    display: none;
+  }
+
+
+  .filter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .filter-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .accordion-container{
+    display: none;
+  }
+
   .secondary-container {
     color: white;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 100px;
+
   }
 
   h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    margin-top: 42px;
+
   }
 
 
@@ -241,18 +266,11 @@ body {
     font-size: 13px;
   }
 
-  .accordion-container{
+
+  .categories-list {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .categories-list {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    margin-top: 114px;
   }
 
   h3 {
@@ -296,7 +314,8 @@ body {
 
   .compact-container {
     display: grid;
-    grid-template-columns: repeat(4, 240px);
+    grid-template-columns: repeat( auto-fill, minmax(215px, 1fr) );
+    margin-top: 22px;
   }
 
   h5 {
@@ -342,10 +361,19 @@ body {
     font-size: 14px;
   }
 
+  .toggle-side-bar{
+    display: none;
+  }
 }
 
 .product-view-container {
   margin-top: 50px;
+  display: flex;
+  justify-content: center;
+
+  .product-img{
+    display: flex;
+  }
 
   .slide-img {
     height: 150px;
@@ -357,13 +385,16 @@ body {
 
   .product-size {
     margin-top: 36px;
-    margin-left: -5px;
+    margin-left: -25px;
   }
 
   h2 {
     font-size: 23px;
   }
 
+  .show-medium{
+    display: none;
+  }
 
   .borderr-bottom {
     border-bottom: 2px solid blue;
@@ -713,6 +744,7 @@ body {
 }
 
 .product-slideshow-container {
+
   img {
     height: 200px;
   }
