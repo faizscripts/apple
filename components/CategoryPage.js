@@ -4,19 +4,18 @@ import {faTableCellsLarge} from "@fortawesome/free-solid-svg-icons/faTableCellsL
 import {faTableCells} from "@fortawesome/free-solid-svg-icons";
 import {faBars} from "@fortawesome/free-solid-svg-icons";
 import gadgets from '../public/images/categories/accessories-page-title.jpg'
-import {useState,useRef} from "react";
-import {faMultiply} from "@fortawesome/free-solid-svg-icons";
-import sidebar from "./Sidebar";
-import ProductItem from "./ProductItem";
-import Sidebar from "./Sidebar";
+import ReactSlider$1 from "react-slider";
+import {useState} from "react";
+import MultiRangeSlider from "./multiRangeSlider/MultiRangeSlider";
 
-function CategoryPage({title,children}) {
+function CategoryPage({title, children}) {
+
 
     return (
         <div className='categories-container'>
             <div className='container-fluid img-background' style={{backgroundImage: `url('${gadgets.src}')`}}>
                 <div className='secondary-container'>
-                    <h1><FontAwesomeIcon icon={faArrowLeft}  className='arrow-left'/> {title}
+                    <h1><FontAwesomeIcon icon={faArrowLeft} className='arrow-left'/> {title}
                     </h1>
                     <div className='accordion-container'>
                         <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -99,11 +98,11 @@ function CategoryPage({title,children}) {
                     <div>
                         <h3 className='my-3'>FILTER BY PRICE</h3>
                         <form>
-                            <input type="range" className="form-range" id="customRange1"/>
-                            <br/>
-                            <label htmlFor="customRange1" className="form-label"> <span>Price:</span> Ksh20,000 -
-                                Ksh100,000</label>
-                            <br/>
+                            <MultiRangeSlider
+                                min={500}
+                                max={210000}
+                                onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
+                            />
                             <button type="button" className="btn btn-light">Filter</button>
                         </form>
                     </div>
@@ -161,11 +160,14 @@ function CategoryPage({title,children}) {
                         <div className='filter'>
                             <div className='filter-header'>
                                 <div className='me-5'>
-                                    <h3 className='header-products'>Show :<span> 9 /</span><span> 12 / </span><span>18 / </span><span>24</span> </h3>
+                                    <h3 className='header-products'>Show
+                                        :<span> 9 /</span><span> 12 / </span><span>18 / </span><span>24</span></h3>
                                 </div>
                                 <div className='me-5'>
-                                    <FontAwesomeIcon icon={faTableCellsLarge} aria-hidden='2 row and 2 coloumns' className='icons'/>
-                                    <FontAwesomeIcon icon={faTableCells} aria-hidden='3 row and 3 coloumns' className='icons'/>
+                                    <FontAwesomeIcon icon={faTableCellsLarge} aria-hidden='2 row and 2 coloumns'
+                                                     className='icons'/>
+                                    <FontAwesomeIcon icon={faTableCells} aria-hidden='3 row and 3 coloumns'
+                                                     className='icons'/>
                                 </div>
                             </div>
                             <div className="dropdown me-5">
@@ -182,30 +184,26 @@ function CategoryPage({title,children}) {
                         </div>
                     </div>
                     <hr className='hr-medium-width'/>
-                    <div className='bars mx-2 toggle-side-bar' >
-                        <h3  data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvasWithBothOptions"
-                                aria-controls="offcanvasWithBothOptions"><FontAwesomeIcon icon={faBars} className='me-2'/>Show side bar
+                    <div className='bars mx-2 toggle-side-bar'>
+                        <h3 data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasWithBothOptions"
+                            aria-controls="offcanvasWithBothOptions"><FontAwesomeIcon icon={faBars} className='me-2'/>Show
+                            side bar
                         </h3>
 
                         <div className="offcanvas offcanvas-start" data-bs-scroll="true" tabIndex="-1"
                              id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
                             <div className="offcanvas-header">
-                                <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">FILTER</h5>
+                                <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">FILTER BY PRICE</h5>
                                 <button type="button" className="btn-close" data-bs-dismiss="offcanvas"
                                         aria-label="Close"></button>
                             </div>
                             <div className="offcanvas-body">
                                 <div className='px-3'>
                                     <div className='d-flex justify-content-between align-items-center'>
-                                        <h3 className='my-3'>FILTER BY PRICE</h3>
                                     </div>
                                     <form>
-                                        <input type="range" className="form-range" id="customRange1"/>
-                                        <br/>
-                                        <label htmlFor="customRange1" className="form-label"> <span>Price:</span> Ksh20,000 -
-                                            Ksh100,000</label>
-                                        <br/>
+                                        <MultiRangeSlider min={500} onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)} max={210000}/>
                                         <button type="button" className="btn btn-light">Filter</button>
                                     </form>
                                 </div>
@@ -213,10 +211,12 @@ function CategoryPage({title,children}) {
                                 <div className='px-3'>
                                     <h3 className='my-3'>STOCK STATUS</h3>
                                     <form>
-                                        <input type="checkbox" name="" id="on-sale" htmlFor='on-sale' placeholder='on sale'/>
+                                        <input type="checkbox" name="" id="on-sale" htmlFor='on-sale'
+                                               placeholder='on sale'/>
                                         <label htmlFor="on-sale" className='ms-2'>on sale</label>
                                         <br/>
-                                        <input type="checkbox" name="" id="on-sale" htmlFor='in-site' placeholder='in site'/>
+                                        <input type="checkbox" name="" id="on-sale" htmlFor='in-site'
+                                               placeholder='in site'/>
                                         <label htmlFor="in-site" className='ms-2'>in site</label>
                                     </form>
                                 </div>
@@ -260,13 +260,13 @@ function CategoryPage({title,children}) {
                             </div>
                         </div>
                     </div>
-                    <div className='compact-container' >
+                    <div className='compact-container'>
                         {children}
                     </div>
                 </div>
             </div>
         </div>
-    )
+)
 }
 
 export default CategoryPage
