@@ -28,6 +28,26 @@
 
 //medium
 @media (max-width: 991.98px) {
+  .cart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .added-products{
+      width: 90%;
+    }
+    .total-container{
+      width: 90%;
+      margin-top: 20px;
+    }
+    p{
+      font-size: 13px;
+    }
+    h2{
+      font-size: 15px;
+    }
+  }
+
   .categories-container{
     .opened-sidebar{
       margin-top: -750px;

@@ -326,6 +326,11 @@ body {
     height: 220px;
   }
 
+
+  form{
+    width: 80%;
+  }
+
   .div-colors {
     height: 15px;
     width: 15px;
@@ -663,8 +668,7 @@ body {
 }
 
 .cart-container {
-
-
+  display: flex;
   h1{
     font-size: 18px;
     margin: 10px;
@@ -769,6 +773,30 @@ body {
   }
 }
 
+.table-container{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  background: #efefef;
+
+  .header-tag{
+    border: 1px solid #d1d1d1;
+  }
+
+  tr{
+    border: 1px solid #d1d1d1;
+  }
+
+  th{
+    border: 1px solid #d1d1d1;
+  }
+
+  td{
+    border: 1px solid #d1d1d1;
+  }
+}
+
 .footer {
   position: relative;
   left: 0;
@@ -809,6 +837,116 @@ body {
   p {
     font-size: 13px;
   }
+}
+
+.multi-range-slider{
+  position: relative;
+  .slider {
+    position: relative;
+    width: 200px;
+  }
+
+  .slider__track,
+  .slider__range,
+  .slider__left-value,
+  .slider__right-value {
+    position: absolute;
+  }
+
+  .slider__track,
+  .slider__range {
+    border-radius: 3px;
+    height: 5px;
+  }
+
+  .slider__track {
+    background-color: #ced4da;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .slider__range {
+    background-color: #9fe5e1;
+    z-index: 2;
+  }
+
+  .slider__left-value,
+  .slider__right-value {
+    color: black;
+    font-size: 15px;
+    margin-top: 20px;
+  }
+
+  .slider__left-value {
+    left: 6px;
+    color: black;
+    font-size: 15px;
+  }
+
+  .slider__right-value {
+    right: -4px;
+  }
+
+  /* Removing the default appearance */
+  .thumb,
+  .thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .thumb {
+    pointer-events: none;
+    position: absolute;
+    height: 0;
+    width: 200px;
+    outline: none;
+  }
+
+  .thumb--left {
+    z-index: 3;
+  }
+
+  .thumb--right {
+    z-index: 4;
+  }
+
+  /* For Chrome browsers */
+  .thumb::-webkit-slider-thumb {
+    background-color: #f1f5f7;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 1px 1px #ced4da;
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    margin-top: 4px;
+    pointer-events: all;
+    position: relative;
+  }
+
+  /* For Firefox browsers */
+  .thumb::-moz-range-thumb {
+    background-color: #f1f5f7;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 1px 1px #ced4da;
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    margin-top: 4px;
+    pointer-events: all;
+    position: relative;
+  }
+
+  p{
+    font-size: 16px;
+  }
+
+  .span{
+    color: grey;
+    font-weight: lighter;
+  }
+
 }
 
 @import "media-queries";
