@@ -31,31 +31,31 @@ function CategoryPage({title, children}) {
                                      aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                     <div className="accordion-body bg-dark text-white">
                                         <div className='mt-3'>
-                                            <h2>ALL</h2>
+                                            <a href="Store"><h2>ALL</h2></a>
                                             <p>PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <h2>MACBOOK</h2>
+                                            <a href="Macbook"><h2>MACBOOK</h2></a>
                                             <p>4 PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <h2>IPAD</h2>
+                                            <a href="Ipad"><h2>IPAD</h2></a>
                                             <p>0 PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <h2>IPHONE</h2>
+                                            <a href="Iphone"><h2>IPHONE</h2></a>
                                             <p>9 PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <h2>WATCH</h2>
+                                            <a href="Watch"><h2>WATCH</h2></a>
                                             <p>4 PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <h2>AIRPODS</h2>
+                                            <a href="Airpods"><h2>AIRPODS</h2></a>
                                             <p>4 PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <h2>ACCESSORIES</h2>
+                                            <a href="Accessories"><h2>ACCESSORIES</h2></a>
                                             <p>2 PRODUCTS</p>
                                         </div>
                                     </div>
@@ -66,27 +66,27 @@ function CategoryPage({title, children}) {
                     </div>
                     <div className='container categories-list'>
                         <div className='cards mx-4'>
-                            <h2>MACBOOK</h2>
+                            <a href="Macbook"><h2>MACBOOK</h2></a>
                             <p>4 PRODUCTS</p>
                         </div>
                         <div className='cards mx-4'>
-                            <h2>IPAD</h2>
+                            <a href="Ipad"><h2>IPAD</h2></a>
                             <p>0 PRODUCTS</p>
                         </div>
                         <div className='cards mx-4'>
-                            <h2>IPHONE</h2>
+                            <a href="Iphone"><h2>IPHONE</h2></a>
                             <p>9 PRODUCTS</p>
                         </div>
                         <div className='cards mx-4'>
-                            <h2>WATCH</h2>
+                            <a href="Watch"><h2>WATCH</h2></a>
                             <p>4 PRODUCTS</p>
                         </div>
                         <div className='cards mx-4'>
-                            <h2>AIRPODS</h2>
+                            <a href="Airpods"><h2>AIRPODS</h2></a>
                             <p>4 PRODUCTS</p>
                         </div>
                         <div className='cards mx-4'>
-                            <h2>ACCESSORIES</h2>
+                            <a href="Accessories"><h2>ACCESSORIES</h2></a>
                             <p>2 PRODUCTS</p>
                         </div>
                     </div>
@@ -158,18 +158,6 @@ function CategoryPage({title, children}) {
                     <div className='d-flex justify-content-between mt-3 mx-2'>
                         <h3 className='header-products'><span>Home</span> / {title}</h3>
                         <div className='filter'>
-                            <div className='filter-header'>
-                                <div className='me-5'>
-                                    <h3 className='header-products'>Show
-                                        :<span> 9 /</span><span> 12 / </span><span>18 / </span><span>24</span></h3>
-                                </div>
-                                <div className='me-5'>
-                                    <FontAwesomeIcon icon={faTableCellsLarge} aria-hidden='2 row and 2 coloumns'
-                                                     className='icons'/>
-                                    <FontAwesomeIcon icon={faTableCells} aria-hidden='3 row and 3 coloumns'
-                                                     className='icons'/>
-                                </div>
-                            </div>
                             <div className="dropdown me-5">
                                 <div className="dropdown-toggle dropdown-div" type="button"
                                      data-bs-toggle="dropdown" aria-expanded="false">
