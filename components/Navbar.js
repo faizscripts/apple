@@ -9,9 +9,7 @@ function Navbar() {
         <div>
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
-
-                    <Image src="/images/favicon/apple-touch-icon.png" alt="favicon-apple" width="20px" height="25px" className="logo"/>
-
+                    <a href="#"><Image src="/images/favicon/apple-touch-icon.png" alt="favicon-apple" width="20px" height="25px" className="logo"/></a>
                     <button className="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -20,34 +18,25 @@ function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                             <li className="nav-item">
-                                <a className="nav-link me-2 links" aria-current="page" href="#">Store</a>
+                                <a className="nav-link links" aria-current="page" href="Store">Store</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link  me-2 links " href="#">Mac</a>
+                                <a className="nav-link  links " href="Macbook">Mac</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link me-2 links" href="#">Ipad</a>
+                                <a className="nav-link links" href="Ipad">Ipad</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link me-2 links" href="#">Iphone</a>
+                                <a className="nav-link links" href="Iphone">Iphone</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link me-2 links" href="#">Watch</a>
+                                <a className="nav-link links" href="Watch">Watch</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link me-2 links" href="#">Airpods</a>
+                                <a className="nav-link links" href="Airpods">Airpods</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link me-2 links" href="#">TV & Home</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link me-2 links" href="#">Only On Apple</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link me-2 links" href="#">Accessories</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link me-2 links" href="#">Support</a>
+                                <a className="nav-link links" href="Accessories">Accessories</a>
                             </li>
                         </ul>
                         <form className="d-flex input-icon me-3" role="search">
@@ -55,7 +44,7 @@ function Navbar() {
                             <input className="form-control me-2 input-field" type="search" placeholder="Search" aria-label="Search"/>
                         </form>
                         <div className='cart mt-2'>
-                            <FontAwesomeIcon icon={faBagShopping} aria-hidden={false} className="bag" />
+                            <a href="Cart"><FontAwesomeIcon icon={faBagShopping} aria-hidden={false} className="bag" /></a>
                         </div>
                     </div>
                 </div>

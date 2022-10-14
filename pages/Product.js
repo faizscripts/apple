@@ -196,7 +196,7 @@ function decrementCount (){
                     <div className='borderr-bottom'></div>
                 </div>
                 <div className='mt-4'>
-                    <ProductsSlideshow />
+                    <ProductsSlideshow/>
                 </div>
             </div>
         </div>
