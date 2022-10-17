@@ -3,8 +3,7 @@ import {faHeart} from "@fortawesome/free-regular-svg-icons/faHeart";
 import {faShoppingCart} from "@fortawesome/free-solid-svg-icons/faShoppingCart";
 import {faSearch} from "@fortawesome/free-solid-svg-icons/faSearch";
 import {useRef,useState} from "react";
-import QuickView from "../pages/QuickView";
-import Modal from "./Modal";
+import QuickView from "./QuickView";
 
 function ProductItem({img,category,price,productName,options,colors,icons}) {
     const showIconRef=useRef(null)
@@ -97,19 +96,14 @@ function ProductItem({img,category,price,productName,options,colors,icons}) {
               </div>
           </div>
           <div className='hover-container' ref={showIconRef}>
-              <i onClick={changeHeartIcon} className={heartColor?'icon-color':''} >
-                  <div className='d-flex'>
-                      <FontAwesomeIcon icon={faHeart} className='heart-icon mt-2'/>
-                      <p className='add-to-wishlist-text p-tag' ref={showIconTextRef}>Add to Wishlist</p>
+                  <div  onClick={changeHeartIcon} className={heartColor?'icon-color hover-item':'hover-item'}>
+                          <p className='p-tag' ref={showIconTextRef}>Add to Wishlist</p>
+                          <FontAwesomeIcon icon={faHeart} className='icons mt-2'/>
                   </div>
-              </i>
-              <i onClick={changeCartIcon} className={cartColor?'icon-color':''}>
-                  <FontAwesomeIcon icon={faShoppingCart} className='mt-3'/>
-                  <p className='add-to-cart-text p-tag'  ref={showIconTextRef}>Add to Cart</p>
-              </i>
-              <QuickView>
-                  <Modal/>
-              </QuickView>
+              <div onClick={changeCartIcon} className={cartColor?'icon-color hover-item':'hover-item'}>
+                      <p className='p-tag add-to-cart mt-4'  ref={showIconTextRef}>Add to Cart</p>
+                      <FontAwesomeIcon icon={faShoppingCart} className='icons mt-4'/>
+              </div>
           </div>
       </div>
   )

@@ -164,9 +164,11 @@ function CategoryPage({title, children}) {
                                     Default Sorting
                                 </div>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                    <li><a className="dropdown-item" href="#">Sort by popularity</a></li>
+                                    <li><a className="dropdown-item" href="#">Sort by average rating</a></li>
+                                    <li><a className="dropdown-item" href="#">Sort by latest</a></li>
+                                    <li><a className="dropdown-item" href="#">Sort by price:high to low</a></li>
+                                    <li><a className="dropdown-item" href="#">Sort by price:low to high</a></li>
                                 </ul>
                             </div>
                         </div>
