@@ -2,8 +2,16 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBagShopping} from "@fortawesome/free-solid-svg-icons";
 import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import {useState} from "react";
 
 function Navbar() {
+    const [keyword,setKeyword]=useState('')
+
+    const searchHandler = (e) =>{
+        e.preventDefault()
+
+    }
+
     return (
 
         <div>
@@ -39,9 +47,11 @@ function Navbar() {
                                 <a className="nav-link links" href="Accessories">Accessories</a>
                             </li>
                         </ul>
-                        <form className="d-flex input-icon me-3" role="search">
+                        <form className="d-flex input-icon me-3" role="search" onSubmit={searchHandler}>
                             <FontAwesomeIcon icon={faMagnifyingGlass} aria-hidden={false} className='search'/>
-                            <input className="form-control me-2 input-field" type="search" placeholder="Search" aria-label="Search"/>
+                            <input className="form-control me-2 input-field" type="search" placeholder="Search" aria-label="Search"
+                                   onChange={(e)=>setKeyword(e.target.value)}
+                            />
                         </form>
                         <div className='cart mt-2'>
                             <a href="Cart"><FontAwesomeIcon icon={faBagShopping} aria-hidden={false} className="bag" /></a>

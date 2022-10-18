@@ -1134,4 +1134,44 @@ body {
 
 }
 
+.dashboard{
+  .order{
+    font-size: 20px;
+    margin:40px 12px;
+  }
+
+  h3{
+    font-size: 25px;
+  }
+
+  th{
+    font-size: 17px;
+    text-align: center;
+  }
+
+  #stats{
+    margin:40px 25px;
+  }
+}
+
+.dashboard{
+  .order{
+    font-size: 20px;
+    margin:40px 12px;
+  }
+
+  h3{
+    font-size: 25px;
+  }
+
+  th{
+    font-size: 17px;
+    text-align: center;
+  }
+
+  #stats{
+    margin:40px 25px;
+  }
+}
+
 @import "media-queries";
