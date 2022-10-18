@@ -31,31 +31,31 @@ function CategoryPage({title, children}) {
                                      aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                     <div className="accordion-body bg-dark text-white">
                                         <div className='mt-3'>
-                                            <a href="Store"><h2>ALL</h2></a>
+                                            <a href="store"><h2>ALL</h2></a>
                                             <p>PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <a href="Macbook"><h2>MACBOOK</h2></a>
+                                            <a href="macbook"><h2>MACBOOK</h2></a>
                                             <p>4 PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <a href="Ipad"><h2>IPAD</h2></a>
+                                            <a href="ipad"><h2>IPAD</h2></a>
                                             <p>0 PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <a href="Iphone"><h2>IPHONE</h2></a>
+                                            <a href="iphone"><h2>IPHONE</h2></a>
                                             <p>9 PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <a href="Watch"><h2>WATCH</h2></a>
+                                            <a href="watch"><h2>WATCH</h2></a>
                                             <p>4 PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <a href="Airpods"><h2>AIRPODS</h2></a>
+                                            <a href="airpods"><h2>AIRPODS</h2></a>
                                             <p>4 PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <a href="Accessories"><h2>ACCESSORIES</h2></a>
+                                            <a href="accessories"><h2>ACCESSORIES</h2></a>
                                             <p>2 PRODUCTS</p>
                                         </div>
                                     </div>
@@ -66,27 +66,27 @@ function CategoryPage({title, children}) {
                     </div>
                     <div className='container categories-list'>
                         <div className='cards mx-4'>
-                            <a href="Macbook"><h2>MACBOOK</h2></a>
+                            <a href="macbook"><h2>MACBOOK</h2></a>
                             <p>4 PRODUCTS</p>
                         </div>
                         <div className='cards mx-4'>
-                            <a href="Ipad"><h2>IPAD</h2></a>
+                            <a href="ipad"><h2>IPAD</h2></a>
                             <p>0 PRODUCTS</p>
                         </div>
                         <div className='cards mx-4'>
-                            <a href="Iphone"><h2>IPHONE</h2></a>
+                            <a href="iphone"><h2>IPHONE</h2></a>
                             <p>9 PRODUCTS</p>
                         </div>
                         <div className='cards mx-4'>
-                            <a href="Watch"><h2>WATCH</h2></a>
+                            <a href="watch"><h2>WATCH</h2></a>
                             <p>4 PRODUCTS</p>
                         </div>
                         <div className='cards mx-4'>
-                            <a href="Airpods"><h2>AIRPODS</h2></a>
+                            <a href="airpods"><h2>AIRPODS</h2></a>
                             <p>4 PRODUCTS</p>
                         </div>
                         <div className='cards mx-4'>
-                            <a href="Accessories"><h2>ACCESSORIES</h2></a>
+                            <a href="accessories"><h2>ACCESSORIES</h2></a>
                             <p>2 PRODUCTS</p>
                         </div>
                     </div>
