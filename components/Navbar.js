@@ -26,25 +26,25 @@ function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                             <li className="nav-item">
-                                <a className="nav-link links" aria-current="page" href="Store">Store</a>
+                                <a className="nav-link links" aria-current="page" href="store">Store</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link  links " href="Macbook">Mac</a>
+                                <a className="nav-link  links " href="macbook">Mac</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link links" href="Ipad">Ipad</a>
+                                <a className="nav-link links" href="ipad">Ipad</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link links" href="Iphone">Iphone</a>
+                                <a className="nav-link links" href="iphone">Iphone</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link links" href="Watch">Watch</a>
+                                <a className="nav-link links" href="watch">Watch</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link links" href="Airpods">Airpods</a>
+                                <a className="nav-link links" href="airpods">Airpods</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link links" href="Accessories">Accessories</a>
+                                <a className="nav-link links" href="accessories">Accessories</a>
                             </li>
                         </ul>
                         <form className="d-flex input-icon me-3" role="search" onSubmit={searchHandler}>
@@ -54,7 +54,7 @@ function Navbar() {
                             />
                         </form>
                         <div className='cart mt-2'>
-                            <a href="Cart"><FontAwesomeIcon icon={faBagShopping} aria-hidden={false} className="bag" /></a>
+                            <a href="cart"><FontAwesomeIcon icon={faBagShopping} aria-hidden={false} className="bag" /></a>
                         </div>
                     </div>
                 </div>
