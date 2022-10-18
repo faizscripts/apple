@@ -8,9 +8,6 @@ function Checkout() {
         e.preventDefault()
     }
 
-
-
-
     return (
 
         <div id="checkout-body" className="container-fluid">
@@ -51,7 +48,7 @@ function Checkout() {
                             </div>
                             <div className="mb-3 map-element">
                                 <label htmlFor="address" className="form-label" >Shipping Address</label>
-                                
+
                             </div>
                             <div className="text-center">
                                 <button type="submit" className="btn btn-primary" id="confirm info" onClick={onButtonClick}>Confirm Info
