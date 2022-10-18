@@ -3,7 +3,6 @@ import {faHeart} from "@fortawesome/free-regular-svg-icons/faHeart";
 import {faShoppingCart} from "@fortawesome/free-solid-svg-icons/faShoppingCart";
 import {faSearch} from "@fortawesome/free-solid-svg-icons/faSearch";
 import {useRef,useState} from "react";
-import QuickView from "./QuickView";
 
 function ProductItem({img,category,price,productName,options,colors,icons}) {
     const showIconRef=useRef(null)
