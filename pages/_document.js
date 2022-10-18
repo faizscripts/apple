@@ -13,6 +13,7 @@ export default function Document() {
                 <link rel="manifest" href="/images/favicon/site.webmanifest"/>
                 <link
                     rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
             </Head>
             <body>
             <Main/>
