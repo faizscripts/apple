@@ -13,21 +13,17 @@ function Sidebar() {
     function closeSideBar() {
         sidebarRef.current.classList.add('remove')
         sidebarRef.current.classList.remove('active')
+        sidebarRef.current.classList.remove('sidebar-container')
     }
 
-    function addSideBar() {
-        sidebarRef.current.classList.remove('remove')
-        sidebarRef.current.classList.add('active')
-    }
 
     return(
-        <div className='sidebar-container'>
+        <div className='sidebar-container' >
             <div className="sidebar"  ref={sidebarRef}>
-                <div className='filter-container'>
+                <div className='filter-containerr'>
                     <div className='px-3'>
                         <div className='d-flex justify-content-between align-items-center'>
                         <h3 className='my-3'>FILTER BY PRICE</h3>
-                        <FontAwesomeIcon icon={faMultiply} onClick={closeSideBar} className='remove-button'/>
                         </div>
                         <form>
                             <input type="range" className="form-range" id="customRange1"/>

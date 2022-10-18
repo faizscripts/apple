@@ -9,6 +9,8 @@ import Description from "../components/elements/Description";
 import AdditionalInfo from "../components/elements/AdditionalInfo";
 import Reviews from "../components/elements/Reviews";
 import ProductsSlideshow from "../components/elements/ProductsSlideshow";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {A11y, Navigation} from "swiper";
 
 
 function Product() {
@@ -23,18 +25,25 @@ function activeLinks(a,b,c) {
     c(false)
 }
 
-    let number= 0;
-    let y = 1;
+const [count,setCount]=useState(0)
 
-function addition() {
-    number+=y
+function decrementCount (){
+    if (count === 0){
+        return 0
+    } else{
+        setCount(prevCount => prevCount-1)
+    }
+
 }
+
+    function addCount (){
+        setCount(prevCount => prevCount+1)
+    }
 
 
     return(
         <div className='product-view-container row mt-5'>
-            <div className='col-1'></div>
-            <div className='product-img d-flex col-6'>
+            <div className='product-img col-lg-6 col-md-12'>
                 <div className='slideshow-container'>
                     <div>
                         <img src="./images/product-view-page/iphone11-front.png" alt="iphone 11" className='slide-img'/>
@@ -58,7 +67,7 @@ function addition() {
                     <h3>128GB</h3>
                 </div>
             </div>
-            <div className='product-description col-5'>
+            <div className='product-description col-lg-5 col-md-12'>
                 <div className='d-flex justify-content-between'>
                     <div><h4><span className='me-2'>Home   /  </span>  <span className='me-2'>iphone   /</span> iphone 11</h4></div>
                     <div className='me-5'><FontAwesomeIcon icon={faTableCellsLarge} aria-hidden='2 row and 2 coloumns' className='icons'/></div>
@@ -86,13 +95,13 @@ function addition() {
                     </div>
                     <div className='mt-4 d-flex'>
                         <div className="no-items">
-                            <div className="minus text-black-50">
+                            <div className="minus text-black-50" onClick={decrementCount}>
                                 <FontAwesomeIcon icon={faMinus} aria-hidden='minus' className='icon-symbols'/>
                             </div>
                             <div className='text-black-50'>
-                                <p1 className="icon-no">0</p1>
+                                <p1 className="icon-no">{count}</p1>
                             </div>
-                            <div className="add text-black-50" >
+                            <div className="add text-black-50" onClick={addCount}>
                                 <FontAwesomeIcon icon={faPlus} aria-hidden='plus' className='icon-symbols'/>
                             </div>
                         </div>
@@ -115,19 +124,70 @@ function addition() {
             <hr className='mt-5'/>
             <div>
             <div className='d-flex justify-content-center mt-3'>
-                <div>
-                    <a onClick={()=>{setActive('first card');activeLinks(setActiveTagD,setActiveTagR,setActiveTagA)}} className={`${activeTagD?'borderr-bottom':''} me-5 quick-links`}>DESCRIPTION</a>
-                </div>
-                <div>
-                    <a onClick={()=>{setActive('second card');activeLinks(setActiveTagA,setActiveTagR,setActiveTagD)}} className={`${activeTagA ? 'borderr-bottom':''} me-5 quick-links`}>ADDITIONAL INFORMATION</a>
-                </div>
-                <div>
-                    <a onClick={()=>{setActive('third card');activeLinks(setActiveTagR,setActiveTagD,setActiveTagA)}} className={`${activeTagR ? 'borderr-bottom':''} me-5 quick-links`}>REVIEWS (0)</a>
+                <div className='show-large'>
+                    <div className='d-flex justify-content-center'>
+                        <div>
+                            <a onClick={()=>{setActive('first card');activeLinks(setActiveTagD,setActiveTagR,setActiveTagA)}} className={`${activeTagD?'borderr-bottom':''} me-5 quick-links`}>DESCRIPTION</a>
+                        </div>
+                        <div>
+                            <a onClick={()=>{setActive('second card');activeLinks(setActiveTagA,setActiveTagR,setActiveTagD)}} className={`${activeTagA ? 'borderr-bottom':''} me-5 quick-links`}>ADDITIONAL INFORMATION</a>
+                        </div>
+                        <div>
+                            <a onClick={()=>{setActive('third card');activeLinks(setActiveTagR,setActiveTagD,setActiveTagA)}} className={`${activeTagR ? 'borderr-bottom':''} me-5 quick-links`}>REVIEWS (0)</a>
+                        </div>
+                    </div>
+                    {active === 'first card' && <Description/>}
+                    {active === 'second card' && <AdditionalInfo/>}
+                    {active === 'third card' && <Reviews/>}
                 </div>
             </div>
-                {active === 'first card' && <Description/>}
-                {active === 'second card' && <AdditionalInfo/>}
-                {active === 'third card' && <Reviews/>}
+                <div className="accordion accordion-flush show-medium" id="accordionFlushExample">
+                    <div className="accordion-item">
+                        <h2 className="accordion-header" id="flush-headingOne">
+                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                DESCRIPTION
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" className="accordion-collapse collapse"
+                             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div className="accordion-body">
+                                <Description/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="accordion-item">
+                        <h2 className="accordion-header" id="flush-headingTwo">
+                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo">
+                                ADDITIONAL INFORMATION
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" className="accordion-collapse collapse"
+                             aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div className="accordion-body">
+                                <AdditionalInfo/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="accordion-item">
+                        <h2 className="accordion-header" id="flush-headingThree">
+                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                    aria-controls="flush-collapseThree">
+                                REVIEWS
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" className="accordion-collapse collapse"
+                             aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div className="accordion-body">
+                                <Reviews/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <hr className='mt-5'/>
             <div className='related-container'>

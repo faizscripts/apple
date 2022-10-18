@@ -1,4 +1,45 @@
-function ProductItem({img,category,price,productName,options,colors}) {
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faHeart} from "@fortawesome/free-regular-svg-icons/faHeart";
+import {faShoppingCart} from "@fortawesome/free-solid-svg-icons/faShoppingCart";
+import {faSearch} from "@fortawesome/free-solid-svg-icons/faSearch";
+import {useRef,useState} from "react";
+import QuickView from "./QuickView";
+
+function ProductItem({img,category,price,productName,options,colors,icons}) {
+    const showIconRef=useRef(null)
+    const showIconTextRef=useRef(null)
+    const [cartColor,setCartColor]=useState(false)
+    const [heartColor,setHeartColor]=useState(false)
+
+    function showIcon() {
+        showIconRef.current.focus()
+        showIconRef.current.classList.add('show-icon')
+    }
+
+    function hideIcon() {
+        showIconRef.current.focus()
+        showIconRef.current.classList.remove('show-icon')
+    }
+
+    function showIconText() {
+        showIconTextRef.current.focus()
+        showIconTextRef.current.classList.add('p-tag')
+    }
+
+    function hideIconText() {
+        showIconTextRef.current.focus()
+        showIconTextRef.current.classList.remove('p-tag')
+    }
+
+    function changeCartIcon() {
+       setCartColor(!cartColor)
+    }
+
+    function changeHeartIcon() {
+        setHeartColor(!heartColor)
+    }
+
+
 
     function renderOptions() {
         if (options){
@@ -39,9 +80,11 @@ function ProductItem({img,category,price,productName,options,colors}) {
         }
     }
 
+    // function renderedIcons
+
 
   return(
-      <div className='d-flex mt-4 me-5'>
+      <div className='d-flex mt-4 main-product-container' onMouseOver={showIcon} onMouseLeave={hideIcon}>
           {renderOptions()}
           <div className='products-container'>
               <img src={`./images/products/${img}`} alt="" className='product-image'/>
@@ -50,6 +93,16 @@ function ProductItem({img,category,price,productName,options,colors}) {
                   <div><h3 className='product-header mt-2 text-center'>{productName}</h3></div>
                   <div><span className='product-name mt-2'>{category}</span></div>
                   <div><p className='price mt-2'>Ksh {price}</p></div>
+              </div>
+          </div>
+          <div className='hover-container' ref={showIconRef}>
+                  <div  onClick={changeHeartIcon} className={heartColor?'icon-color hover-item':'hover-item'}>
+                          <p className='p-tag' ref={showIconTextRef}>Add to Wishlist</p>
+                          <FontAwesomeIcon icon={faHeart} className='icons mt-2'/>
+                  </div>
+              <div onClick={changeCartIcon} className={cartColor?'icon-color hover-item':'hover-item'}>
+                      <p className='p-tag add-to-cart mt-4'  ref={showIconTextRef}>Add to Cart</p>
+                      <FontAwesomeIcon icon={faShoppingCart} className='icons mt-4'/>
               </div>
           </div>
       </div>

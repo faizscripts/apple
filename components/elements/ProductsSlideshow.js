@@ -5,7 +5,8 @@ import 'swiper/css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-function Slideshow() {
+function Slideshow({slidesPerView}) {
+
 
     return(
         <>
@@ -14,8 +15,31 @@ function Slideshow() {
                     spaceBetween={20}
                     slidesPerView={4}
                     navigation
+                    breakpoints={{
+                       0:{
+                           slidesPerView:1,
+                           spaceBetween:10,
+                       },
+                        480:{
+                            slidesPerView:2,
+                            spaceBetween:10,
+                        },
+                        768:{
+                            slidesPerView:3,
+                            spaceBetween:15,
+                        },
+                        1024:{
+                            slidesPerView:4,
+                            spaceBetween:15,
+                        },
+                        1200:{
+                            slidesPerView:4,
+                            spaceBetween:10,
+                        },
+
+                    }}
             >
-                <SwiperSlide className='d-flex mt-4 ms-5'>
+                <SwiperSlide className='d-flex mt-4 ms-5 cards'>
                     <div>
                         <h5>64GB</h5>
                         <h5>128GB</h5>
@@ -37,7 +61,7 @@ function Slideshow() {
                     </div>
                 </SwiperSlide>
 
-                <SwiperSlide className='d-flex mt-4'>
+                <SwiperSlide className='d-flex mt-4 cards'>
                     <div>
                         <h5>128GB</h5>
                         <h5>256GB</h5>
@@ -61,7 +85,7 @@ function Slideshow() {
                     </div>
                 </SwiperSlide>
 
-                <SwiperSlide className='d-flex mt-4'>
+                <SwiperSlide className='d-flex mt-4 cards'>
                     <div>
                         <h5>128GB</h5>
                         <h5>256GB</h5>
@@ -85,7 +109,7 @@ function Slideshow() {
                     </div>
                 </SwiperSlide>
 
-                <SwiperSlide className='d-flex mt-4'>
+                <SwiperSlide className='d-flex mt-4 cards'>
                     <div>
                         <h5>128GB</h5>
                         <h5>256GB</h5>
@@ -108,7 +132,7 @@ function Slideshow() {
                     </div>
                 </SwiperSlide>
 
-                <SwiperSlide className='d-flex mt-4'>
+                <SwiperSlide className='d-flex mt-4 cards'>
                     <div>
                         <h5>64GB</h5>
                         <h5>128GB</h5>
@@ -130,7 +154,7 @@ function Slideshow() {
                     </div>
                 </SwiperSlide>
 
-                <SwiperSlide className='d-flex mt-4'>
+                <SwiperSlide className='d-flex mt-4 cards'>
                     <div>
                         <h5>64GB</h5>
                         <h5>128GB</h5>

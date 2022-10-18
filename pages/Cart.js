@@ -4,7 +4,7 @@ import {faMinus, faPlus} from "@fortawesome/free-solid-svg-icons";
 
 function Cart() {
     return(
-        <div className='cart-container mt-4 d-flex'>
+        <div className='cart-container mt-4'>
             <div className='added-products mx-5'>
                 <h1>Cart (2)</h1>
                 <hr/>
@@ -62,7 +62,7 @@ function Cart() {
                     </div>
                 </div>
             </div>
-            <div className='total-container sticky-top'>
+            <div className='total-container'>
               <h1>CART SUMMARY</h1>
                 <hr/>
                 <div className='d-flex justify-content-between align-items-center mx-2'>
