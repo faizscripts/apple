@@ -51,19 +51,7 @@ function Checkout() {
                             </div>
                             <div className="mb-3 map-element">
                                 <label htmlFor="address" className="form-label" >Shipping Address</label>
-                                {/*<ChakraProvider>*/}
-                                {/*    <Flex*/}
-                                {/*        justifyContent ={"center"}*/}
-                                {/*        alignItems = {"center"}*/}
-                                {/*        width={"500px"}*/}
-                                {/*        height={"500px"}*/}
-                                {/*        maxWidth={"500px"}*/}
-                                {/*        maxheight={"500px"}*/}
-                                {/*        position={"relative"}*/}
-                                {/*    >*/}
-                                {/*    </Flex>*/}
-                                {/*    <Map />*/}
-                                {/*</ChakraProvider>*/}
+                                
                             </div>
                             <div className="text-center">
                                 <button type="submit" className="btn btn-primary" id="confirm info" onClick={onButtonClick}>Confirm Info
