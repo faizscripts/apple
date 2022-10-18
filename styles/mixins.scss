@@ -12,3 +12,14 @@
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
   }
 }
+
+@mixin pointerRemove{
+  &:hover{
+    cursor: default;
+  }
+}
+
+@mixin resizeImage{
+  object-fit: cover;
+  object-position: center center;
+}

@@ -779,4 +779,112 @@ body {
   }
 }
 
+#checkout-body {
+  display: flex;
+
+  #checkout-main {
+    flex-basis: 70vw;
+    margin-top: 2rem;
+
+    .card {
+      margin-bottom: 2rem;
+      @include shadow
+    }
+
+    .card-header {
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .final-text {
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .final-price {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    span {
+      text-transform: lowercase;
+      font-weight: normal;
+    }
+
+    #placeOrder {
+      margin-top: 1rem;
+      width: 30rem;
+      font-weight: 600;
+    }
+  }
+
+
+  #checkout-sidebar {
+
+    flex-basis: 30vw;
+    margin-top: 2rem;
+
+    #divForHelp {
+      position: sticky;
+      top: 6rem;
+      z-index: 2;
+
+    }
+
+    #help-button {
+      width: 16rem;
+      font-weight: 500;
+    }
+
+    .card {
+      @include pointerRemove;
+      position: sticky;
+      top: 10rem;
+      z-index: 3;
+      margin-bottom: 2rem;
+    }
+
+    .card-header {
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .img-fluid {
+      width: 4rem;
+      height: 4rem;
+      @include resizeImage;
+    }
+
+    .cart-details {
+      font-size: 0.8rem;
+    }
+
+    .checkoutItemName {
+      text-transform: capitalize;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+
+    hr {
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-sm {
+      font-size: 0.75rem;
+    }
+
+  }
+}
+
+.map-info{
+  height: 100vh;
+  width: 100vw;
+  max-height: 100vh;
+  max-width: 100vw;
+  position: relative;
+}
+
 @import "media-queries";
