@@ -28,9 +28,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
     "sass": "^1.54.9",
-    "react-icons": "^4.4.0",
     "react-slider": "^2.0.4",
-    "sass": "^1.54.9",
     "swiper": "^8.4.2"
   },
   "devDependencies": {
