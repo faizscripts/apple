@@ -25,7 +25,7 @@ function Dashboard() {
                         </tbody>
                     </table>
                     <div className="d-flex justify-content-center">
-                        <a href="/admin/Dashboard" className="mb-2" style={{textDecoration: 'none'}}>view all orders</a>
+                        <a href="/admin/dashboard.js" className="mb-2" style={{textDecoration: 'none'}}>view all orders</a>
                     </div>
                 </div>
             </div>

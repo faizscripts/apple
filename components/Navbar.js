@@ -2,7 +2,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBagShopping} from "@fortawesome/free-solid-svg-icons";
 import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
-import Link from "next/Link";
+import Link from 'next/link'
 import HomePage from "../pages";
 import {useState} from "react";
 
@@ -19,7 +19,7 @@ function Navbar() {
         <div>
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
-                    <Link href="/"><Image src="/images/favicon/apple-touch-icon.png" alt="favicon-apple" width="20px" height="25px" className="logo"/></Link>
+                    <Link href="/"><img src="/images/favicon/apple-touch-icon.png" alt="favicon-apple" width="20px" height="25px" className="logo"/></Link>
                     <button className="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -28,25 +28,25 @@ function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                             <li className="nav-item">
-                                <Link className="nav-link links" aria-current="page" href="store">Store</Link>
+                                <Link className="nav-link links" aria-current="page" href="/store">Store</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link  links " href="macbook">Mac</Link>
+                                <Link className="nav-link  links " href="/macbook">Mac</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link links" href="ipad">Ipad</Link>
+                                <Link className="nav-link links" href="/ipad">Ipad</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link links" href="iphone">Iphone</Link>
+                                <Link className="nav-link links" href="/iphone">Iphone</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link links" href="watch">Watch</Link>
+                                <Link className="nav-link links" href="/watch">Watch</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link links" href="airpods">Airpods</Link>
+                                <Link className="nav-link links" href="/airpods">Airpods</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link links" href="accessories">Accessories</Link>
+                                <Link className="nav-link links" href="/accessories">Accessories</Link>
                             </li>
                         </ul>
                         <form className="d-flex input-icon me-3" role="search" onSubmit={searchHandler}>
@@ -56,7 +56,7 @@ function Navbar() {
                             />
                         </form>
                         <div className='cart mt-2'>
-                            <a href="cart"><FontAwesomeIcon icon={faBagShopping} aria-hidden={false} className="bag" /></a>
+                            <Link href="/cart"><FontAwesomeIcon icon={faBagShopping} aria-hidden={false} className="bag" /></Link>
                         </div>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import '../styles/globals.scss';
 import "bootstrap/dist/css/bootstrap.min.css"
 import Footer from "../components/Footer";
+import {wrapper} from "../store/store";
 
 function MyApp({Component, pageProps}) {
 
@@ -28,4 +29,4 @@ function MyApp({Component, pageProps}) {
   )
 }
 
-export default MyApp
+export default wrapper.withRedux(MyApp)

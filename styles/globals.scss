@@ -293,6 +293,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    h2 {
+      cursor: pointer;
+    }
   }
 
   h3 {
@@ -1287,6 +1291,17 @@ body {
 
   #stats{
     margin:40px 25px;
+  }
+}
+
+#login {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+
+  .login-heading {
+    align-items: center;
   }
 }
 

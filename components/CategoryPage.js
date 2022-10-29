@@ -7,6 +7,7 @@ import gadgets from '../public/images/categories/accessories-page-title.jpg'
 import ReactSlider$1 from "react-slider";
 import {useState} from "react";
 import MultiRangeSlider from "./multiRangeSlider/MultiRangeSlider";
+import Link from "next/link";
 
 function CategoryPage({title, children}) {
 
@@ -31,31 +32,31 @@ function CategoryPage({title, children}) {
                                      aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                     <div className="accordion-body bg-dark text-white">
                                         <div className='mt-3'>
-                                            <a href="store"><h2>ALL</h2></a>
+                                            <Link href="/store"><h2>ALL</h2></Link>
                                             <p>PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <a href="macbook"><h2>MACBOOK</h2></a>
+                                            <Link href="/macbook"><h2>MACBOOK</h2></Link>
                                             <p>4 PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <a href="ipad"><h2>IPAD</h2></a>
+                                            <Link href="/ipad"><h2>IPAD</h2></Link>
                                             <p>0 PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <a href="iphone"><h2>IPHONE</h2></a>
+                                            <Link href="/iphone"><h2>IPHONE</h2></Link>
                                             <p>9 PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <a href="watch"><h2>WATCH</h2></a>
+                                            <Link href="/watch"><h2>WATCH</h2></Link>
                                             <p>4 PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <a href="airpods"><h2>AIRPODS</h2></a>
+                                            <Link href="/airpods"><h2>AIRPODS</h2></Link>
                                             <p>4 PRODUCTS</p>
                                         </div>
                                         <div className='pt-2'>
-                                            <a href="accessories"><h2>ACCESSORIES</h2></a>
+                                            <Link href="/accessories"><h2>ACCESSORIES</h2></Link>
                                             <p>2 PRODUCTS</p>
                                         </div>
                                     </div>
@@ -66,27 +67,27 @@ function CategoryPage({title, children}) {
                     </div>
                     <div className='container categories-list'>
                         <div className='cards mx-4'>
-                            <a href="macbook"><h2>MACBOOK</h2></a>
+                            <Link href="/macbook"><h2>MACBOOK</h2></Link>
                             <p>4 PRODUCTS</p>
                         </div>
                         <div className='cards mx-4'>
-                            <a href="ipad"><h2>IPAD</h2></a>
+                            <Link href="/ipad"><h2>IPAD</h2></Link>
                             <p>0 PRODUCTS</p>
                         </div>
                         <div className='cards mx-4'>
-                            <a href="iphone"><h2>IPHONE</h2></a>
+                            <Link href="/iphone"><h2>IPHONE</h2></Link>
                             <p>9 PRODUCTS</p>
                         </div>
                         <div className='cards mx-4'>
-                            <a href="watch"><h2>WATCH</h2></a>
+                            <Link href="/watch"><h2>WATCH</h2></Link>
                             <p>4 PRODUCTS</p>
                         </div>
                         <div className='cards mx-4'>
-                            <a href="airpods"><h2>AIRPODS</h2></a>
+                            <Link href="/airpods"><h2>AIRPODS</h2></Link>
                             <p>4 PRODUCTS</p>
                         </div>
                         <div className='cards mx-4'>
-                            <a href="accessories"><h2>ACCESSORIES</h2></a>
+                            <Link href="/accessories"><h2>ACCESSORIES</h2></Link>
                             <p>2 PRODUCTS</p>
                         </div>
                     </div>
