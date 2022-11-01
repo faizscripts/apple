@@ -1,6 +1,5 @@
+import Google from "../components/Map/Google";
 
-import Map from "../components/Map";
-import {ChakraProvider, Flex} from "@chakra-ui/react";
 
 function Checkout() {
 
@@ -48,6 +47,7 @@ function Checkout() {
                             </div>
                             <div className="mb-3 map-element">
                                 <label htmlFor="address" className="form-label" >Shipping Address</label>
+                                <Google />
 
                             </div>
                             <div className="text-center">
