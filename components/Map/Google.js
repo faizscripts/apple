@@ -2,10 +2,12 @@ import {useLoadScript, GoogleMap, Marker, Autocomplete} from "@react-google-maps
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import {useCallback, useMemo, useRef, useState} from "react";
 import Locate from "./Locate";
-import {getGeocode, getLatLng} from "use-places-autocomplete";
+
 
 
 const libraries= ["places"];
+
+
 
 function Google() {
 
@@ -54,14 +56,6 @@ function Google() {
     if (loadError) return "Error Loading maps";
     if (!isLoaded) return "Loading Maps";
 
-    const handleSelect = async (val) => {
-        setValue(val);
-
-        const results = await getGeocode({address: val})
-        const {lat, lng} = await getLatLng(results[0])
-        setSelected({lat, lng})
-
-    }
 
     return(
         <div>
@@ -73,14 +67,15 @@ function Google() {
 
             <GoogleMap
                 mapContainerStyle={mapContainerStyle}
-                zoom={15}
+                zoom={16}
                 center={center}
                 options={options}
                 onLoad={onMapLoad}
             >
-                {selected && <Marker position={selected} />}
+                <Marker position={center} />
 
-                <Autocomplete onPlaceChanged={handleSelect}>
+
+                <Autocomplete >
                     <input
                         type="text"
                         placeholder="Enter Your Location"
