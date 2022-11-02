@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.3.5",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
@@ -36,7 +35,8 @@
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "sass": "^1.54.9",
-    "swiper": "^8.4.2"
+    "swiper": "^8.4.2",
+    "use-places-autocomplete": "^4.0.0"
   },
   "devDependencies": {
     "eslint": "8.22.0",
