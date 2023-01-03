@@ -1,6 +1,7 @@
-import connectDB from "../../utils/db";
-import { Admin } from "../../models/admin/admins";
+import connectDB from "../../../utils/db";
+import { Admin } from "../../../models/admin/admins";
 import bcrypt from "bcrypt"
+import { serialize } from "cookie";
 
 export default async function handler(req, res) {
 
@@ -11,7 +12,7 @@ export default async function handler(req, res) {
 
         let admin = await Admin.findOne({email: req.body.email});
         if (!admin) {
-            formError.email = "admin not registered yet!"
+            formError.email = "email not registered yet!"
             return res.status(200).json(formError)
         }
 
@@ -21,9 +22,17 @@ export default async function handler(req, res) {
             return res.status(200).json(formError)
         }
 
-        res.status(200).json(admin).end()
+        res.setHeader("Set-Cookie", serialize("token", admin.generateLoginToken(), {
+            httpOnly: true,
+            secure: process.env.NODE_ENV !== "development",
+            sameSite: "strict",
+            path: "/"
+        }))
+
+        res.status(200).json(admin)
 
     } catch (e) {
+        console.log(e)
         res.status(500).end()
     }
 

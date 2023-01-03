@@ -1,5 +1,5 @@
 import Google from "../components/Map/Google";
-
+import UserLayout from "../layout/UserLayout";
 
 function Checkout() {
 
@@ -122,5 +122,7 @@ function Checkout() {
 
     )
 }
+
+Checkout.pageLayout = UserLayout
 
 export default Checkout

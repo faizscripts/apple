@@ -1,3 +1,5 @@
+import AdminLayout from "../../../layout/AdminLayout";
+
 function Edit() {
     return(
         <div id="add-product" className="container card my-5">
@@ -84,7 +86,9 @@ function Edit() {
                 </form>
             </div>
         </div>
-
 )
 }
- export default Edit
+
+Edit.pageLayout = AdminLayout
+
+export default Edit

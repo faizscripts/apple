@@ -1,5 +1,6 @@
 import CategoryPage from "../components/CategoryPage";
 import ProductItem from "../components/ProductItem";
+import UserLayout from "../layout/UserLayout";
 
 function Ipad() {
     return(
@@ -9,5 +10,7 @@ function Ipad() {
         </CategoryPage>
     )
 }
+
+Ipad.pageLayout = UserLayout
 
 export default Ipad

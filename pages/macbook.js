@@ -1,5 +1,6 @@
 import CategoryPage from "../components/CategoryPage";
 import ProductItem from "../components/ProductItem";
+import UserLayout from "../layout/UserLayout";
 
 function Macbook() {
     return(
@@ -11,5 +12,7 @@ function Macbook() {
         </CategoryPage>
     )
 }
+
+Macbook.pageLayout = UserLayout
 
 export default Macbook

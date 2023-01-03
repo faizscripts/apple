@@ -1,8 +1,8 @@
-import {UPDATE_USER} from "../types";
+import {UPDATE_ADMIN} from "../types";
 
 export default (state = null, action) => {
     switch (action.type) {
-        case UPDATE_USER:
+        case UPDATE_ADMIN:
             if (!action.payload){
                 return null
             }

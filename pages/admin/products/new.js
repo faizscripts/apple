@@ -1,4 +1,14 @@
+import AdminLayout from "../../../layout/AdminLayout";
+import Link from "next/link";
+
 function New() {
+
+    function checkinBox(content) {
+        if (content){
+            return `${content.inBox}`
+        } else return null;
+    }
+
     return(
         <div id="add-product" className="container card mt-3 mb-5">
             <div className="card-header">
@@ -122,7 +132,7 @@ function New() {
 
                         <input type="text" name="inBox" id="inBox" className="d-none"/>
 
-                            <div className="inBoxCopy d-none">${checkinBox(input)}</div>
+                            {/*<div className="inBoxCopy d-none">${checkinBox(input)}</div>*/}
                     </div>
 
                     <div className="mb-4 table-responsive">
@@ -140,17 +150,17 @@ function New() {
                                 <td>
                                     <input type="number" name="quantity" min="1" value="${getInput(input, 'quantity')}"
                                            required/>
-                                        <div className="inputError">${getError(error, 'quantity')}</div>
+                                        {/*<div className="inputError">${getError(error, 'quantity')}</div>*/}
                                 </td>
                                 <td>
                                     <input type="number" name="shop_price" min="1"
                                            value="${getInput(input, 'shop_price')}" required/>
-                                        <div className="inputError">${getError(error, 'shop_price')}</div>
+                                        {/*<div className="inputError">${getError(error, 'shop_price')}</div>*/}
                                 </td>
                                 <td>
                                     <input type="number" name="price" min="1" value="${getInput(input, 'price')}"
                                            required/>
-                                        <div className="inputError">${getError(error, 'price')}</div>
+                                        {/*<div className="inputError">${getError(error, 'price')}</div>*/}
                                 </td>
                             </tr>
                             </tbody>
@@ -200,11 +210,16 @@ function New() {
                         <button className="btn btn-warning save" type="submit" formAction="/admin/products/copy">SAVE
                             AND CREATE COPY
                         </button>
-                        <a className="btn btn-secondary save" onClick="location.href='/admin/products'">CANCEL</a>
+                        <Link href="/admin/products">
+                            <a className="btn btn-secondary save">CANCEL</a>
+                        </Link>
                     </div>
                 </form>
             </div>
         </div>
     )
 }
+
+New.pageLayout = AdminLayout
+
 export default New

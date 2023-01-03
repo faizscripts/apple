@@ -1,13 +1,13 @@
 import {applyMiddleware, combineReducers, createStore} from 'redux'
 import {createWrapper} from 'next-redux-wrapper'
 import {composeWithDevTools} from 'redux-devtools-extension'
-import updateUserReducer from './user/reducer'
+import updateAdminReducer from './admin/reducer'
 
 const combinedReducers = combineReducers({
-    user: updateUserReducer,
+    admin: updateAdminReducer,
 })
 
-const makeStore = () => {
+export const makeStore = () => {
     return createStore(combinedReducers, composeWithDevTools(
         applyMiddleware()
     ))

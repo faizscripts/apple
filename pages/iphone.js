@@ -5,6 +5,7 @@ import {faTableCells} from "@fortawesome/free-solid-svg-icons";
 import gadgets from '../public/images/categories/accessories-page-title.jpg'
 import CategoryPage from "../components/CategoryPage";
 import ProductItem from "../components/ProductItem";
+import UserLayout from "../layout/UserLayout";
 
 function iphone() {
     return (
@@ -17,6 +18,8 @@ function iphone() {
         </CategoryPage>
     )
 }
+
+iphone.pageLayout = UserLayout
 
 export default iphone
 

@@ -1,10 +1,15 @@
+import AdminLayout from "../../../layout/AdminLayout";
+import Link from "next/link";
+
 function index() {
     return(
         <div id="viewProducts" className="card ">
             <div className="d-flex justify-content-end">
-                <button type="button" className="btn btn-primary mt-4 me-3" style={{fontSize: "0.8rem"}}
-                        onClick="location.href='/admin/orders/new'">Add New Order
-                </button>
+                <Link href="/admin/orders/new">
+                    <button type="button" className="btn btn-primary mt-4 me-3" style={{fontSize: "0.8rem"}}>
+                        Add New Order
+                    </button>
+                </Link>
             </div>
             <div className="card-body table-responsive">
                 <table className="table table-hover table-bordered" id="orderViewT">
@@ -27,5 +32,7 @@ function index() {
         </div>
     )
 }
+
+index.pageLayout = AdminLayout
 
 export default index

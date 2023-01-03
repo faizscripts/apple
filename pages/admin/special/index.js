@@ -1,3 +1,5 @@
+import AdminLayout from "../../../layout/AdminLayout";
+
 function index() {
     return(
         <div id="viewProducts" className="card ">
@@ -21,5 +23,7 @@ function index() {
         </div>
     )
 }
+
+index.pageLayout = AdminLayout
 
 export default index

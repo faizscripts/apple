@@ -1,6 +1,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMultiply} from "@fortawesome/free-solid-svg-icons";
 import gadgets from '../public/images/categories/accessories-page-title.jpg'
+import UserLayout from "../layout/UserLayout";
 
 function Wishlist() {
     return (
@@ -144,5 +145,7 @@ function Wishlist() {
         </div>
     )
 }
+
+Wishlist.pageLayout = UserLayout
 
 export default Wishlist

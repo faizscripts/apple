@@ -11,6 +11,7 @@ import Reviews from "../components/elements/Reviews";
 import ProductsSlideshow from "../components/elements/ProductsSlideshow";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {A11y, Navigation} from "swiper";
+import UserLayout from "../layout/UserLayout";
 
 
 function Product() {
@@ -202,5 +203,7 @@ function decrementCount (){
         </div>
     )
 }
+
+Product.pageLayout = UserLayout
 
 export default Product
