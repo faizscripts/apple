@@ -38,10 +38,6 @@ adminSchema.methods.generateLoginToken = function () {
     return jwt.sign({_id: this._id, authority: this.authority}, process.env.JWTKEY);
 }
 
-adminSchema.methods.generatePosToken = function () {
-    return jwt.sign({_id: this._id}, process.env.JWTKEY);
-}
-
 export const Admin = models.Admin || mongoose.model('Admin', adminSchema);
 
 export function validate(admin) {

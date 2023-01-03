@@ -1,6 +1,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrash} from "@fortawesome/free-solid-svg-icons/faTrash";
 import {faMinus, faPlus} from "@fortawesome/free-solid-svg-icons";
+import UserLayout from "../layout/UserLayout";
 
 function Cart() {
     return(
@@ -75,5 +76,7 @@ function Cart() {
         </div>
     )
 }
+
+Cart.pageLayout = UserLayout
 
 export default Cart

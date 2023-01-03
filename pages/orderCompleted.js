@@ -1,3 +1,5 @@
+import UserLayout from "../layout/UserLayout";
+
 function OrderCompleted() {
     
     function getCurrentDate() {
@@ -58,5 +60,7 @@ function OrderCompleted() {
         </div>
     )
 }
+
+OrderCompleted.pageLayout = UserLayout
 
 export default OrderCompleted

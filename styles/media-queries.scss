@@ -1,18 +1,3 @@
-//xl-large
-@media (max-width: 1999.98px) {
-
-  .footer{
-    .accordion{
-      display: none;
-    }
-    .collapse-medium{
-      display: flex;
-    }
-  }
-}
-
-
-
 //large
 @media (max-width: 1199.98px) {
 
@@ -22,6 +7,88 @@
     }
     .collapse-medium{
       display: flex;
+    }
+  }
+
+  #admin {
+    .mainPanel {
+
+      .navbar {
+        .addBtn {
+          font-size: 0.7rem;
+        }
+
+        .notiCount {
+          margin-right: 0.5rem;
+        }
+
+        .notification {
+          font-size: 1.5rem;
+        }
+
+        .dropdown {
+          text-transform: initial;
+        }
+
+      }
+
+      #chartsRow {
+        .chart-container {
+          height: 170px;
+          width: 319px;
+        }
+
+      }
+
+      #stats {
+
+        .card-title {
+          font-size: 1rem;
+        }
+
+        .statNum {
+          font-size: 1.2rem;
+        }
+
+        i {
+          font-size: 2rem;
+        }
+
+        .percentage {
+          font-size: 1rem;
+        }
+
+        span {
+          font-size: 0.6rem;
+        }
+
+      }
+
+    }
+  }
+
+  #viewProducts{
+    .detailedName{
+      font-size: 0.75rem;
+    }
+
+    .detailedCol{
+      font-size: 0.75rem;
+      min-width: 30px !important;
+      max-width: 30px !important;
+    }
+
+    .detailedDelete{
+      min-width: 48px !important;
+      max-width: 48px !important;
+    }
+
+    .det{
+      margin-left: 1rem;
+    }
+
+    .detailedCell{
+      font-size: 0.8rem !important;
     }
   }
 
@@ -307,6 +374,218 @@
 
     }
   }
+
+  #admin {
+    .sidebar {
+
+      li {
+        font-size: 1rem;
+      }
+
+      i {
+        margin-right: 0.5rem;
+      }
+
+      .collapseMenu {
+        li {
+          font-weight: normal;
+          font-size: 0.85rem;
+        }
+      }
+
+    }
+
+    .mainPanel {
+
+      .navbar {
+
+        .navbar-nav {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin: 1rem 0;
+        }
+
+        .addBtn {
+          margin: 0;
+          font-size: 1rem;
+        }
+
+        .notiCount {
+          margin-right: 0.5rem;
+        }
+
+        .dropdown-menu {
+          font-size: 0.9rem;
+        }
+      }
+
+      #chartsRow {
+        display: flex;
+        flex-wrap: wrap;
+
+        .chart-container {
+          margin: auto;
+          margin-top: 1.2rem;
+          padding: 1rem;
+          height: 250px;
+          width: 470px;
+        }
+
+      }
+
+      #stats {
+        margin: 2rem;
+
+        .row {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .card {
+          margin-top: 1rem;
+          flex-basis: 12rem;
+        }
+
+
+        .statNum {
+          font-size: 2rem;
+        }
+
+        i {
+          font-size: 2.5rem;
+        }
+
+        .percentage {
+          font-size: 1.2rem;
+          font-weight: 500;
+        }
+
+        span {
+          font-size: 0.7rem;
+          color: black;
+          font-weight: normal;
+        }
+
+        .profit {
+          color: $green;
+        }
+
+        .loss {
+          color: $red;
+        }
+
+      }
+
+      .order {
+        width: 98%;
+        margin: 1rem 0.5rem 0.5rem 0.3rem;
+
+        .card-body {
+          margin-right: 0.7rem;
+        }
+
+        th {
+          min-width: 6rem;
+        }
+
+        .itemsTh {
+          min-width: 20rem;
+        }
+
+        .status {
+          min-width: 10rem;
+        }
+
+        td {
+          font-size: 0.9rem;
+        }
+
+        .btn {
+          width: 7rem;
+          font-size: 0.7rem;
+        }
+
+        .ordersHeadingBig{
+          min-width: 25rem;
+        }
+
+        .performer{
+          .performerName{
+            min-width: 25rem;
+          }
+        }
+
+      }
+
+    }
+  }
+
+  #viewProducts{
+    margin: 1rem 0.5rem 1rem 0.3rem;
+
+    .ordersHeadingBig{
+      min-width: 25rem;
+    }
+
+    .product-name-heading{
+      min-width: 18rem;
+      font-size: 0.9rem;
+    }
+
+    .product-others, .tableHeader{
+      font-size: 0.9rem;
+    }
+
+    .tableHeaderBig{
+      font-size: 0.9rem;
+      min-width: 18rem;
+    }
+
+    tr{
+      font-size: 0.87rem;
+    }
+
+    .detailedName{
+      font-size: 0.73rem;
+    }
+
+    .detailedCol{
+      font-size: 0.73rem;
+      min-width: 25px !important;
+      max-width: 25px !important;
+    }
+
+    .detailedCell{
+      font-size: 0.75rem !important;
+    }
+
+    #inventoryIndexT{
+      .invName{
+        min-width: 19rem !important;
+      }
+
+      .invOthers{
+        min-width: 7rem !important;
+      }
+    }
+  }
+
+  #add-product{
+    li{
+      margin: 2rem 0;
+    }
+
+    .orderProductEdit{
+      width: 100%;
+      font-size: 0.8rem;
+    }
+
+    .orderQuantityEdit{
+      width: 100%;
+      font-size: 0.8rem;
+    }
+  }
 }
 
 //small
@@ -406,6 +685,7 @@
 
     }
   }
+
   .search-map{
     width: 300px;
     height: 30px;
@@ -415,8 +695,50 @@
     margin-left: 0;
     top: 0.5rem;
   }
+
   .locate {
     bottom: 11.3rem;
     right: 1.4rem;
+  }
+
+  #admin {
+    .mainPanel {
+      .navbar{
+        .navbar-brand{
+          font-size: 1.3rem;
+        }
+      }
+
+      #chartsRow {
+        .chart-container {
+          padding: 0;
+          height: 178px;
+          width: 344px;
+        }
+
+      }
+
+      #stats {
+        .card {
+          margin-right: 0;
+          flex-basis: 13rem;
+        }
+      }
+
+      .order {
+        width: 95%;
+      }
+    }
+  }
+
+  #add-product{
+    .card-header{
+      font-size: 1.25rem;
+    }
+
+    .save{
+      font-size: 0.85rem;
+      margin-top: 1rem;
+    }
   }
 }

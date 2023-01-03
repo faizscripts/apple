@@ -2,10 +2,10 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import axios from "axios";
-import {connect} from "react-redux";
-import {updateUser} from "../../../store/user/action";
+import { connect } from "react-redux";
+import { updateAdmin } from "../../../store/admin/action";
 
-function New({updateUser}) {
+function New({ updateAdmin }) {
     const router = useRouter()
 
     const [admin_name, setAdminName] = useState("")
@@ -24,8 +24,8 @@ function New({updateUser}) {
             const response = await axios.post("/api/admin/admins", {admin_name, email, phone, password, confirm})
 
             if (response.data._id) {
-                updateUser(response.data)
-                router.push("/admin/admins")
+                updateAdmin(response.data)
+                await router.push("/admin/admins")
                 setProcessing(false)
             } else {
                 setFormError(response.data)
@@ -95,4 +95,4 @@ function New({updateUser}) {
     )
 }
 
-export default connect(null, {updateUser})(New)
+export default connect(null, {updateAdmin})(New)

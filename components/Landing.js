@@ -9,9 +9,6 @@ import section6 from "../public/images/landing/heroSec6.jpg";
 import section7 from "../public/images/landing/heroSec7.jpg";
 import LandingSmallItem from "./elements/LandingSmallItem";
 
-
-
-
 function Landing() {
 
     return(
@@ -20,32 +17,27 @@ function Landing() {
                              subhead ='Pro. Beyond.'
                              multiple={true}
                              image={[heroImage1.src,heroImage2.src]}
-                             textColor='text-white'
-                />
+                             textColor='text-white'/>
 
                 <LandingItem title='iPhone 14'
                              subhead ='Bigger and Bigger.'
-                             image={section2.src}
-                />
+                             image={section2.src}/>
 
                 <LandingItem title='AirPods Pro'
                              subhead ='Rebuilt from the sound up.'
                              image={section3.src}
-                             textColor='text-white'
-                />
+                             textColor='text-white'/>
 
                 <div className="row">
 
                         <LandingSmallItem title='WATCH'
                                           subhead ='Adventure awaits.'
-                                          image={section4.src}
-                        />
+                                          image={section4.src}/>
 
                         <LandingSmallItem title='WATCH'
                                           subhead ='A healthy leap ahead.'
                                           image={section5.src}
-                                          textColor='text-white'
-                        />
+                                          textColor='text-white'/>
 
                 </div>
 
@@ -54,15 +46,11 @@ function Landing() {
                     <LandingSmallItem title='Fitness+'
                                           subhead ='New Artist spotlight workouts with music by the weekend.'
                                           image={section6.src}
-                                          textColor='text-white'
-
-                    />
+                                          textColor='text-white'/>
 
                     <LandingSmallItem title='WATCH'
                                           subhead ='A great deal to love.'
-                                          image={section7.src}
-
-                    />
+                                          image={section7.src}/>
 
                 </div>
 

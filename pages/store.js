@@ -1,5 +1,6 @@
 import CategoryPage from "../components/CategoryPage";
 import ProductItem from "../components/ProductItem";
+import UserLayout from "../layout/UserLayout";
 
 function Store() {
     return(
@@ -22,5 +23,7 @@ function Store() {
         </CategoryPage>
     )
 }
+
+Store.pageLayout = UserLayout
 
 export default Store

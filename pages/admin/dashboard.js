@@ -1,7 +1,9 @@
+import AdminLayout from "../../layout/AdminLayout";
+import Link from "next/link";
+
 function Dashboard() {
     return (
         <div className='dashboard'>
-            {/*Card orders*/}
             <div className="card order">
                 <div className="card-header text-center">
                     <h3>NEW ORDERS</h3>
@@ -25,12 +27,13 @@ function Dashboard() {
                         </tbody>
                     </table>
                     <div className="d-flex justify-content-center">
-                        <a href="/admin/dashboard.js" className="mb-2" style={{textDecoration: 'none'}}>view all orders</a>
+                        <Link href="/admin/orders">
+                            <a className="mb-2" style={{textDecoration: 'none'}}>view all orders </a>
+                        </Link>
                     </div>
                 </div>
             </div>
 
-            {/*Stats*/}
             <div id="stats">
                 <div className="row">
                     <div className="card col">
@@ -78,7 +81,6 @@ function Dashboard() {
 
             </div>
 
-            {/*Best performers*/}
             <div className="card order">
                 <div className="card-header text-center">
                         <h3>BEST PERFORMERS</h3>
@@ -103,7 +105,6 @@ function Dashboard() {
                 </div>
             </div>
 
-            {/*worst performers*/}
             <div className="card order">
                 <div className="card-header text-center">
                     <h3>WORST PERFORMERS</h3>
@@ -130,5 +131,7 @@ function Dashboard() {
         </div>
     )
 }
+
+Dashboard.pageLayout = AdminLayout
 
 export default Dashboard

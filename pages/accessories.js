@@ -1,5 +1,6 @@
 import CategoryPage from "../components/CategoryPage";
 import ProductItem from "../components/ProductItem";
+import UserLayout from "../layout/UserLayout";
 
 function Accessories() {
     return(
@@ -9,5 +10,7 @@ function Accessories() {
         </CategoryPage>
     )
 }
+
+Accessories.pageLayout = UserLayout
 
 export default Accessories

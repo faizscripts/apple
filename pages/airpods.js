@@ -1,5 +1,6 @@
 import CategoryPage from "../components/CategoryPage";
 import ProductItem from "../components/ProductItem";
+import UserLayout from "../layout/UserLayout";
 
 function Airpods() {
     return(
@@ -11,5 +12,7 @@ function Airpods() {
         </CategoryPage>
     )
 }
+
+Airpods.pageLayout = UserLayout
 
 export default Airpods

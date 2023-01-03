@@ -1,10 +1,10 @@
-import {useState} from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import {connect} from "react-redux";
-import {updateUser} from "../store/user/action";
+import { connect } from "react-redux";
+import { updateAdmin } from "../../store/admin/action";
 
-function Login({updateUser}) {
+function Login({ updateAdmin }) {
 
     const router = useRouter()
 
@@ -18,11 +18,11 @@ function Login({updateUser}) {
 
         try {
             setProcessing(true)
-            const response = await axios.post("/api/login", {email, password})
+            const response = await axios.post("/api/admin/login", {email, password})
 
             if (response.data._id) {
-                updateUser(response.data)
-                router.push("/admin/dashboard")
+                updateAdmin(response.data)
+                await router.push("/admin/dashboard")
                 setProcessing(false)
             } else {
                 setFormError(response.data)
@@ -48,7 +48,6 @@ function Login({updateUser}) {
                     Admin Login
                 </div>
                 <div className="card-body">
-                    {printError(formError.unexpected)}
                     <form onSubmit={onFormSubmit}>
                         {printError(formError.unexpected)}
                         <div className="mb-3 form-group">
@@ -62,7 +61,7 @@ function Login({updateUser}) {
                             {printError(formError.password)}
                         </div>
                         <div className="my-3 d-flex justify-content-center">
-                            <button className="btn btn-success save" type="submit" value="submit">{processing? "Processing..." : "Save"}</button>
+                            <button className="btn btn-success save" type="submit" value="submit">{processing? "Processing..." : "Submit"}</button>
                         </div>
                     </form>
                 </div>
@@ -71,4 +70,4 @@ function Login({updateUser}) {
     )
 }
 
-export default connect(null, {updateUser})(Login)
+export default connect(null, {updateAdmin})(Login)
