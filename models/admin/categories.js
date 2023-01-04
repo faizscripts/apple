@@ -1,5 +1,5 @@
+import mongoose, { models } from "mongoose";
 const Joi = require('joi');
-const mongoose = require('mongoose');
 
 const categoriesSchema = new mongoose.Schema({
     category_name: {
@@ -11,10 +11,6 @@ const categoriesSchema = new mongoose.Schema({
         unique: true
     },
     productIDs: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product'
-    }],
-    topPicks: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Product'
     }],
@@ -32,27 +28,6 @@ const categoriesSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    image: String
 });
 
-const Category = mongoose.model('Category', categoriesSchema);
-
-function validate(category) {
-    const schema = Joi.object({
-        category_name: Joi.string().required().min(3).max(255)
-    }).unknown(true);
-
-    const options = {
-        errors: {
-            wrap: {
-                label: ''
-            }
-        }
-    };
-
-    return schema.validate(category, options);
-}
-
-exports.Category = Category;
-exports.validate = validate;
-
+export const Category = models ? models.Category || mongoose.model('Category', categoriesSchema) : mongoose.model('Category', categoriesSchema);

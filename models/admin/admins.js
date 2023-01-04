@@ -1,7 +1,6 @@
-import mongoose, {models} from "mongoose";
+import mongoose, { models } from "mongoose";
 const jwt = require('jsonwebtoken');
 const Joi =  require('joi');
-
 
 const adminSchema = new mongoose.Schema({
     admin_name: {
@@ -38,7 +37,7 @@ adminSchema.methods.generateLoginToken = function () {
     return jwt.sign({_id: this._id, authority: this.authority}, process.env.JWTKEY);
 }
 
-export const Admin = models.Admin || mongoose.model('Admin', adminSchema);
+export const Admin = models ? models.Admin || mongoose.model('Admin', adminSchema) : mongoose.model('Admin', adminSchema);
 
 export function validate(admin) {
     const schema = Joi.object({

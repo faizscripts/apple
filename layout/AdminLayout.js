@@ -38,9 +38,6 @@ function AdminLayout ({ children }) {
                             <li onClick={() => sidebarItemClick('/admin/admins/')} className="list-group-item list-group-item-action">
                                 Admins
                             </li>
-                            <li onClick={() => sidebarItemClick('/admin/brands/')} className="list-group-item list-group-item-action">
-                                Brands
-                            </li>
                             <li onClick={() => sidebarItemClick('/admin/categories/')} className="list-group-item list-group-item-action">
                                     Categories
                                 </li>
@@ -95,9 +92,6 @@ function AdminLayout ({ children }) {
                                     </ul>
                                 </div>
                             </div>
-                            <li onClick={() => sidebarItemClick('/admin/special/')} className="list-group-item list-group-item-action">
-                                    Special Categories
-                                </li>
                         </ul>
                     </div>
                 </div>

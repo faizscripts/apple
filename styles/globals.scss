@@ -8,6 +8,19 @@ body {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu !important;
   scroll-behavior: smooth;
   overflow-x: hidden;
+
+  //buttons in forms
+  .formBtn{
+    border: none;
+    outline: none;
+    background: transparent;
+    color: $red;
+  }
+
+  .form-error {
+    color: $red;
+    margin-bottom: 1rem;
+  }
 }
 
 * {
@@ -1846,9 +1859,17 @@ body {
 
   @include switch;
 
-  .far{
+  .table-icon{
     font-size: 1.5rem;
     font-weight: 500;
+    
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .edit {
+    color: $blue;
   }
 
   .fa-clipboard{

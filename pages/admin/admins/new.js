@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { connect } from "react-redux";
 import { updateAdmin } from "../../../store/admin/action";
+import AdminLayout from "../../../layout/AdminLayout";
+import { printError } from "../../../utils/helpers";
 
 function New({ updateAdmin }) {
     const router = useRouter()
@@ -14,7 +16,7 @@ function New({ updateAdmin }) {
     const [password, setPassword] = useState("")
     const [confirm, setConfirm] = useState("")
     const [processing, setProcessing] = useState(false)
-    const [formError, setFormError] = useState(false)
+    const [formError, setFormError] = useState({})
 
     const onFormSubmit = async (event) => {
         event.preventDefault()
@@ -35,14 +37,6 @@ function New({ updateAdmin }) {
             let unexpected = {unexpected: 'An unexpected error occurred!'}
             setFormError(unexpected)
             setProcessing(false)
-        }
-    }
-
-    function printError(error) {
-        if (error){
-            if (typeof error === "object") return <div className="form-text form-error">{error.message}</div>
-
-            return <div className="form-text form-error">{error}</div>
         }
     }
 
@@ -94,5 +88,7 @@ function New({ updateAdmin }) {
         </div>
     )
 }
+
+New.pageLayout = AdminLayout
 
 export default connect(null, {updateAdmin})(New)

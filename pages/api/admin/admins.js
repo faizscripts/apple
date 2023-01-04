@@ -4,17 +4,6 @@ import _ from "lodash"
 import bcrypt from "bcrypt"
 
 export default async function handler(req, res) {
-
-    if (req.method === 'GET') {
-        try {
-            await connectDB()
-            const admins = await Admin.find().collation({locale: "en" }).sort('admin_name');
-            res.status(200).json(admins)
-        } catch (e) {
-            res.status(500).end()
-        }
-
-    } else if (req.method === 'POST')  {
         try {
             await connectDB()
 
@@ -53,6 +42,4 @@ export default async function handler(req, res) {
         } catch (e) {
             res.status(500)
         }
-    }
-
 }
