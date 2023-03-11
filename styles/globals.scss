@@ -1425,7 +1425,10 @@ body {
 
       .addBtn {
         margin-right: 1.2rem;
-        font-size: 0.9rem;
+      }
+
+      .main-add-button {
+        font-size: 1rem;
       }
 
       .notiCount {
@@ -1604,6 +1607,8 @@ body {
 }
 
 #add-product {
+  padding: 0;
+
   @include pointerRemove;
 
   .card-header {
@@ -1690,6 +1695,11 @@ body {
   .far, .fa-plus {
     font-size: 1.35rem;
     @include pointer;
+  }
+
+  .image-card-actions {
+    @include pointer;
+    font-weight: 600;
   }
 
   #visibility {

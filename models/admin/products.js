@@ -1,3 +1,5 @@
+import {models} from "mongoose";
+
 const mongoose = require('mongoose');
 const Joi = require('joi');
 
@@ -13,18 +15,6 @@ const productSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category'
     },
-    brandID: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Brand'
-    },
-    subBrandID: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Brand'
-    },
-    specialID: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'SpecialCategory'
-    },
     description: {
         type: String,
         trim: true
@@ -38,12 +28,7 @@ const productSchema = new mongoose.Schema({
         min: 0,
         default: 0
     },
-    store_quantity: {
-        type: Number,
-        min: 0,
-        default: 0
-    },
-    shop_price: {
+    wholesale_price: {
         type: Number,
         min: 0
     },
@@ -57,8 +42,6 @@ const productSchema = new mongoose.Schema({
     },
     product_images: [{
         filename: String,
-        // destination: String,
-        // size: Number
     }],
     dateCreated: {
         type: Date,
@@ -120,19 +103,17 @@ const productSchema = new mongoose.Schema({
 
 productSchema.index({product_name: "text"})
 
-const Product = mongoose.model('Product', productSchema);
+export const Product = models ? models.Product || mongoose.model('Product', productSchema) : mongoose.model('Product', productSchema);
 
-function validate(product) {
+export function validate(product) {
     const schema =Joi.object({
         product_name: Joi.string().min(3).max(255).required(),
         categoryID: Joi.string().min(3).max(255),
-        brandID: Joi.string().min(3).max(255),
-        specialID: Joi.string().min(3).max(255),
         description: Joi.string().optional().allow(''),
         inBox: Joi.string().optional().allow(''),
         quantity: Joi.number().required(),
-        shop_price: Joi.number().required(),
-        price: Joi.number().greater(Joi.ref('shop_price')).required(),
+        wholesale_price: Joi.number().required(),
+        price: Joi.number().greater(Joi.ref('wholesale_price')).required(),
         status: Joi.boolean()
 
     }).unknown(true);
@@ -148,5 +129,4 @@ function validate(product) {
     return schema.validate(product, options);
 }
 
-exports.Product = Product;
 exports.validate = validate;

@@ -1,5 +1,4 @@
 import mongoose, { models } from "mongoose";
-const Joi = require('joi');
 
 const categoriesSchema = new mongoose.Schema({
     category_name: {
