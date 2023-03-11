@@ -14,9 +14,6 @@
     .mainPanel {
 
       .navbar {
-        .addBtn {
-          font-size: 0.7rem;
-        }
 
         .notiCount {
           margin-right: 0.5rem;
@@ -30,6 +27,10 @@
           text-transform: initial;
         }
 
+      }
+
+      .main-add-button {
+        font-size: 0.8rem !important;
       }
 
       #chartsRow {
@@ -408,7 +409,6 @@
 
         .addBtn {
           margin: 0;
-          font-size: 1rem;
         }
 
         .notiCount {
@@ -418,6 +418,10 @@
         .dropdown-menu {
           font-size: 0.9rem;
         }
+      }
+
+      .main-add-button {
+        font-size: 1rem !important;
       }
 
       #chartsRow {

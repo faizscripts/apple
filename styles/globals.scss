@@ -8,6 +8,19 @@ body {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu !important;
   scroll-behavior: smooth;
   overflow-x: hidden;
+
+  //buttons in forms
+  .formBtn{
+    border: none;
+    outline: none;
+    background: transparent;
+    color: $red;
+  }
+
+  .form-error {
+    color: $red;
+    margin-bottom: 1rem;
+  }
 }
 
 * {
@@ -1412,7 +1425,10 @@ body {
 
       .addBtn {
         margin-right: 1.2rem;
-        font-size: 0.9rem;
+      }
+
+      .main-add-button {
+        font-size: 1rem;
       }
 
       .notiCount {
@@ -1591,6 +1607,8 @@ body {
 }
 
 #add-product {
+  padding: 0;
+
   @include pointerRemove;
 
   .card-header {
@@ -1677,6 +1695,11 @@ body {
   .far, .fa-plus {
     font-size: 1.35rem;
     @include pointer;
+  }
+
+  .image-card-actions {
+    @include pointer;
+    font-weight: 600;
   }
 
   #visibility {
@@ -1846,9 +1869,17 @@ body {
 
   @include switch;
 
-  .far{
+  .table-icon{
     font-size: 1.5rem;
     font-weight: 500;
+    
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .edit {
+    color: $blue;
   }
 
   .fa-clipboard{

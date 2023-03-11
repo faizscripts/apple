@@ -38,9 +38,6 @@ function AdminLayout ({ children }) {
                             <li onClick={() => sidebarItemClick('/admin/admins/')} className="list-group-item list-group-item-action">
                                 Admins
                             </li>
-                            <li onClick={() => sidebarItemClick('/admin/brands/')} className="list-group-item list-group-item-action">
-                                Brands
-                            </li>
                             <li onClick={() => sidebarItemClick('/admin/categories/')} className="list-group-item list-group-item-action">
                                     Categories
                                 </li>
@@ -95,9 +92,6 @@ function AdminLayout ({ children }) {
                                     </ul>
                                 </div>
                             </div>
-                            <li onClick={() => sidebarItemClick('/admin/special/')} className="list-group-item list-group-item-action">
-                                    Special Categories
-                                </li>
                         </ul>
                     </div>
                 </div>
@@ -117,11 +111,11 @@ function AdminLayout ({ children }) {
                                 <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                                     <li className="nav-item">
                                         <Link href="/admin/products/new">
-                                            <button className="btn btn-primary addBtn">Add Product</button>
+                                            <button className="btn btn-primary addBtn main-add-button">Add Product</button>
                                         </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <button className="btn btn-secondary addBtn" onClick={logout}>Log Out</button>
+                                        <button className="btn btn-secondary addBtn main-add-button" onClick={logout}>Log Out</button>
                                     </li>
                                 </ul>
                             </div>

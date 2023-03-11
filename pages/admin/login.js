@@ -11,7 +11,7 @@ function Login({ updateAdmin }) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [processing, setProcessing] = useState(false)
-    const [formError, setFormError] = useState(false)
+    const [formError, setFormError] = useState({})
 
     const onFormSubmit = async (event) => {
         event.preventDefault()

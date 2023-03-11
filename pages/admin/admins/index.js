@@ -1,32 +1,15 @@
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import AdminLayout from "../../../layout/AdminLayout";
-import axios from "axios";
+import connectDB from "../../../utils/db";
+import { Admin } from "../../../models/admin/admins";
 
-function Index() {
-
-    const [admins, setAdmins] = useState([])
-
-    useEffect(() => {
-        void fetchAdmins()
-    }, [])
-
-    const fetchAdmins = async () => {
-        try {
-            const response = await axios.get("/api/admin/admins")
-            if (response.data.length > 0) {
-                setAdmins(response.data)
-            }
-        } catch (e) {
-            console.log(e);
-        }
-    }
+function Index({ admins }) {
 
     const renderAdmins = admins.map(
         admin => {
             return (
                 <tr key={admin._id}>
-                    <td>{admin.dateCreated}</td>
+                    <td>{new Date(admin.dateCreated).toLocaleDateString('en-GB') }</td>
                     <td style={{textTransform:"capitalize"}}>{admin.admin_name}</td>
                     <td><a href="mailto:{admin.email}"> {admin.email}</a></td>
                     <td><a href="tel:0{admin.phone}">0{admin.phone}</a></td>
@@ -39,7 +22,7 @@ function Index() {
         <div id="viewProducts" className="card ">
             <div className="d-flex justify-content-end">
                 <Link href="/admin/admins/new">
-                    <button type="button" className="btn btn-primary mt-4 me-3" style={{fontSize: "0.8rem"}}>
+                    <button type="button" className="btn btn-primary mt-4 me-3 main-add-button">
                         Add New Admin
                     </button>
                 </Link>
@@ -66,3 +49,12 @@ function Index() {
 Index.pageLayout = AdminLayout
 
 export default Index
+
+export async function getServerSideProps() {
+    await connectDB()
+    const data = await Admin.find().collation({locale: "en" }).sort('admin_name');
+    const admins = JSON.parse(JSON.stringify(data))
+    return {
+        props: { admins }
+    }
+}
