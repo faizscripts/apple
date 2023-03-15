@@ -3,8 +3,6 @@ import Image from "next/image";
 
 
 
-
-
 function LandingItem({title, image, multiple,textColor,subhead,pTag}) {
 
     const [windowDimension] = useWindowDimensions()
@@ -43,8 +41,6 @@ function LandingItem({title, image, multiple,textColor,subhead,pTag}) {
                     </div>
                 </div>
             </div>
-
-
 
         </div>
     )

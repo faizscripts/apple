@@ -5,7 +5,6 @@ import Image from "next/image";
 function LandingSmallItem({title,subhead,image,textColor}) {
 
 
-
     return (
 
             <div className="col-lg-6">
@@ -15,7 +14,7 @@ function LandingSmallItem({title,subhead,image,textColor}) {
                     </div>
 
                     <div className={`top-title ${textColor}`}>
-                        <h4 className="headline"> <Image src="/images/favicon/favicon-md.png" alt="" width="25px" height="30px"/> {title}</h4>
+                        <h4 className="headline">{title}</h4>
                         <h5 className="subhead" role="presentation">{subhead}</h5>
                         <div className="cta-links">
                             <a href="https://www.apple.com/iphone-14-pro/" aria-label="Learn more about iphone 14 pro" className="links-to-buy">Buy <Image
@@ -24,7 +23,6 @@ function LandingSmallItem({title,subhead,image,textColor}) {
                     </div>
                 </div>
             </div>
-
 
     )
 }
