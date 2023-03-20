@@ -2,13 +2,14 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import axios from "axios";
-import { connect } from "react-redux";
-import { updateAdmin } from "../../../store/admin/action";
 import AdminLayout from "../../../layout/AdminLayout";
 import { printError } from "../../../utils/helpers";
+import {setAdmin} from "../../../redux/features/admin";
+import {useDispatch} from "react-redux";
 
-function New({ updateAdmin }) {
+function New() {
     const router = useRouter()
+    const dispatch = useDispatch()
 
     const [admin_name, setAdminName] = useState("")
     const [email, setEmail] = useState("")
@@ -26,7 +27,7 @@ function New({ updateAdmin }) {
             const response = await axios.post("/api/admin/admins", {admin_name, email, phone, password, confirm})
 
             if (response.data._id) {
-                updateAdmin(response.data)
+                dispatch(setAdmin({adminCredentials: response.data}))
                 await router.push("/admin/admins")
                 setProcessing(false)
             } else {
@@ -49,30 +50,30 @@ function New({ updateAdmin }) {
                 {printError(formError.unexpected)}
                 <form onSubmit={onFormSubmit}>
                     <div className="mb-3 form-group">
-                        <label htmlFor="admin_name" className="form-label" required>Admin Name</label>
+                        <label htmlFor="admin_name" className="form-label" >Admin Name</label>
                         <input name="admin_name" type="text" className="form-control" id="admin_name" aria-describedby="admin_name" value={admin_name} onChange={e => setAdminName(e.target.value)} required/>
                     </div>
                     <div className="row">
                         <div className="mb-3 col-md-6 form-group">
-                            <label htmlFor="email" className="form-label" required>Email</label>
+                            <label htmlFor="email" className="form-label" >Email</label>
                             <input name="email" type="email" className="form-control" id="email" aria-describedby="email" value={email} onChange={e => setEmail(e.target.value)} required/>
                             {printError(formError.email)}
 
                         </div>
                         <div className="mb-3 col-md-6 form-group">
-                            <label htmlFor="phone" className="form-label" required>Phone</label>
+                            <label htmlFor="phone" className="form-label" >Phone</label>
                             <input name="phone" type="number" className="form-control" id="phone" aria-describedby="phone" value={phone} onChange={e => setPhone(e.target.value)} required/>
                             {printError(formError.phone)}
                         </div>
                     </div>
                     <div className="row">
                         <div className="mb-3 col-md-6 form-group">
-                            <label htmlFor="password" className="form-label" required>Password</label>
+                            <label htmlFor="password" className="form-label" >Password</label>
                             <input name="password" type="password" className="form-control" id="password" aria-describedby="password" value={password} onChange={e => setPassword(e.target.value)} required/>
                             {printError(formError.validate)}
                         </div>
                         <div className="mb-3 col-md-6 form-group">
-                            <label htmlFor="confirm" className="form-label" required>Confirm Password</label>
+                            <label htmlFor="confirm" className="form-label" >Confirm Password</label>
                             <input name="confirm" type="password" className="form-control" id="confirm" aria-describedby="confirm" value={confirm} onChange={e => setConfirm(e.target.value)} required/>
                         </div>
                     </div>
@@ -91,4 +92,4 @@ function New({ updateAdmin }) {
 
 New.pageLayout = AdminLayout
 
-export default connect(null, {updateAdmin})(New)
+export default New
