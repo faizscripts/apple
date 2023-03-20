@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import { connect } from "react-redux";
-import { updateAdmin } from "../../store/admin/action";
+import {useDispatch} from "react-redux";
+import {setAdmin} from "../../redux/features/admin";
 
-function Login({ updateAdmin }) {
+function Login() {
 
     const router = useRouter()
+    const dispatch = useDispatch()
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -21,7 +22,7 @@ function Login({ updateAdmin }) {
             const response = await axios.post("/api/admin/login", {email, password})
 
             if (response.data._id) {
-                updateAdmin(response.data)
+                dispatch(setAdmin({adminCredentials: response.data}))
                 await router.push("/admin/dashboard")
                 setProcessing(false)
             } else {
@@ -51,12 +52,12 @@ function Login({ updateAdmin }) {
                     <form onSubmit={onFormSubmit}>
                         {printError(formError.unexpected)}
                         <div className="mb-3 form-group">
-                            <label htmlFor="email" className="form-label" required>Admin Email</label>
+                            <label htmlFor="email" className="form-label" >Admin Email</label>
                             <input name="email" type="text" className="form-control" id="email" aria-describedby="email" value={email} onChange={e => setEmail(e.target.value)} required/>
                             {printError(formError.email)}
                         </div>
                         <div className="mb-3 form-group">
-                            <label htmlFor="password" className="form-label" required>Password</label>
+                            <label htmlFor="password" className="form-label">Password</label>
                             <input name="password" type="password" className="form-control" id="password" aria-describedby="password" value={password} onChange={e => setPassword(e.target.value)} required/>
                             {printError(formError.password)}
                         </div>
@@ -70,4 +71,4 @@ function Login({ updateAdmin }) {
     )
 }
 
-export default connect(null, {updateAdmin})(Login)
+export default Login

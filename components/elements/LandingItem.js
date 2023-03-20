@@ -1,26 +1,8 @@
-import useWindowDimensions from "../../hooks/useWindowDimensions";
 import Image from "next/image";
 
 
 
-function LandingItem({title, image, multiple,textColor,subhead,pTag}) {
-
-    const [windowDimension] = useWindowDimensions()
-
-    const renderFirstImg = () => {
-        if (windowDimension){
-            const {width} = windowDimension
-            return width < 768 ? image[0] : image[1]
-        }else return null
-    }
-
-    const renderImage = () => {
-        if (multiple){
-           return renderFirstImg()
-        }else {
-            return image
-        }
-    }
+function LandingItem({title, image,textColor,subhead,pTag}) {
 
     return(
         <div>
@@ -28,7 +10,7 @@ function LandingItem({title, image, multiple,textColor,subhead,pTag}) {
             <div className="landing-section">
 
                 <div className="backgroundImg"
-                     style={{backgroundImage: `url('${renderImage()}')`}}>
+                     style={{backgroundImage: `url('${image}')`}}>
                 </div>
 
                 <div className={`top-title ${textColor}`}>

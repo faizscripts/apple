@@ -660,7 +660,7 @@ body {
 
 .reviews {
 
-  h7 {
+  .h-seven {
     font-size: 14px;
   }
 
@@ -925,13 +925,19 @@ body {
   left: 0;
   bottom: 0;
   background-color: #efefef;
-  margin-top: 52px;
+  margin-top: 5px;
 
   .footer-top {
     padding-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .accordion{
+    display: none;
+  }
+  .collapse-medium{
+    display: flex;
   }
 
   h1 {

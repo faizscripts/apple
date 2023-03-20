@@ -1,5 +1,3 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faStar} from "@fortawesome/free-solid-svg-icons";
 
 function Reviews() {
     return (
@@ -13,10 +11,10 @@ function Reviews() {
                 <p className='mt-4'>Your email address will not be published. Required fields are marked <span
                     style={{color: 'red'}}>*</span></p>
                 <div className='mt-4'>
-                    <h7>Your Rating <span style={{color: 'red'}}>*</span></h7>
+                    <h7 className="h-seven">Your Rating <span style={{color: 'red'}}>*</span></h7>
                 </div>
                 <div className='mt-4'>
-                    <h7>Your Review <span style={{color: 'red'}}>*</span></h7>
+                    <h7 className="h-seven">Your Review <span style={{color: 'red'}}>*</span></h7>
                     <form>
                         <div className="form-floating mb-3">
                                     <textarea className="form-control comments" placeholder="Leave a comment here"

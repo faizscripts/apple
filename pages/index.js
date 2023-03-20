@@ -1,6 +1,5 @@
 import UserLayout from "../layout/UserLayout";
 import LandingItem from "../components/elements/LandingItem";
-import heroImage1 from "../public/images/landing/iphone14sm.jpg";
 import heroImage2 from "../public/images/landing/iphone14.jpg";
 import section2 from "../public/images/landing/heroSec2.jpg";
 import section3 from "../public/images/landing/heroSec3.jpg";
@@ -16,12 +15,12 @@ import Footer from "../components/Footer";
 function HomePage() {
     return (
         <>
+
             <Navbar />
             <div className='landing'>
                 <LandingItem title='iPhone 14 Pro'
                              subhead ='Pro. Beyond.'
-                             multiple={true}
-                             image={[heroImage1.src,heroImage2.src]}
+                             image={heroImage2.src}
                              textColor='text-white'/>
 
                 <LandingItem title='iPhone 14'
@@ -67,7 +66,5 @@ function HomePage() {
 
     )
 }
-
-// HomePage.pageLayout = UserLayout
 
 export default HomePage

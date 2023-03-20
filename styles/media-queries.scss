@@ -1,14 +1,7 @@
+@import "variables";
+
 //large
 @media (max-width: 1199.98px) {
-
-  .footer{
-    .accordion{
-      display: none;
-    }
-    .collapse-medium{
-      display: flex;
-    }
-  }
 
   #admin {
     .mainPanel {
@@ -429,8 +422,7 @@
         flex-wrap: wrap;
 
         .chart-container {
-          margin: auto;
-          margin-top: 1.2rem;
+          margin: 1.2rem auto auto;
           padding: 1rem;
           height: 250px;
           width: 470px;

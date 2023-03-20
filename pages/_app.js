@@ -2,7 +2,8 @@ import {useEffect} from "react";
 import Head from "next/head";
 import '../styles/globals.scss';
 import "bootstrap/dist/css/bootstrap.min.css"
-import {wrapper} from "../store/store";
+import {Provider} from "react-redux";
+import {store} from "../redux/store";
 
 function MyApp({Component, pageProps}) {
 
@@ -13,12 +14,17 @@ function MyApp({Component, pageProps}) {
     function renderLayout() {
         if (Component.pageLayout) {
             return (
-                <Component.pageLayout>
-                    <Component {...pageProps} />
-                </Component.pageLayout>
+                <Provider store={store}>
+                    <Component.pageLayout>
+                        <Component {...pageProps} />
+                    </Component.pageLayout>
+                </Provider>
+
             )
         } else {
-            return <Component {...pageProps} />
+            return <Provider store={store}>
+                        <Component {...pageProps} />
+                   </Provider>
         }
     }
 
@@ -37,4 +43,4 @@ function MyApp({Component, pageProps}) {
     )
 }
 
-export default wrapper.withRedux(MyApp)
+export default MyApp
