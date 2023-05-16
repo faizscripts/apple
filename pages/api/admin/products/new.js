@@ -1,33 +1,62 @@
 import _ from "lodash";
-import nextConnect from 'next-connect';
+import { IncomingForm } from 'formidable'
+import mv from 'mv'
 import connectDB from "../../../../utils/db";
-import { Product, validate } from "../../../../models/admin/products";
+import { Product } from "../../../../models/admin/products";
+
+export const config = {
+    api: {
+        bodyParser: false,
+    }
+};
 
 export default async function handler(req, res) {
     try {
         await connectDB()
 
-        let formError = {}
+        const productImages = [];
 
-        console.log('req.body', req.body)
+        await new Promise((resolve, reject) => {
+            const form = new IncomingForm();
 
-        const {error} = validate(req.body);
-        console.log('error', error)
-        if (error) {
-            formError.validate = error.details[0]
-            return res.status(200).json(formError)
-        }
+            form.on('file', (field, file) => {
+                const oldPath = file.filepath;
+                const newFilename = `${file.newFilename}-${file.originalFilename}`;
+                productImages.push({filename: newFilename})
+                const newPath = `./public/images/products/${newFilename}`;
 
-        const product = new Product(
-            _.pick(req.body,
-                ['product_name', 'categoryID', 'description', 'inBox', 'quantity', 'wholesale_price', 'price', 'status'])
-        );
+                mv(oldPath, newPath, function(err) {
+                    if (err) reject(err);
+                    else resolve(newFilename);
+                });
+            });
 
-        await product.save()
+            form.on('error', (err) => {
+                reject(err);
+            });
 
-        res.status(200).json(product)
+            form.on('end', () => {
+                resolve();
+            });
+
+            form.parse(req, async (err, fields, files) => {
+                if (err) return reject(err);
+
+                const product = new Product(
+                    _.pick(fields,
+                        ['product_name', 'categoryID', 'description', 'quantity', 'wholesale_price', 'price', 'status'])
+                );
+
+                product.product_images = productImages;
+
+                await product.save()
+
+                res.status(200).json(product);
+                return resolve();
+            });
+        });
 
     } catch (e) {
-        res.status(500).end()
+        res.status(500).json(e).end()
     }
 }
