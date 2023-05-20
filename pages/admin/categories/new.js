@@ -2,7 +2,7 @@ import { useState } from "react";
 import AdminLayout from "../../../layout/AdminLayout";
 import CategoryForm from "../../../components/admin/CategoryForm";
 
-function New() {
+function NewCategory() {
 
     const [category_name, setCategoryName] = useState("")
 
@@ -14,6 +14,6 @@ function New() {
     )
 }
 
-New.pageLayout = AdminLayout
+NewCategory.pageLayout = AdminLayout
 
-export default New
+export default NewCategory

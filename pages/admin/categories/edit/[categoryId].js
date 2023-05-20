@@ -5,7 +5,7 @@ import connectDB from "../../../../utils/db";
 import { Category } from "../../../../models/admin/categories";
 import CategoryForm from "../../../../components/admin/CategoryForm";
 
-function Edit({ category }) {
+function EditCategory({ category }) {
 
     const [category_name, setCategoryName] = useState(category.category_name)
 
@@ -18,9 +18,9 @@ function Edit({ category }) {
     )
 }
 
-Edit.pageLayout = AdminLayout
+EditCategory.pageLayout = AdminLayout
 
-export default Edit
+export default EditCategory
 
 export async function getServerSideProps(context) {
     const { params } = context

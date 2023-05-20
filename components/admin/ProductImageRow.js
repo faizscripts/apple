@@ -1,6 +1,16 @@
 import {v4 as uuidv4} from "uuid";
+import {useEffect} from "react";
 
-function ProductImageRow({images, setImages}) {
+function ProductImageRow({images, setImages, newEntry}) {
+
+    useEffect(() => {
+        images.forEach(
+            image => {
+                image.id = newEntry ? image.id : image._id;
+            }
+        )
+    }, [images, newEntry])
+
     const addImage = () => {
         if (images.length < 10) {
             setImages([...images, { id: uuidv4() }]);
@@ -29,7 +39,7 @@ function ProductImageRow({images, setImages}) {
     const renderImages = () => {
         return images.map((image, index) => (
             <div key={image.id} className="col-2 card imageCard">
-                <img src={image.file ? URL.createObjectURL(image.file) : '...'} className="imgCol" />
+                <img src={image.file ? URL.createObjectURL(image.file) : `/images/products/${image.filename}`} className="imgCol" />
                 <div className="card-body d-flex justify-content-evenly">
                     <label htmlFor={`image-${image.id}`} className="image-card-actions">
                         edit

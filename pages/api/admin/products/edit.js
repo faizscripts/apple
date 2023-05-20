@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     try {
         await connectDB()
 
-        const productImages = [];
+        const updatedProductImages = [];
 
         await new Promise((resolve, reject) => {
             const form = new IncomingForm();
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
             form.on('file', (field, file) => {
                 const oldPath = file.filepath;
                 const newFilename = `${file.newFilename}-${file.originalFilename}`;
-                productImages.push({filename: newFilename})
+                updatedProductImages.push({filename: newFilename})
                 const newPath = `./public/images/products/${newFilename}`;
 
                 mv(oldPath, newPath, function(err) {
@@ -42,16 +42,22 @@ export default async function handler(req, res) {
             form.parse(req, async (err, fields, files) => {
                 if (err) return reject(err);
 
-                const product = new Product(
-                    _.pick(fields,
-                        ['product_name', 'categoryId', 'description', 'quantity', 'wholesale_price', 'price', 'status'])
-                );
+                let count = 0;
 
-                product.product_images = productImages;
+                const mergedProductImages = Object.keys(fields)
+                    .filter(key => key.includes('image-'))
+                    .map(key => fields[key] === 'false' ? {filename: updatedProductImages[count++].filename} : {filename: fields[key]});
+
+                const product = await Product.findByIdAndUpdate(fields.productId,
+                        _.pick(fields, ['product_name', 'categoryId', 'description', 'quantity', 'wholesale_price', 'price', 'status']),
+                    {new: true});
+
+                product.product_images = mergedProductImages;
 
                 await product.save()
 
                 res.status(200).json(product);
+
                 return resolve();
             });
         });

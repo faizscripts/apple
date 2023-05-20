@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { printError } from "../../utils/helpers";
 import ProductImageRow from "./ProductImageRow";
 
-function ProductForm({ newEntry, product_name, setProductName, quantity, setQuantity, wholesale_price, setWholesalePrice, price, setPrice, description, setDescription, categories }) {
+function ProductForm({ newEntry, productId, product_name, setProductName, categoryId, setCategoryId, quantity, setQuantity, wholesale_price, setWholesalePrice, price, setPrice, description, setDescription, status, productImages, categories }) {
 
     const operation = newEntry ? "new" : "edit"
 
@@ -14,9 +14,8 @@ function ProductForm({ newEntry, product_name, setProductName, quantity, setQuan
 
     const [processing, setProcessing] = useState(false)
     const [formError, setFormError] = useState({})
-    const [categoryId, setCategoryId] = useState("")
-    const [status, setStatus] = useState(true)
-    const [images, setImages] = useState([{ id: uuidv4() }]);
+    const [formStatus, setFormStatus] = useState((typeof status !== 'undefined') ? status : true)
+    const [images, setImages] = useState(productImages || [{ id: uuidv4() }]);
 
     function printCategories() {
         if (categories.length>0){
@@ -27,11 +26,16 @@ function ProductForm({ newEntry, product_name, setProductName, quantity, setQuan
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
-        images.forEach((image) => {
+        images.forEach((image, index) => {
             if (image.file) {
                 formData.append('images', image.file);
+                formData.append(`image-${index}`, false)
+                return;
             }
+
+            formData.append(`image-${index}`, image.filename)
         });
+        formData.append('productId', productId);
         formData.append('operation', operation);
         formData.append('product_name', product_name);
         formData.append('categoryId', categoryId);
@@ -39,7 +43,7 @@ function ProductForm({ newEntry, product_name, setProductName, quantity, setQuan
         formData.append('quantity', quantity);
         formData.append('wholesale_price', wholesale_price);
         formData.append('price', price);
-        formData.append('status', status);
+        formData.append('status', formStatus);
 
         try {
             setProcessing(true)
@@ -81,7 +85,7 @@ function ProductForm({ newEntry, product_name, setProductName, quantity, setQuan
 
                     <div className="mb-3 col form-group">
                         <label htmlFor="description" className="form-label subHeading">Description</label>
-                        <textarea className="form-control" id="description" rows="5" value={description} onChange={e => setDescription(e.target.value)} ></textarea>
+                        <textarea className="form-control" id="description" rows="10" value={description} onChange={e => setDescription(e.target.value)} ></textarea>
                     </div>
 
                     <div className="table-responsive">
@@ -112,14 +116,14 @@ function ProductForm({ newEntry, product_name, setProductName, quantity, setQuan
 
                     <div className="mb-4">
                         <div className="subHeading">IMAGES</div>
-                        <ProductImageRow images={images} setImages={setImages}/>
+                        <ProductImageRow images={images} setImages={setImages} newEntry={newEntry}/>
                     </div>
 
                     <div className="my-3 d-flex justify-content-evenly">
                         <div>
                             <span id="visibility" className="mt-3">Visibility</span>
                             <label className="switch">
-                                <input type="checkbox" name="status" className="visibilitySwitch" onChange={() => setStatus(!status)} checked={status} />
+                                <input type="checkbox" name="formStatus" className="visibilitySwitch" onChange={() => setFormStatus(!formStatus)} checked={formStatus} />
                                     <span className="slider round"></span>
                             </label>
                         </div>
@@ -128,7 +132,7 @@ function ProductForm({ newEntry, product_name, setProductName, quantity, setQuan
                         </button>
                         <Link href="/admin/products">
                             <a className="btn btn-secondary save">
-                                CANCEL
+                                Cancel
                             </a>
                         </Link>
                     </div>
