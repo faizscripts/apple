@@ -4,7 +4,7 @@ import axios from "axios";
 import Link from "next/link";
 import { printError } from "../../utils/helpers";
 
-function CategoryForm({ newEntry, category_name, setCategoryName }) {
+function CategoryForm({ newEntry, category_name, setCategoryName, categoryId }) {
 
     const operation = newEntry ? "new" : "edit"
 
@@ -18,7 +18,7 @@ function CategoryForm({ newEntry, category_name, setCategoryName }) {
 
         try {
             setProcessing(true)
-            const response = await axios.post(`/api/admin/categories/${operation}`, { operation, category_name })
+            const response = await axios.post(`/api/admin/categories/${operation}`, { operation, category_name, categoryId })
 
             if (response.data._id) {
                 await router.push("/admin/categories")

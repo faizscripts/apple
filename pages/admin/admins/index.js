@@ -1,9 +1,13 @@
+import {useState} from "react";
 import Link from "next/link";
 import AdminLayout from "../../../layout/AdminLayout";
 import connectDB from "../../../utils/db";
 import { Admin } from "../../../models/admin/admins";
+import DeleteModal from '../../../components/admin/DeleteModal';
 
-function Index({ admins }) {
+function Index({ rawAdmins }) {
+
+    const [admins, setAdmins] = useState(rawAdmins)
 
     const renderAdmins = admins.map(
         admin => {
@@ -13,6 +17,9 @@ function Index({ admins }) {
                     <td style={{textTransform:"capitalize"}}>{admin.admin_name}</td>
                     <td><a href="mailto:{admin.email}"> {admin.email}</a></td>
                     <td><a href="tel:0{admin.phone}">0{admin.phone}</a></td>
+                    <td>
+                        <DeleteModal itemId={admin._id} itemName={admin.admin_name} setItem={setAdmins} url={'/api/admin/admins/delete'} />
+                    </td>
                 </tr>
             )
         }
@@ -35,6 +42,7 @@ function Index({ admins }) {
                         <th scope="col" className="tableHeader" style={{textTransform:"capitalize"}}>Name</th>
                         <th scope="col" className="tableHeader">Email</th>
                         <th scope="col" className="tableHeader">Phone</th>
+                        <th scope="col" className="tableHeader">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -53,8 +61,8 @@ export default Index
 export async function getServerSideProps() {
     await connectDB()
     const data = await Admin.find().collation({locale: "en" }).sort('admin_name');
-    const admins = JSON.parse(JSON.stringify(data))
+    const rawAdmins = JSON.parse(JSON.stringify(data))
     return {
-        props: { admins }
+        props: { rawAdmins }
     }
 }

@@ -7,6 +7,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEdit, faTrashAlt} from "@fortawesome/free-solid-svg-icons";
 import {hideModal, printError, showModal} from "../../../utils/helpers";
 import axios from "axios";
+import DeleteModal from '../../../components/admin/DeleteModal';
 
 function Index({ rawProducts }) {
 
@@ -44,32 +45,7 @@ function Index({ rawProducts }) {
                         <div>
                             <Link href={`/admin/products/edit/${product._id}`}><FontAwesomeIcon icon={faEdit} className="table-icon edit"/></Link>
 
-                            <div className="deleteForm ms-4">
-                                <button type="button" className="formBtn" onClick={() => showModal(modalRef)}>
-                                    <FontAwesomeIcon icon={faTrashAlt} className="table-icon"/>
-                                </button>
-                            </div>
-
-                            <div ref={modalRef} className="modal fade show" tabIndex="-1" aria-labelledby="categoryModal" aria-hidden="true">
-                                <div className="modal-dialog modal-dialog-centered">
-                                    <div className="modal-content">
-                                        <form onSubmit={(event) => deleteProduct(event, product._id)}>
-                                            <div className="modal-body">
-                                                {printError(formError.unexpected)}
-                                                <p><b>DELETE</b> {product.product_name}?</p>
-                                            </div>
-                                            <div className="modal-footer">
-                                                <button type="button" className="btn btn-secondary" onClick={() => hideModal(modalRef, setFormError)}>
-                                                    Cancel
-                                                </button>
-                                                <button className="btn btn-danger" type="submit">
-                                                    Confirm
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                            <DeleteModal itemId={product._id} itemName={product.product_name} setItem={setProducts} url={'/api/admin/products/delete'} />
                         </div>
                     </td>
                 </tr>

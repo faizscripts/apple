@@ -1,15 +1,15 @@
 import {v4 as uuidv4} from "uuid";
 import {useEffect} from "react";
 
-function ProductImageRow({images, setImages, newEntry}) {
+function ProductImageRow({images, setImages}) {
 
     useEffect(() => {
         images.forEach(
             image => {
-                image.id = newEntry ? image.id : image._id;
+                image.id = image._id ?? image.id;
             }
         )
-    }, [images, newEntry])
+    }, [images])
 
     const addImage = () => {
         if (images.length < 10) {

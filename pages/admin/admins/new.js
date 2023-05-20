@@ -7,7 +7,7 @@ import { printError } from "../../../utils/helpers";
 import {setAdmin} from "../../../redux/features/admin";
 import {useDispatch} from "react-redux";
 
-function New() {
+function NewAdmin() {
     const router = useRouter()
     const dispatch = useDispatch()
 
@@ -24,7 +24,7 @@ function New() {
 
         try {
             setProcessing(true)
-            const response = await axios.post("/api/admin/admins", {admin_name, email, phone, password, confirm})
+            const response = await axios.post("/api/admin/admins/new", {admin_name, email, phone, password, confirm})
 
             if (response.data._id) {
                 dispatch(setAdmin({adminCredentials: response.data}))
@@ -90,6 +90,6 @@ function New() {
     )
 }
 
-New.pageLayout = AdminLayout
+NewAdmin.pageLayout = AdminLayout
 
-export default New
+export default NewAdmin

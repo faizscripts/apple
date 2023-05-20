@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     try {
         await connectDB()
 
-        const category = await Category.findByIdAndDelete(req.body.categoryId);
+        const category = await Category.findByIdAndDelete(req.body.itemId);
 
         if (!category) return res.status(500).end()
 

@@ -116,7 +116,7 @@ function ProductForm({ newEntry, productId, product_name, setProductName, catego
 
                     <div className="mb-4">
                         <div className="subHeading">IMAGES</div>
-                        <ProductImageRow images={images} setImages={setImages} newEntry={newEntry}/>
+                        <ProductImageRow images={images} setImages={setImages} />
                     </div>
 
                     <div className="my-3 d-flex justify-content-evenly">
