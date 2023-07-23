@@ -54,7 +54,7 @@ export default async function handler(req, res) {
 
                 product.product_images = mergedProductImages;
 
-                await product.save()
+                await product.save();
 
                 res.status(200).json(product);
 

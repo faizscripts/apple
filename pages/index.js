@@ -1,4 +1,3 @@
-import UserLayout from "../layout/UserLayout";
 import LandingItem from "../components/elements/LandingItem";
 import heroImage2 from "../public/images/landing/iphone14.jpg";
 import section2 from "../public/images/landing/heroSec2.jpg";
@@ -10,13 +9,15 @@ import section6 from "../public/images/landing/heroSec6.jpg";
 import section7 from "../public/images/landing/heroSec7.jpg";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import connectDB from '../utils/db';
+import { Category } from '../models/admin/categories';
 
 
-function HomePage() {
+function HomePage({categories}) {
     return (
         <>
 
-            <Navbar />
+            <Navbar categories={categories} />
             <div className='landing'>
                 <LandingItem title='iPhone 14 Pro'
                              subhead ='Pro. Beyond.'
@@ -68,3 +69,12 @@ function HomePage() {
 }
 
 export default HomePage
+
+export async function getServerSideProps() {
+    await connectDB()
+    const data = await Category.find();
+    const categories = JSON.parse(JSON.stringify(data))
+    return {
+        props: { categories }
+    }
+}

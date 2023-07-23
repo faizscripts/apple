@@ -3,6 +3,7 @@ import { IncomingForm } from 'formidable'
 import mv from 'mv'
 import connectDB from "../../../../utils/db";
 import { Product } from "../../../../models/admin/products";
+import { Category } from '../../../../models/admin/categories';
 
 export const config = {
     api: {
@@ -49,7 +50,13 @@ export default async function handler(req, res) {
 
                 product.product_images = productImages;
 
-                await product.save()
+                await product.save();
+
+                await Category.findByIdAndUpdate(
+                    product.categoryId,
+                    { $push: { productIDs: product._id } },
+                    { new: true }
+                );
 
                 res.status(200).json(product);
                 return resolve();

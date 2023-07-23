@@ -6,12 +6,24 @@ import Link from 'next/link'
 import HomePage from "../pages";
 import {useState} from "react";
 
-function Navbar() {
+function Navbar({ categories }) {
     const [keyword,setKeyword]=useState('')
 
     const searchHandler = (e) =>{
         e.preventDefault()
 
+    }
+
+    const renderCategories = () => {
+      return categories?.map(
+          category => {
+            return (
+                <li key={category._id} className="nav-item">
+                    <Link className="nav-link  links " href={`/categories/${category._id}`}>{category.category_name}</Link>
+                </li>
+            )
+          }
+      )
     }
 
     return (
@@ -27,27 +39,7 @@ function Navbar() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-                        <li className="nav-item">
-                            <Link className="nav-link links" aria-current="page" href="/store">Store</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link  links " href="/macbook">Mac</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link links" href="/ipad">Ipad</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link links" href="/iphone">Iphone</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link links" href="/watch">Watch</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link links" href="/airpods">Airpods</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link links" href="/accessories">Accessories</Link>
-                        </li>
+                        {renderCategories()}
                     </ul>
                     <form className="d-flex input-icon me-3" role="search" onSubmit={searchHandler}>
                         <FontAwesomeIcon icon={faMagnifyingGlass} aria-hidden={false} className='search'/>

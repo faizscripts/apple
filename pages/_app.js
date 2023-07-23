@@ -19,7 +19,6 @@ function MyApp({Component, pageProps}) {
                         <Component {...pageProps} />
                     </Component.pageLayout>
                 </Provider>
-
             )
         } else {
             return <Provider store={store}>

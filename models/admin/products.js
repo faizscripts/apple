@@ -1,7 +1,5 @@
-import {models} from "mongoose";
-
-const mongoose = require('mongoose');
-const Joi = require('joi');
+import mongoose, {models} from "mongoose";
+import Joi from 'joi';
 
 const productSchema = new mongoose.Schema({
     product_name: {
@@ -57,48 +55,9 @@ const productSchema = new mongoose.Schema({
         min: 0,
         default: 0
     },
-    bp: {
-        type: Number,
-        min: 0
-    },
-    rate: {
-        type: Number,
-        min: 0,
-        default: 30.3
-    },
-    shipping: {
-        type: Number,
-        min: 0,
-        default: 100
-    },
-    profitP: {
-        type: Number,
-        min: 0,
-        default: 5
-    },
-    buying: {
-        type: Number,
-        min: 0
-    },
-    selling: {
-        type: Number,
-        min: 0
-    },
-    populateStatus: {
-        type: Boolean,
-        default: true
-    },
     optionItems:[{
         type: String
     }],
-    quantityHistory:[{
-        historyDate: {
-            type: Date,
-            default: Date.now
-        },
-        quantity: Number,
-        store_quantity: Number
-    }]
 });
 
 productSchema.index({product_name: "text"})

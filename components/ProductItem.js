@@ -4,7 +4,7 @@ import {faShoppingCart} from "@fortawesome/free-solid-svg-icons/faShoppingCart";
 import {faSearch} from "@fortawesome/free-solid-svg-icons/faSearch";
 import {useRef,useState} from "react";
 
-function ProductItem({img,category,price,productName,options,colors,icons}) {
+function ProductItem({images, price, productName, options, colors}) {
     const showIconRef=useRef(null)
     const showIconTextRef=useRef(null)
     const [cartColor,setCartColor]=useState(false)
@@ -30,15 +30,13 @@ function ProductItem({img,category,price,productName,options,colors,icons}) {
         showIconTextRef.current.classList.remove('p-tag')
     }
 
-    function changeCartIcon() {
+    function cartButton() {
        setCartColor(!cartColor)
     }
 
-    function changeHeartIcon() {
+    function wishlistButton() {
         setHeartColor(!heartColor)
     }
-
-
 
     function renderOptions() {
         if (options){
@@ -62,7 +60,6 @@ function ProductItem({img,category,price,productName,options,colors,icons}) {
             )
     }
 
-
     function renderedColor() {
         if (colors){
             return  (
@@ -79,29 +76,26 @@ function ProductItem({img,category,price,productName,options,colors,icons}) {
         }
     }
 
-    // function renderedIcons
-
 
   return(
       <div className='d-flex mt-4 main-product-container' onMouseOver={showIcon} onMouseLeave={hideIcon}>
           {renderOptions()}
           <div className='products-container'>
-              <img src={`./images/products/${img}`} alt="" className='product-image'/>
+              <img src={`/images/products/${images[0]?.filename}`} alt="" className='product-image'/>
               {renderedColor()}
               <div className='d-flex justify-content-center products-description'>
                   <div><h3 className='product-header mt-2 text-center'>{productName}</h3></div>
-                  <div><span className='product-name mt-2'>{category}</span></div>
                   <div><p className='price mt-2'>Ksh {price}</p></div>
               </div>
           </div>
           <div className='hover-container' ref={showIconRef}>
-                  <div  onClick={changeHeartIcon} className={heartColor?'icon-color hover-item':'hover-item'}>
-                          <p className='p-tag' ref={showIconTextRef}>Add to Wishlist</p>
-                          <FontAwesomeIcon icon={faHeart} className='icons mt-2'/>
-                  </div>
-              <div onClick={changeCartIcon} className={cartColor?'icon-color hover-item':'hover-item'}>
-                      <p className='p-tag add-to-cart mt-4'  ref={showIconTextRef}>Add to Cart</p>
-                      <FontAwesomeIcon icon={faShoppingCart} className='icons mt-4'/>
+              <div  onClick={wishlistButton} className={heartColor?'icon-color hover-item':'hover-item'}>
+                  <p className='p-tag' ref={showIconTextRef}>Add to Wishlist</p>
+                  <FontAwesomeIcon icon={faHeart} className='icons mt-2'/>
+              </div>
+              <div onClick={cartButton} className={cartColor?'icon-color hover-item':'hover-item'}>
+                  <p className='p-tag add-to-cart mt-4'  ref={showIconTextRef}>Add to Cart</p>
+                  <FontAwesomeIcon icon={faShoppingCart} className='icons mt-4'/>
               </div>
           </div>
       </div>

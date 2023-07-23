@@ -38,7 +38,7 @@ function ProductImageRow({images, setImages}) {
 
     const renderImages = () => {
         return images.map((image, index) => (
-            <div key={image.id} className="col-2 card imageCard">
+            <div key={image._id} className="col-2 card imageCard">
                 <img src={image.file ? URL.createObjectURL(image.file) : `/images/products/${image.filename}`} className="imgCol" />
                 <div className="card-body d-flex justify-content-evenly">
                     <label htmlFor={`image-${image.id}`} className="image-card-actions">

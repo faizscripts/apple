@@ -1,6 +1,6 @@
 import mongoose, { models } from "mongoose";
-const jwt = require('jsonwebtoken');
-const Joi =  require('joi');
+import jwt from 'jsonwebtoken';
+import Joi from 'joi';
 
 const adminSchema = new mongoose.Schema({
     admin_name: {
