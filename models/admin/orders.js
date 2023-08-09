@@ -5,12 +5,12 @@ const ordersSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    customerID: {
+    customerId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Customer'
     },
     products: [{
-        productID: {
+        productId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Product'
         },

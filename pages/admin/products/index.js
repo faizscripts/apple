@@ -29,6 +29,18 @@ function Index({ rawProducts }) {
         }
     }
 
+    const renderStatus = (status) => {
+      if (status) {
+          return (
+              <button className="btn btn-sm btn-success">ON</button>
+          )
+      } else {
+          return (
+              <button className="btn btn-sm btn-danger">OFF</button>
+          )
+      }
+    }
+
     const renderProducts = products.map(
         product => {
             return (
@@ -40,7 +52,7 @@ function Index({ rawProducts }) {
                     <td>{product.unitsSold}</td>
                     <td>{product.income}</td>
                     <td>{product.quantity}</td>
-                    <td></td>
+                    <td>{renderStatus(product.status)}</td>
                     <td>
                         <div>
                             <Link href={`/admin/products/edit/${product._id}`}><FontAwesomeIcon icon={faEdit} className="table-icon edit"/></Link>

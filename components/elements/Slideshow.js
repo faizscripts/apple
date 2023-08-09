@@ -1,32 +1,35 @@
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import Image from 'next/image';
+import { A11y, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-import 'swiper/css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-function Slideshow() {
+function Slideshow({ productImages }) {
+
+    const renderSwiperSlides = () => {
+        return productImages.map(
+            (productImage) => {
+                return(
+                    <SwiperSlide key={productImage._id} className="single-testimonial">
+                        <Image
+                            src={`/images/products/${productImage.filename}`}
+                            alt="iphone 11"
+                            height="490"
+                            width="490"/>
+                    </SwiperSlide>
+                )
+            }
+        )
+    }
 
     return(
-        <>
         <Swiper className="swiper-container"
                 modules={[Navigation, A11y]}
                 spaceBetween={50}
                 slidesPerView={1}
-                navigation
-        >
-                 <SwiperSlide className="single-testimonial"><img src="../images/product-view-page/iphone-main-img-11.png" alt="iphone 11" className='main-img'/></SwiperSlide>
-
-                 <SwiperSlide className="single-testimonial"><img src="../images/product-view-page/iphone-main-11-backside2.png" alt="iphone 11" className='main-img'/></SwiperSlide>
-
-                 <SwiperSlide className="single-testimonial"><img src="../images/product-view-page/iphone-main-11-64gb-cameraside.png" alt="iphone 11" className='main-img'/></SwiperSlide>
-
-                 <SwiperSlide className="single-testimonial"><img src="../images/product-view-page/iphone-main-11-back&front.png" alt="iphone 11" className='main-img'/></SwiperSlide>
-
-                 <SwiperSlide className="single-testimonial"><img src="../images/product-view-page/iphone-main-11-sideview.png" alt="iphone 11" className='main-img'/></SwiperSlide>
+                navigation>
+            {renderSwiperSlides()}
         </Swiper>
-
-      </>
     )
 }
 

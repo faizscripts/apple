@@ -67,7 +67,7 @@ export const Product = models ? models.Product || mongoose.model('Product', prod
 export function validate(product) {
     const schema =Joi.object({
         product_name: Joi.string().min(3).max(255).required(),
-        categoryID: Joi.string().min(3).max(255),
+        categoryId: Joi.string().min(3).max(255),
         description: Joi.string().optional().allow(''),
         inBox: Joi.string().optional().allow(''),
         quantity: Joi.number().required(),

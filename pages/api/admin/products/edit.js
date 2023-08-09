@@ -1,8 +1,8 @@
-import _ from "lodash";
+import _ from 'lodash';
 import { IncomingForm } from 'formidable'
-import mv from 'mv'
-import connectDB from "../../../../utils/db";
-import { Product } from "../../../../models/admin/products";
+import sharp from 'sharp';
+import connectDB from '../../../../utils/db';
+import { Product } from '../../../../models/admin/products';
 
 export const config = {
     api: {
@@ -21,14 +21,16 @@ export default async function handler(req, res) {
 
             form.on('file', (field, file) => {
                 const oldPath = file.filepath;
-                const newFilename = `${file.newFilename}-${file.originalFilename}`;
+                const newFilename = `${file.newFilename}-${file.originalFilename}.webp`;
                 updatedProductImages.push({filename: newFilename})
                 const newPath = `./public/images/products/${newFilename}`;
 
-                mv(oldPath, newPath, function(err) {
-                    if (err) reject(err);
-                    else resolve(newFilename);
-                });
+                sharp(oldPath)
+                    .toFormat('webp', { quality: 100 })
+                    .toFile(newPath, function (err) {
+                        if (err) reject(err);
+                        else resolve(newFilename);
+                    });
             });
 
             form.on('error', (err) => {

@@ -9,7 +9,7 @@ const categoriesSchema = new mongoose.Schema({
         trim: true,
         unique: true
     },
-    productIDs: [{
+    productIds: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Product'
     }],
