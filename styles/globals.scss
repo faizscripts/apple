@@ -21,6 +21,11 @@ body {
     color: $red;
     margin-bottom: 1rem;
   }
+  
+  .home-breadcrumb {
+    cursor: pointer;
+    color: #0d6efd;
+  }
 }
 
 * {
@@ -52,7 +57,6 @@ body {
 }
 
 .price {
-  color: #0066CC;
   font-weight: bolder;
 }
 
@@ -359,7 +363,7 @@ body {
 
   .icons {
     font-size: 21px;
-    margin-right: 8px;
+    cursor: pointer;
   }
 
   .compact-container {
@@ -370,15 +374,6 @@ body {
 
   h5 {
     font-size: 12px;
-  }
-
-  .product-image {
-    height: 220px;
-    width: 220px;
-  }
-
-  .main-product-container{
-    margin-right: 50px;
   }
 
   form{
@@ -434,12 +429,15 @@ body {
   }
 
   .products-description {
+    display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 6px;
   }
 
   .product-header {
     font-size: 14px;
+    text-align: center;
+    cursor: pointer;
   }
 
   .toggle-side-bar{
@@ -501,12 +499,19 @@ body {
 }
 
 .product-view-container {
-  margin-top: 50px;
+  padding: 3rem 0;
   display: flex;
   justify-content: center;
 
   .product-img{
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .slideshow-container {
+    display: flex;
+    gap: 6px;
   }
 
   .slide-img {
@@ -547,15 +552,9 @@ body {
     color: grey;
   }
 
-  .price {
-    color: #0066CC;
+  .pv-price {
     font-weight: bolder;
     font-size: 1.7rem;
-  }
-
-  li {
-    color: grey;
-    margin-bottom: 15px;
   }
 
   .div-colors {
@@ -568,20 +567,9 @@ body {
     font-size: 15px;
   }
 
-  a {
-    text-decoration: none;
-    font-size: 20px;
-    color: #919191;
-  }
-
   a:hover {
     cursor: pointer;
     color: #3f3e3e;
-  }
-
-  .active {
-    color: white;
-    background: black;
   }
 
   .red {
@@ -782,8 +770,7 @@ body {
 }
 
 .swiper-container {
-  margin-top: -300px;
-  width: 70%;
+  width: 100%;
 
   .single-testimonial {
     display: flex;
@@ -1664,7 +1651,7 @@ body {
 
   .card {
     padding: 0;
-    flex-basis: 16rem;
+    flex-basis: 18rem;
     margin: 1rem;
   }
 

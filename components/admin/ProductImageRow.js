@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import {v4 as uuidv4} from "uuid";
 import {useEffect} from "react";
 
@@ -39,7 +40,11 @@ function ProductImageRow({images, setImages}) {
     const renderImages = () => {
         return images.map((image, index) => (
             <div key={image._id} className="col-2 card imageCard">
-                <img src={image.file ? URL.createObjectURL(image.file) : `/images/products/${image.filename}`} className="imgCol" />
+                <Image
+                    src={ image.file ? URL.createObjectURL(image.file) : `/images/products/${image.filename}` }
+                    height="256"
+                    width="256"
+                    className="imgCol"/>
                 <div className="card-body d-flex justify-content-evenly">
                     <label htmlFor={`image-${image.id}`} className="image-card-actions">
                         edit
@@ -58,8 +63,8 @@ function ProductImageRow({images, setImages}) {
                     <span className="image-card-actions" onClick={() => addImage()}> add </span>
                 </div>
             </div>
-        ))
-    }
+        ));
+    };
 
     return(
         <div className="row imgRow">

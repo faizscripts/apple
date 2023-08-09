@@ -2,10 +2,17 @@ import { useState } from 'react';
 import Link from "next/link";
 import ProductItem from './ProductItem';
 import gadgets from '../public/images/categories/accessories-page-title.jpg'
+import Breadcrumb from './Breadcrumb';
 
 function CategoryPage({selectedCategory, categories, products}) {
 
     const [sort, setSort] = useState('latest')
+
+    const breadcrumbArray = [
+        {
+            name: selectedCategory.category_name,
+        },
+    ]
 
     const renderCategories = () => {
         return categories.map(
@@ -17,7 +24,7 @@ function CategoryPage({selectedCategory, categories, products}) {
                                 {category.category_name}
                             </h2>
                         </Link>
-                        <p>{category.productIDs.length} PRODUCTS</p>
+                        <p>{category.productIds?.length} PRODUCTS</p>
                     </div>
                 )
             }
@@ -47,6 +54,7 @@ function CategoryPage({selectedCategory, categories, products}) {
             return (
                 <ProductItem
                     key={product._id}
+                    productId={product._id}
                     price={product.price}
                     productName={product.product_name}
                     images={product.product_images} />
@@ -68,7 +76,7 @@ function CategoryPage({selectedCategory, categories, products}) {
             <div className='main-container row d-flex justify-content-center'>
                 <div className='products-container p-5'>
                     <div className='d-flex justify-content-between mt-3 mx-2'>
-                        <h3 className='header-products'><span>Home</span> / {selectedCategory.category_name}</h3>
+                        <Breadcrumb breadcrumbArray={breadcrumbArray} />
                         <div className='filter'>
                             <div className="dropdown me-5">
                                 <div className="dropdown-toggle dropdown-div" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -83,7 +91,7 @@ function CategoryPage({selectedCategory, categories, products}) {
                         </div>
                     </div>
                     <hr className='hr-medium-width'/>
-                    <div className='compact-container'>
+                    <div className='row'>
                         {renderProducts()}
                     </div>
                 </div>

@@ -76,7 +76,7 @@ function ProductForm({ newEntry, productId, product_name, setProductName, catego
                         </div>
                         <div className="col-md-6 form-group">
                             <label htmlFor="category" className="form-label" required>Category</label>
-                            <select className="form-select" aria-label="Select Category" id="category" name="categoryID" value={categoryId} onChange={(event) => setCategoryId(event.target.value)} required>
+                            <select className="form-select" aria-label="Select Category" id="category" name="categoryId" value={categoryId} onChange={(event) => setCategoryId(event.target.value)} required>
                                 <option value="">-Select a category-</option>
                                 {printCategories()}
                             </select>

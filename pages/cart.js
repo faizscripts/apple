@@ -21,16 +21,16 @@ function Cart() {
                     <h2 className='me-2'>KSh 72,000</h2>
                 </div>
                 <div className='d-flex justify-content-between'>
-                    <p className='delete ms-2 mt-1'><FontAwesomeIcon icon={faTrash} aria-hidden='trash'/> REMOVE</p>
+                    <p className='delete ms-2 mt-1'><FontAwesomeIcon icon={faTrash}/> REMOVE</p>
                     <div className="no-items me-2">
                         <div className="minus text-black-50">
-                            <FontAwesomeIcon icon={faMinus} aria-hidden='minus' className='icon-symbols'/>
+                            <FontAwesomeIcon icon={faMinus} className='icon-symbols'/>
                         </div>
                         <div className='text-black-50'>
                             <p1 className="icon-no">0</p1>
                         </div>
                         <div className="add text-black-50" >
-                            <FontAwesomeIcon icon={faPlus} aria-hidden='plus' className='icon-symbols'/>
+                            <FontAwesomeIcon icon={faPlus} className='icon-symbols'/>
                         </div>
                     </div>
                 </div>
@@ -48,16 +48,16 @@ function Cart() {
                         <h2 className='me-2'>KSh 72,000</h2>
                     </div>
                     <div className='d-flex justify-content-between'>
-                        <p className='delete ms-2 mt-1'><FontAwesomeIcon icon={faTrash} aria-hidden='trash'/> REMOVE</p>
+                        <p className='delete ms-2 mt-1'><FontAwesomeIcon icon={faTrash}/> REMOVE</p>
                         <div className="no-items me-2">
                             <div className="minus text-black-50">
-                                <FontAwesomeIcon icon={faMinus} aria-hidden='minus' className='icon-symbols'/>
+                                <FontAwesomeIcon icon={faMinus} className='icon-symbols'/>
                             </div>
                             <div className='text-black-50'>
                                 <p1 className="icon-no">0</p1>
                             </div>
                             <div className="add text-black-50" >
-                                <FontAwesomeIcon icon={faPlus} aria-hidden='plus' className='icon-symbols'/>
+                                <FontAwesomeIcon icon={faPlus} className='icon-symbols'/>
                             </div>
                         </div>
                     </div>

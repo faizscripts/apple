@@ -41,8 +41,7 @@ const DeleteModal = ({itemId, itemName, setItem, url }) => {
                                 <p><b>DELETE</b> {itemName}?</p>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary"
-                                        onClick={() => hideModal(modalRef, setFormError)}>
+                                <button type="button" className="btn btn-secondary" onClick={() => hideModal(modalRef, setFormError)}>
                                     Cancel
                                 </button>
                                 <button className="btn btn-danger" type="submit">
