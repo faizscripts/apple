@@ -39,7 +39,7 @@ function ProductImageRow({images, setImages}) {
 
     const renderImages = () => {
         return images.map((image, index) => (
-            <div key={image._id} className="col-2 card imageCard">
+            <div key={Math.random()} className="col-2 card imageCard">
                 <Image
                     src={ image.file ? URL.createObjectURL(image.file) : `https://monza.co.ke/img/products/${image.filename}` }
                     height="256"
@@ -55,8 +55,7 @@ function ProductImageRow({images, setImages}) {
                         name={`image-${image.id}`}
                         accept="image/*"
                         hidden
-                        onChange={(event) => handleImageChange(event, image.id)}
-                    />
+                        onChange={(event) => handleImageChange(event, image.id)} />
                     {index !== 0 && (
                         <span className="image-card-actions" onClick={() => deleteImage(image.id)}> delete </span>
                     )}
