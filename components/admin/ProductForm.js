@@ -5,6 +5,7 @@ import Link from "next/link";
 import { v4 as uuidv4 } from 'uuid';
 import { printError } from "../../utils/helpers";
 import ProductImageRow from "./ProductImageRow";
+import RichTextEditor from './RichTextEditor';
 
 function ProductForm({ newEntry, productId, product_name, setProductName, categoryId, setCategoryId, quantity, setQuantity, wholesale_price, setWholesalePrice, price, setPrice, description, setDescription, status, productImages, categories }) {
 
@@ -85,7 +86,7 @@ function ProductForm({ newEntry, productId, product_name, setProductName, catego
 
                     <div className="mb-3 col form-group">
                         <label htmlFor="description" className="form-label subHeading">Description</label>
-                        <textarea className="form-control" id="description" rows="10" value={description} onChange={e => setDescription(e.target.value)} ></textarea>
+                        <RichTextEditor text={description} setText={setDescription} />
                     </div>
 
                     <div className="table-responsive">

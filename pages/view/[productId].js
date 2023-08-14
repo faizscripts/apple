@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import mongoose from 'mongoose';
+import parse from 'html-react-parser';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import connectDB from '../../utils/db';
@@ -67,7 +68,7 @@ function ProductViewComponent({ product, category }) {
                     <h1 className='mt-3 pv-price'>Ksh {product.price}</h1>
                     <div className={product.description ? 'd-block' : 'd-none'}>
                         <h5 className='mt-3 mb-4'>Key Features:</h5>
-                        {product.description}
+                        {parse(product.description)}
                     </div>
                     <div className='mt-4 d-flex'>
                         <div className="no-items">

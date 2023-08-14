@@ -14,7 +14,6 @@ export default async function handler(req, res) {
         res.status(200).json(admins)
 
     } catch (e) {
-        console.log('in catch', e)
         res.status(500).end()
     }
 }
