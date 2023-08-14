@@ -41,7 +41,7 @@ function ProductImageRow({images, setImages}) {
         return images.map((image, index) => (
             <div key={image._id} className="col-2 card imageCard">
                 <Image
-                    src={ image.file ? URL.createObjectURL(image.file) : `/images/products/${image.filename}` }
+                    src={ image.file ? URL.createObjectURL(image.file) : `https://monza.co.ke/img/products/${image.filename}` }
                     height="256"
                     width="256"
                     className="imgCol"/>

@@ -12,8 +12,8 @@ function Slideshow({ productImages }) {
                 return(
                     <SwiperSlide key={productImage._id} className="single-testimonial">
                         <Image
-                            src={`/images/products/${productImage.filename}`}
-                            alt="iphone 11"
+                            src={`https://monza.co.ke/img/products/${productImage.filename}`}
+                            alt={productImage.filename}
                             height="490"
                             width="490"/>
                     </SwiperSlide>

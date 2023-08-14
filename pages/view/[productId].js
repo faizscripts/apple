@@ -43,7 +43,7 @@ function ProductViewComponent({ product, category }) {
                 return (
                     <Image
                         key={productImage._id}
-                        src={`/images/products/${productImage.filename}`}
+                        src={`https://monza.co.ke/img/products/${productImage.filename}`}
                         alt={productImage._id}
                         height="100"
                         width="100" />

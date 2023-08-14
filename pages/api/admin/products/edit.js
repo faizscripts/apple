@@ -21,12 +21,11 @@ export default async function handler(req, res) {
 
             form.on('file', (field, file) => {
                 const oldPath = file.filepath;
-                const newFilename = `${file.newFilename}-${file.originalFilename}.webp`;
+                const newFilename = `${file.newFilename}-${file.originalFilename}`;
                 updatedProductImages.push({filename: newFilename})
-                const newPath = `./public/images/products/${newFilename}`;
+                const newPath = `../monza/public/img/products/${newFilename}`;
 
                 sharp(oldPath)
-                    .toFormat('webp', { quality: 100 })
                     .toFile(newPath, function (err) {
                         if (err) reject(err);
                         else resolve(newFilename);

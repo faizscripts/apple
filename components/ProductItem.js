@@ -18,7 +18,7 @@ function ProductItem({productId, images, price, productName}) {
                 <Image
                     onClick={navigateToProductViewPage}
                     style={{cursor: "pointer"}}
-                    src={`/images/products/${images[0]?.filename}`}
+                    src={`https://monza.co.ke/img/products/${images[0]?.filename}`}
                     alt={productName}
                     height="250"
                     width="250"/>
