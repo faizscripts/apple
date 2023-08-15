@@ -2,9 +2,27 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPhone} from "@fortawesome/free-solid-svg-icons/faPhone";
 import {faLocation} from "@fortawesome/free-solid-svg-icons/faLocation";
 import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
+import {useSelector} from "react-redux";
+import Link from "next/link";
 
 
 function Footer() {
+
+    const categories = useSelector((state)=>state.categories)
+
+    const renderCategories = () => {
+        return categories?.map(
+            category => {
+                return (
+                    <li key={category._id} className="nav-item">
+                        <Link className="nav-link  links " href={`/categories/${category._id}`}>{category.category_name}</Link>
+                    </li>
+                )
+            }
+        )
+    }
+
+
     return (
         <div className='container-fluid footer'>
             <div className='container'>
@@ -26,26 +44,6 @@ function Footer() {
                                         <li className='mt-2 accordion-li'>Ipad</li>
                                         <li className='mt-2 accordion-li'>Iphone</li>
                                         <li className='mt-2 accordion-li'>Accessories</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="accordion-item">
-                            <h2 className="accordion-header" id="flush-headingTwo">
-                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                        aria-controls="flush-collapseTwo">
-                                    Customer Service
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" className="accordion-collapse collapse"
-                                 aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div className="accordion-body">
-                                    <ul>
-                                        <li className='mt-2 accordion-li'>Order Tracking</li>
-                                        <li className='mt-2 accordion-li'>About Us</li>
-                                        <li className='mt-2 accordion-li'>Careers</li>
-                                        <li className='mt-2 accordion-li'>Contacts</li>
                                     </ul>
                                 </div>
                             </div>
@@ -93,25 +91,13 @@ function Footer() {
                     </div>
 
                     <div className='collapse-medium'>
-                    <div className='products-section col-3'>
+                    <div className='products-section col-4'>
                         <h1>Products</h1>
                         <ul>
-                            <li>Macbook</li>
-                            <li>Ipad</li>
-                            <li>Iphone</li>
-                            <li>Accessories</li>
+                            {renderCategories()}
                         </ul>
                     </div>
-                    <div className='customer-service col-3'>
-                        <h1>Customer Service</h1>
-                        <ul>
-                            <li>Order Tracking</li>
-                            <li>About Us</li>
-                            <li>Careers</li>
-                            <li>Contacts</li>
-                        </ul>
-                    </div>
-                    <div className='socials-section col-3'>
+                    <div className='socials-section col-4'>
                         <h1>Socials</h1>
                         <ul>
                             <li><a href="#">Twitter</a></li>
@@ -120,7 +106,7 @@ function Footer() {
                             <li><a href="#">Linked In</a></li>
                         </ul>
                     </div>
-                    <div className='contacts col-3'>
+                    <div className='contacts col-4'>
                         <h1>Contacts</h1>
                         <ul>
                             <li>Apple Express Ltd</li>
@@ -133,7 +119,7 @@ function Footer() {
                 </div>
                 <hr/>
                 <div className='footer-bottom row'>
-                    <p className='col-md-12 col-lg-5'>Apple Express &copy; 2022 </p>
+                    <p className='col-md-12 col-lg-5'>Apple Express &copy; {new Date().getFullYear()} </p>
                     <div className='d-flex col-md-12 col-lg-7'>
                         <p className='me-5 p-border-right'>Terms & Conditions</p>
                         <p className='me-5 p-border-right'>Returns & Refunds Policy</p>

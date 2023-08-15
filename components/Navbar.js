@@ -3,11 +3,15 @@ import {faBagShopping} from "@fortawesome/free-solid-svg-icons";
 import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Link from 'next/link'
-import HomePage from "../pages";
-import {useState} from "react";
+import { useState} from "react";
+import { useSelector} from "react-redux";
 
-function Navbar({ categories }) {
+
+function Navbar() {
     const [keyword,setKeyword]=useState('')
+
+    const categories = useSelector((state)=>state.categories)
+
 
     const searchHandler = (e) =>{
         e.preventDefault()

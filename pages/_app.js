@@ -1,11 +1,18 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import Head from "next/head";
 import '../styles/globals.scss';
 import "bootstrap/dist/css/bootstrap.min.css"
 import {Provider} from "react-redux";
 import {store} from "../redux/store";
+import {useDispatch} from "react-redux";
+import {setCategories} from "../redux/features/categories";
+import connectDB from "../utils/db";
+import {Category} from "../models/admin/categories";
+import axios from "axios";
 
 function MyApp({Component, pageProps}) {
+
+
 
     useEffect(() => {
         window.bootstrap = require('bootstrap');
@@ -43,3 +50,5 @@ function MyApp({Component, pageProps}) {
 }
 
 export default MyApp
+
+
