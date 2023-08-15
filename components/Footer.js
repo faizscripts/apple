@@ -5,7 +5,6 @@ import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import {useSelector} from "react-redux";
 import Link from "next/link";
 
-
 function Footer() {
 
     const categories = useSelector((state)=>state.categories)
@@ -21,7 +20,6 @@ function Footer() {
             }
         )
     }
-
 
     return (
         <div className='container-fluid footer'>
@@ -89,7 +87,6 @@ function Footer() {
                             </div>
                         </div>
                     </div>
-
                     <div className='collapse-medium'>
                     <div className='products-section col-4'>
                         <h1>Products</h1>

@@ -6,16 +6,13 @@ import Link from 'next/link'
 import { useState} from "react";
 import { useSelector} from "react-redux";
 
-
 function Navbar() {
     const [keyword,setKeyword]=useState('')
 
     const categories = useSelector((state)=>state.categories)
 
-
     const searchHandler = (e) =>{
         e.preventDefault()
-
     }
 
     const renderCategories = () => {

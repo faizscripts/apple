@@ -9,36 +9,11 @@ import section6 from "../public/images/landing/heroSec6.jpg";
 import section7 from "../public/images/landing/heroSec7.jpg";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import {useEffect, useState} from "react";
-import connectDB from "../utils/db";
-import {setCategoriesList} from "../redux/features/categories";
-import {Category} from "../models/admin/categories";
-import axios from "axios";
-import {useDispatch} from "react-redux";
-
 
 function HomePage() {
 
-    // const dispatch = useDispatch()
-    //
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         try {
-    //             const res = await axios.get('api/admin/categories/get')
-    //             dispatch(setCategoriesList(res.data));
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    //     }
-    //
-    //     fetchData()
-    // }, []);
-
-
-
     return (
         <>
-
             <Navbar/>
             <div className='landing'>
                 <LandingItem title='iPhone 14 Pro'
@@ -59,8 +34,7 @@ function HomePage() {
 
                     <LandingSmallItem title='WATCH'
                                       subhead='Adventure awaits.'
-                                      image={section4.src}
-                    />
+                                      image={section4.src}/>
 
                     <LandingSmallItem title='WATCH'
                                       subhead='A healthy leap ahead.'
@@ -84,21 +58,10 @@ function HomePage() {
 
             </div>
             <Footer/>
-
         </>
-
     )
 }
 
 export default HomePage
 
-
-// export async function getServerSideProps() {
-//     await connectDB()
-//     const data = await Category.find();
-//     const categories = JSON.parse(JSON.stringify(data))
-//     return {
-//         props: { categories }
-//     }
-// }
 

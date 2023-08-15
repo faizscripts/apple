@@ -1,4 +1,3 @@
-// pages/api/categories.js
 import connectDB from "../../../../utils/db";
 import {Category} from "../../../../models/admin/categories";
 
