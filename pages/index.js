@@ -9,39 +9,35 @@ import section6 from "../public/images/landing/heroSec6.jpg";
 import section7 from "../public/images/landing/heroSec7.jpg";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import connectDB from '../utils/db';
-import { Category } from '../models/admin/categories';
 
+function HomePage() {
 
-function HomePage({categories}) {
     return (
         <>
-
-            <Navbar categories={categories} />
+            <Navbar/>
             <div className='landing'>
                 <LandingItem title='iPhone 14 Pro'
-                             subhead ='Pro. Beyond.'
+                             subhead='Pro. Beyond.'
                              image={heroImage2.src}
                              textColor='text-white'/>
 
                 <LandingItem title='iPhone 14'
-                             subhead ='Bigger and Bigger.'
+                             subhead='Bigger and Bigger.'
                              image={section2.src}/>
 
                 <LandingItem title='AirPods Pro'
-                             subhead ='Rebuilt from the sound up.'
+                             subhead='Rebuilt from the sound up.'
                              image={section3.src}
                              textColor='text-white'/>
 
                 <div className="row">
 
                     <LandingSmallItem title='WATCH'
-                                      subhead ='Adventure awaits.'
-                                      image={section4.src}
-                    />
+                                      subhead='Adventure awaits.'
+                                      image={section4.src}/>
 
                     <LandingSmallItem title='WATCH'
-                                      subhead ='A healthy leap ahead.'
+                                      subhead='A healthy leap ahead.'
                                       image={section5.src}
                                       textColor='text-white'/>
 
@@ -50,31 +46,22 @@ function HomePage({categories}) {
                 <div className="row">
 
                     <LandingSmallItem title='Fitness+'
-                                      subhead ='New Artist spotlight workouts with music by the weekend.'
+                                      subhead='New Artist spotlight workouts with music by the weekend.'
                                       image={section6.src}
                                       textColor='text-white'/>
 
                     <LandingSmallItem title='WATCH'
-                                      subhead ='A great deal to love.'
+                                      subhead='A great deal to love.'
                                       image={section7.src}/>
 
                 </div>
 
             </div>
-            <Footer />
-
+            <Footer/>
         </>
-
     )
 }
 
 export default HomePage
 
-export async function getServerSideProps() {
-    await connectDB()
-    const data = await Category.find();
-    const categories = JSON.parse(JSON.stringify(data))
-    return {
-        props: { categories }
-    }
-}
+
