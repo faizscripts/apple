@@ -42,7 +42,7 @@ function Navbar() {
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                         {renderCategories()}
                     </ul>
-                    <form className="d-flex input-icon me-3" role="search" onSubmit={searchHandler}>
+                    <form className="d-flex input-icon me-3 position-relative" role="search" onSubmit={searchHandler}>
                         <FontAwesomeIcon icon={faMagnifyingGlass} aria-hidden={false} className='search'/>
                         <input className="form-control me-2 input-field" type="search" placeholder="Search"
                                aria-label="Search"

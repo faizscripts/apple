@@ -7,14 +7,12 @@ import section4 from "../public/images/landing/heroSec4.jpg";
 import section5 from "../public/images/landing/heroSec5.jpg";
 import section6 from "../public/images/landing/heroSec6.jpg";
 import section7 from "../public/images/landing/heroSec7.jpg";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import userLayout from "../layout/UserLayout";
 
 function HomePage() {
 
     return (
         <>
-            <Navbar/>
             <div className='landing'>
                 <LandingItem title='iPhone 14 Pro'
                              subhead='Pro. Beyond.'
@@ -57,11 +55,11 @@ function HomePage() {
                 </div>
 
             </div>
-            <Footer/>
         </>
     )
 }
 
+HomePage.pageLayout=userLayout
 export default HomePage
 
 

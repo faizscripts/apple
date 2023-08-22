@@ -1,10 +1,15 @@
 @import "mixins";
 @import "variables";
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
-  padding: 0;
   margin: 0;
+  padding: 0;
+  height: 100%;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu !important;
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -28,8 +33,10 @@ body {
   }
 }
 
-* {
-  box-sizing: border-box;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .navbar{
@@ -785,13 +792,15 @@ body {
 
 .cart-container {
   display: flex;
+  position: relative;
+  flex: 1;
+  height: 100%;
   h1{
     font-size: 18px;
     margin: 10px;
   }
 
   .added-products {
-    background: #f3efef;
     height: 100%;
     width: 60%;
   }
@@ -802,6 +811,7 @@ body {
 
   .delete {
     color: orange;
+    cursor:pointer;
   }
 
   .items {
@@ -848,7 +858,6 @@ body {
   }
 
   .total-container {
-    background: #f3efef;
     height: 200px;
     width: 300px;
   }
@@ -860,6 +869,12 @@ body {
   button{
     width: 95%;
     margin-left: 6px;
+  }
+  .cart-empty{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -914,11 +929,9 @@ body {
 }
 
 .footer {
-  position: relative;
-  left: 0;
-  bottom: 0;
+  position: sticky;
+  top: 100%;
   background-color: #efefef;
-  margin-top: 5px;
 
   .footer-top {
     padding-top: 20px;
