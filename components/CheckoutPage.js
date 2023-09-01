@@ -1,6 +1,12 @@
 import Google from "./Map/Google";
+import {useSelector} from "react-redux";
 
 function CheckoutPage() {
+
+   const deliveryPrice =  useSelector(state=>state.deliveryPrice)
+   const productPrice = useSelector(state=>state.cart.cartTotalAmount)
+
+    const total = productPrice + deliveryPrice
 
     const onButtonClick = (e) => {
         e.preventDefault()
@@ -46,11 +52,6 @@ function CheckoutPage() {
                             <div className="mb-3 map-element">
                                 <label htmlFor="address" className="form-label" >Shipping Address</label>
                                 <Google />
-
-                            </div>
-                            <div className="text-center">
-                                <button type="submit" className="btn btn-primary" id="confirm info" onClick={onButtonClick}>Confirm Info
-                                </button>
                             </div>
                         </form>
                     </div>
@@ -69,15 +70,15 @@ function CheckoutPage() {
                             </div>
                             <div className=" d-flex justify-content-between">
                                 <div className="final-text">Subtotal <span>(ksh.)</span></div>
-                                <div className="final-price" id="cartTotal">60,000</div>
+                                <div className="final-price" id="cartTotal">{productPrice}</div>
                             </div>
                             <div className=" d-flex justify-content-between">
                                 <div className="final-text">Delivery Fee<span>(ksh.)</span></div>
-                                <div className="final-price" id="deliveryFee">300</div>
+                                <div className="final-price" id="deliveryFee">{deliveryPrice}</div>
                             </div>
                             <div className=" d-flex justify-content-between">
                                 <div className="final-text">Total <span>(ksh.)</span></div>
-                                <div className="final-price" id="checkoutTotal">60,300</div>
+                                <div className="final-price" id="checkoutTotal">{total}</div>
                             </div>
                             <span className="mt-2 text-muted" >*By placing an order, you&apos;re agreeing to our <a href="">terms and conditions</a></span>
 

@@ -1,33 +1,58 @@
-import {useLoadScript, GoogleMap, Marker, Autocomplete} from "@react-google-maps/api";
+import React, {useRef} from 'react';
+import {GoogleMap, LoadScript, MarkerF, Autocomplete, DirectionsRenderer} from '@react-google-maps/api';
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-import {useCallback, useMemo, useRef, useState} from "react";
-import Locate from "./Locate";
+import {useState} from "react";
+import {faMultiply} from "@fortawesome/free-solid-svg-icons/faMultiply";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {useDispatch} from "react-redux";
+import {setCost} from "../../redux/features/deliveryCost";
 
+const MapWithAutocomplete = () => {
+    const [directionResponse, setDirectionsResponse] = useState(null);
+    const [distance,setDistance] = useState('')
 
+    const center = { lat: -1.2836946, lng: 36.8287868};
 
-const libraries= ["places"];
+    const destinationRef = useRef()
 
+    const dispatch = useDispatch()
 
+   async function calculateRoute(e){
+        e.preventDefault()
 
-function Google() {
+        if (destinationRef.current.value === ''){
+            return
+        }
 
-    const mapRef = useRef()
+        const directionsService = new google.maps.DirectionsService()
 
-    const center = useMemo(() => (
-        {lat: -1.283733332480186, lng: 36.827665514486654}
-    ),[])
+         const results = await directionsService.route({
+             origin: new google.maps.LatLng(center.lat, center.lng),
+             destination:destinationRef.current.value,
+             travelMode:google.maps.TravelMode.DRIVING,
+         })
 
-    const options = useMemo(() => (
-        {disableDefaultUI: true,
-        zoomControl: true,
-        clickableIcons: false}
-    ),[])
+       const calculatedDistanceInMeters = results.routes[0].legs[0].distance.value;
 
-    const onMapLoad = useCallback((map) => {
-        mapRef.current = map;
+       const calculatedDistanceInKilometers = calculatedDistanceInMeters / 1000;
 
-    }, [])
+       const costInKsh = Math.max(calculatedDistanceInKilometers * 70, 100);
 
+       const roundedCostInKsh = Math.ceil(costInKsh);
+       setDistance(`${calculatedDistanceInKilometers} kilometers`);
+
+       dispatch(setCost(roundedCostInKsh))
+       console.log(distance)
+
+       setDirectionsResponse(results);
+}
+
+    function clearRoute(e) {
+        e.preventDefault();
+        setDirectionsResponse(null);
+        setDistance('');
+        destinationRef.current.value = '';
+    }
 
     const [windowDimension] = useWindowDimensions()
 
@@ -38,59 +63,51 @@ function Google() {
         }else return null
     }
 
-    const mapContainerStyle= {
+    const mapStyles = {
+        height: '400px',
         width: renderWidth(),
-        height: '500px',
-    }
+    };
 
-    const {isLoaded, loadError} = useLoadScript({
-        googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-        libraries,
-    })
-
-
-    const [value, setValue] = useState('')
-    const[selected, setSelected] = useState({})
-
-
-    if (loadError) return "Error Loading maps";
-    if (!isLoaded) return "Loading Maps";
-
-
-    return(
-        <div>
-
-            <Locate setSelected={(position) => {
-                setSelected(position);
-                mapRef.current.panTo(position);
-            }}/>
-
-            <GoogleMap
-                mapContainerStyle={mapContainerStyle}
-                zoom={16}
-                center={center}
-                options={options}
-                onLoad={onMapLoad}
-            >
-                <Marker position={center} />
-
-
-                <Autocomplete >
-                    <input
-                        type="text"
-                        placeholder="Enter Your Location"
-                        className="search-map"
-                        onChange={(event) => {
-                            setValue(event.target.value)
-                        }}
-                        value={value}
-                    />
-
+    return (
+        <LoadScript
+            googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+            libraries={['places']}
+        >
+            <div className='mb-3 position-relative d-flex'>
+                <Autocomplete
+                    onLoad={(autocomplete) => console.log(autocomplete)}
+                    options={{
+                        types: ['geocode'],
+                        componentRestrictions: { country: 'ke' },
+                    }}
+                >
+                    <input style={{height:'100%',marginRight:'150px',width:'100%'}} type="text" ref={destinationRef} placeholder="Search places"/>
                 </Autocomplete>
-            
+                <button type="submit" className="btn btn-primary mx-2" id="confirm info" onClick={calculateRoute}>Confirm Info
+                </button>
+                <button type="button" className="btn btn-danger" onClick={clearRoute}><FontAwesomeIcon icon={faMultiply}/></button>
+            </div>
+            <GoogleMap
+                mapContainerStyle={mapStyles}
+                center={center}
+                zoom={15}
+                options={{
+                    streetViewControl: false,
+                    zoomControl: false,
+                    mapTypeControl: false,
+                    fullscreenControl: false,
+                }}
+            >
+                <MarkerF
+                    position={center}
+                />
+                {directionResponse !== null && (
+                    <DirectionsRenderer directions={directionResponse}/>
+                )}
             </GoogleMap>
-        </div>
-    )
-}
+        </LoadScript>
+    );
+};
 
-export default Google
+export default MapWithAutocomplete;
+
