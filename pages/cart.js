@@ -95,7 +95,9 @@ function Cart() {
                                 <h1>Ksh {cart.cartTotalAmount}</h1>
                             </div>
                             <hr/>
+                            <Link href='/checkout'>
                             <button type="button" className="btn btn-warning">CHECKOUT (KSH {cart.cartTotalAmount})</button>
+                            </Link>
                         </div>
                     </>
                 )
