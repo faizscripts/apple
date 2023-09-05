@@ -31,6 +31,15 @@ function Cart() {
         dispatch(decreaseCart(cartItem))
     }
 
+    function addCommasToNumber(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function formatNumber(number) {
+        const formattedInteger = addCommasToNumber(Math.floor(number));
+        return `Ksh ${formattedInteger}`;
+    }
+
     function handleIncreasedCart(cartItem) {
         dispatch(increasedCart({Id:cartItem.id}))
     }
@@ -68,7 +77,7 @@ function Cart() {
                                                 <span>In stock</span>
                                             </div>
                                         </div>
-                                        <h2 className='me-2'>Ksh {cartItem.price}</h2>
+                                        <h2 className='me-2'>{formatNumber(cartItem.price)}</h2>
                                     </div>
                                     <div className='d-flex justify-content-between'>
                                         <p className='delete ms-2 mt-1' onClick={()=>handleRemoveFromCart(cartItem)}><FontAwesomeIcon icon={faTrash}/> REMOVE</p>
@@ -92,11 +101,11 @@ function Cart() {
                             <hr/>
                             <div className='d-flex justify-content-between align-items-center mx-2'>
                                 <p className='total-header'>Subtotal</p>
-                                <h1>Ksh {cart.cartTotalAmount}</h1>
+                                <h1>{formatNumber(cart.cartTotalAmount)}</h1>
                             </div>
                             <hr/>
                             <Link href='/checkout'>
-                            <button type="button" className="btn btn-warning">CHECKOUT (KSH {cart.cartTotalAmount})</button>
+                            <button type="button" className="btn btn-warning">CHECKOUT ({formatNumber(cart.cartTotalAmount)})</button>
                             </Link>
                         </div>
                     </>

@@ -1,15 +1,38 @@
 import Google from "./Map/Google";
 import {useSelector} from "react-redux";
+import {useEffect} from "react";
+import {getTotals, initializeCart} from "../redux/features/cart";
+import {useDispatch} from "react-redux";
 
 function CheckoutPage() {
 
-   const deliveryPrice =  useSelector(state=>state.deliveryPrice)
-   const productPrice = useSelector(state=>state.cart.cartTotalAmount)
+    const dispatch = useDispatch()
+
+    const deliveryPrice =  useSelector(state=>state.deliveryPrice)
+    const productPrice = useSelector(state=>state.cart.cartTotalAmount)
 
     const total = productPrice + deliveryPrice
 
+    useEffect(() => {
+        dispatch(initializeCart());
+    }, [dispatch]);
+
+
+    useEffect(()=>{
+        dispatch(getTotals())
+    },[dispatch])
+
     const onButtonClick = (e) => {
         e.preventDefault()
+    }
+
+    function addCommasToNumber(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function formatNumber(number) {
+        const formattedInteger = addCommasToNumber(Math.floor(number));
+        return formattedInteger;
     }
 
     return(
@@ -70,15 +93,15 @@ function CheckoutPage() {
                             </div>
                             <div className=" d-flex justify-content-between">
                                 <div className="final-text">Subtotal <span>(ksh.)</span></div>
-                                <div className="final-price" id="cartTotal">{productPrice}</div>
+                                <div className="final-price" id="cartTotal">{formatNumber(productPrice)}</div>
                             </div>
                             <div className=" d-flex justify-content-between">
                                 <div className="final-text">Delivery Fee<span>(ksh.)</span></div>
-                                <div className="final-price" id="deliveryFee">{deliveryPrice}</div>
+                                <div className="final-price" id="deliveryFee">{formatNumber(deliveryPrice)}</div>
                             </div>
                             <div className=" d-flex justify-content-between">
                                 <div className="final-text">Total <span>(ksh.)</span></div>
-                                <div className="final-price" id="checkoutTotal">{total}</div>
+                                <div className="final-price" id="checkoutTotal">{formatNumber(total)}</div>
                             </div>
                             <span className="mt-2 text-muted" >*By placing an order, you&apos;re agreeing to our <a href="">terms and conditions</a></span>
 
@@ -118,7 +141,6 @@ function CheckoutPage() {
             </div>
 
         </div>
-
     )
 }
 export default CheckoutPage

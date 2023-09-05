@@ -3,14 +3,22 @@ import {faBagShopping} from "@fortawesome/free-solid-svg-icons";
 import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Link from 'next/link'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
+import {initializeCart} from "../redux/features/cart";
 
 function Navbar() {
     const [keyword, setKeyword] = useState('')
 
+    const dispatch = useDispatch()
+
     const categories = useSelector((state) => state.categories)
     const cartItems = useSelector((state) => state.cart.cartItems);
+
+    useEffect(() => {
+        dispatch(initializeCart());
+    }, [dispatch]);
 
     const searchHandler = (e) => {
         e.preventDefault()
@@ -33,9 +41,10 @@ function Navbar() {
         <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
                 <Link href="/">
-                    <a>
-                        <Image src="/images/logo.webp" alt="favicon-apple" className="logo" height="25" width="25"/>
-                    </a>
+                    <div className='header-navbar'>
+                        <Image src="/images/logo.webp" alt="favicon-apple" className="logo" height="50" width="50"/>
+                        <p className='mt-2'>Express</p>
+                    </div>
                 </Link>
                 <button className="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
