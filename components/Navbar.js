@@ -42,8 +42,8 @@ function Navbar() {
             <div className="container-fluid">
                 <Link href="/">
                     <div className='header-navbar'>
-                        <Image src="/images/logo.webp" alt="favicon-apple" className="logo" height="50" width="50"/>
-                        <p className='mt-2'>Express</p>
+                        <Image src="/images/logo.webp" alt="favicon-apple" className="logo" height="30" width="30"/>
+                        <div>Express</div>
                     </div>
                 </Link>
                 <button className="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
