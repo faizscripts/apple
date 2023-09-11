@@ -28,8 +28,13 @@ function Cart() {
     }
 
     function handleDecreasedCart(cartItem) {
-        dispatch(decreaseCart(cartItem))
+        dispatch(decreaseCart({ productId: cartItem.productId,  productName: cartItem.productName }));
     }
+
+    function handleIncreasedCart(cartItem) {
+        dispatch(increasedCart({ productId: cartItem.productId,  productName: cartItem.productName }));
+    }
+
 
     function addCommasToNumber(number) {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -40,13 +45,9 @@ function Cart() {
         return `Ksh ${formattedInteger}`;
     }
 
-    function handleIncreasedCart(cartItem) {
-        dispatch(increasedCart({Id:cartItem.id}))
-    }
 
     return (
         <div className='cart-container mt-4'>
-
             {
                 cartItems.length === 0 ? (
                     <div className="cart-empty">
@@ -63,23 +64,23 @@ function Cart() {
                 ) :
                     (
                     <>
-                        <hr />
+                        <div className='cart-full col-8'>
+                        <h1 className='text-start mx-5 mb-5'>Cart ({cartItems.length})</h1>
                         {cartItems && cartItems.map(cartItem => (
                             <div key={cartItem.productId} className='added-products mx-5'>
-                                <h1>Cart ({cartItems.length})</h1>
                                 <div>
                                     <div className='d-flex justify-content-between'>
                                         <div className='d-flex justify-content-center align-items-center'>
                                             <Image src={`https://monza.co.ke/img/products/${cartItem.images[0]?.filename}`}  height="150"
                                                    width="150" alt="Added product image"/>
-                                            <div>
+                                            <div className='ml-3'>
                                                 <p>{cartItem.productName}</p>
                                                 <span>In stock</span>
                                             </div>
                                         </div>
                                         <h2 className='me-2'>{formatNumber(cartItem.price)}</h2>
                                     </div>
-                                    <div className='d-flex justify-content-between'>
+                                    <div className='d-flex justify-content-between mt-2'>
                                         <p className='delete ms-2 mt-1' onClick={()=>handleRemoveFromCart(cartItem)}><FontAwesomeIcon icon={faTrash}/> REMOVE</p>
                                         <div className="no-items me-2">
                                             <div className="minus text-black-50" onClick={()=>handleDecreasedCart(cartItem)}>
@@ -96,7 +97,8 @@ function Cart() {
                                 </div>
                             </div>
                         ))}
-                        <div className='total-container'>
+                        </div>
+                        <div className='total-container col-4'>
                             <h1>CART SUMMARY</h1>
                             <hr/>
                             <div className='d-flex justify-content-between align-items-center mx-2'>

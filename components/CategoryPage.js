@@ -7,6 +7,10 @@ import Breadcrumb from './Breadcrumb';
 function CategoryPage({selectedCategory, categories, products}) {
 
     const [sort, setSort] = useState('latest')
+    const [currentPage,setCurrentPage] = useState(1)
+    const recordsPerPage = 10
+    const lastIndex = currentPage * recordsPerPage
+    const firstIndex = lastIndex - recordsPerPage
 
     const breadcrumbArray = [
         {
@@ -33,24 +37,25 @@ function CategoryPage({selectedCategory, categories, products}) {
     }
 
     const renderProducts = () => {
+        const currentProducts = products.slice(firstIndex,lastIndex)
         switch (sort) {
             case 'latest':
-                products.sort((a, b) => new Date(b.dateCreated) - new Date(a.dateCreated));
+                currentProducts.sort((a, b) => new Date(b.dateCreated) - new Date(a.dateCreated));
                 break;
 
             case 'price: low to high':
-                products.sort((a, b) => a.price - b.price);
+                currentProducts.sort((a, b) => a.price - b.price);
                 break;
 
             case 'price: high to low':
-                products.sort((a, b) => b.price - a.price);
+                currentProducts.sort((a, b) => b.price - a.price);
                 break;
 
             default:
-                products.sort((a, b) => a.dateCreated - b.dateCreated);
+                currentProducts.sort((a, b) => a.dateCreated - b.dateCreated);
         }
 
-        return products.map((product) => {
+        return currentProducts.map((product) => {
             return (
                 <ProductItem
                     key={product._id}
@@ -62,6 +67,50 @@ function CategoryPage({selectedCategory, categories, products}) {
         });
     };
 
+    const totalPages = Math.ceil(products.length / recordsPerPage);
+
+    const renderPaginationControls = () => {
+        return (
+            <nav aria-label="Page navigation example">
+                <ul className="pagination">
+                    {currentPage > 1 && (
+                        <li className="page-item">
+                            <a
+                                className="page-link text-dark"
+                                href="#"
+                                onClick={() => setCurrentPage(currentPage - 1)}>
+                                Previous
+                            </a>
+                        </li>
+                    )}
+
+                    {Array.from({ length: totalPages }, (_, index) => (
+                        <li
+                            key={index}
+                            className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
+                            <a
+                                className="page-link text-dark"
+                                href="#"
+                                onClick={() => setCurrentPage(index + 1)}>
+                                {index + 1}
+                            </a>
+                        </li>
+                    ))}
+
+                    {currentPage < totalPages && (
+                        <li className="page-item">
+                            <a
+                                className="page-link text-dark"
+                                href="#"
+                                onClick={() => setCurrentPage(currentPage + 1)}>
+                                Next
+                            </a>
+                        </li>
+                    )}
+                </ul>
+            </nav>
+        );
+    };
 
     return (
         <div className='categories-container'>
@@ -93,6 +142,9 @@ function CategoryPage({selectedCategory, categories, products}) {
                     <hr className='hr-medium-width'/>
                     <div className='row'>
                         {renderProducts()}
+                    </div>
+                    <div className='pagination-container'>
+                        {renderPaginationControls()}
                     </div>
                 </div>
             </div>

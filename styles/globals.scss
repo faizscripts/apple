@@ -509,6 +509,12 @@ body {
     text-decoration-thickness: 4px;
   }
 
+  .pagination-container{
+    margin-top: 50px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
 }
 
 .product-view-container {
@@ -801,6 +807,7 @@ body {
   position: relative;
   flex: 1;
   height: 100%;
+
   h1{
     font-size: 18px;
     margin: 10px;
@@ -866,6 +873,8 @@ body {
   .total-container {
     height: 200px;
     width: 300px;
+    position: sticky;
+    top: 0%;
   }
 
   .total-header{
@@ -876,11 +885,17 @@ body {
     width: 95%;
     margin-left: 6px;
   }
+
   .cart-empty{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  .cart-full{
+     display: flex;
+    flex-direction: column;
   }
 }
 
