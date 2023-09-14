@@ -47,7 +47,7 @@ function Cart() {
 
 
     return (
-        <div className='cart-container mt-4'>
+        <div className='cart-container'>
             {
                 cartItems.length === 0 ? (
                     <div className="cart-empty">
@@ -65,9 +65,9 @@ function Cart() {
                     (
                     <>
                         <div className='cart-full col-8'>
-                        <h1 className='text-start mx-5 mb-5'>Cart ({cartItems.length})</h1>
+                        <h1 className='text-start mb-5'>Cart ({cartItems.length})</h1>
                         {cartItems && cartItems.map(cartItem => (
-                            <div key={cartItem.productId} className='added-products mx-5'>
+                            <div key={cartItem.productId} className=' added-products'>
                                 <div>
                                     <div className='d-flex justify-content-between'>
                                         <div className='d-flex justify-content-center align-items-center'>

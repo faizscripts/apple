@@ -89,7 +89,7 @@ function CategoryPage({selectedCategory, categories, products}) {
                             key={index}
                             className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
                             <a
-                                className="page-link text-dark"
+                                className='page-link text-black'
                                 href="#"
                                 onClick={() => setCurrentPage(index + 1)}>
                                 {index + 1}
@@ -140,7 +140,7 @@ function CategoryPage({selectedCategory, categories, products}) {
                         </div>
                     </div>
                     <hr className='hr-medium-width'/>
-                    <div className='row'>
+                    <div className='row mx-3'>
                         {renderProducts()}
                     </div>
                     <div className='pagination-container'>

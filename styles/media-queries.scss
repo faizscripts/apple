@@ -98,11 +98,11 @@
 @media (max-width: 991.98px) {
   .cart-container {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     .added-products{
-      width: 90%;
+      width: 100%;
+      margin-bottom: 30px;
     }
     .total-container{
       width: 90%;
@@ -593,6 +593,20 @@
 //small
 @media (max-width: 767.98px) {
 
+  .cart-container{
+    display: flex;
+    align-items: normal;
+    //height: 114vh;
+    .cart-full{
+      margin: 0 20px;
+      width: 90%;
+    }
+    .total-container{
+      margin: 0 20px;
+      top: 10%;
+    }
+  }
+
   #checkout-body {
     display: flex;
     flex-wrap: wrap-reverse;
@@ -743,4 +757,5 @@
       margin-top: 1rem;
     }
   }
+
 }
