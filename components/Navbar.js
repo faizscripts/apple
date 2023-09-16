@@ -3,15 +3,40 @@ import {faBagShopping} from "@fortawesome/free-solid-svg-icons";
 import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Link from 'next/link'
-import {useEffect, useState} from "react";
+import {useEffect,useState} from "react";
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
 import {initializeCart} from "../redux/features/cart";
+import {setSearchTerm} from "../redux/features/search";
+import {useRouter} from "next/router";
+import debounce from 'lodash.debounce';
 
 function Navbar() {
-    const [keyword, setKeyword] = useState('')
+    const dispatch = useDispatch();
+    const searchTerm = useSelector((state) => state.search.searchTerm);
+    const router = useRouter();
 
-    const dispatch = useDispatch()
+    const handleSearchInputChange = (e) => {
+        dispatch(setSearchTerm(e.target.value));
+    };
+
+    const searchHandler = (value) => {
+        if (value) {
+            router.push(`/search/${value}`);
+        } else {
+            console.error("Search term is empty");
+        }
+    };
+
+    // Create a debounced version of the searchHandler
+    const debouncedSearchHandler = debounce((value) => {
+        searchHandler(value);
+    }, 2000); // Adjust the debounce delay time as needed (in milliseconds)
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevent the default form submission
+        debouncedSearchHandler(searchTerm); // Use the debounced searchHandler
+    };
 
     const categories = useSelector((state) => state.categories)
     const cartItems = useSelector((state) => state.cart.cartItems);
@@ -20,9 +45,6 @@ function Navbar() {
         dispatch(initializeCart());
     }, [dispatch]);
 
-    const searchHandler = (e) => {
-        e.preventDefault()
-    }
 
     const renderCategories = () => {
         return categories?.map(
@@ -55,24 +77,21 @@ function Navbar() {
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                         {renderCategories()}
                     </ul>
-                    <form className="d-flex input-icon me-3 position-relative" role="search" onSubmit={searchHandler}>
+                    <form className="d-flex input-icon me-3 position-relative" role="search" onSubmit={handleSubmit}>
                         <FontAwesomeIcon icon={faMagnifyingGlass} aria-hidden={false} className='search'/>
                         <input className="form-control me-2 input-field" type="search" placeholder="Search"
+                               value={searchTerm}
                                aria-label="Search"
-                               onChange={(e) => setKeyword(e.target.value)}
-                        />
+                               onChange={handleSearchInputChange} />
                     </form>
-                    <div className='cart mt-2'>
-                        <div className='position-relative'>
+                    <div className='cart mt-2 position-relative'>
                             <Link href="/cart">
                                 <FontAwesomeIcon icon={faBagShopping} aria-hidden={false} className="bag"/>
                             </Link>
-                            <span
-                                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            <span className="unread-span top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                 {cartItems.length}
                               <span className="visually-hidden">unread messages</span>
                             </span>
-                        </div>
                     </div>
                 </div>
             </div>

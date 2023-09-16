@@ -50,7 +50,7 @@ function MyApp({Component, pageProps}) {
                 <meta name="keywords" content="apple, ecommerce, best, deals, kenya"/>
             </Head>
             {loading ? (
-                <Loader /> // Display the Loader component while loading
+                <Loader />
             ) : (
                 renderLayout()
             )}

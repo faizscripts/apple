@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import Link from "next/link";
 import ProductItem from './ProductItem';
-import gadgets from '../public/images/categories/accessories-page-title.jpg'
 import Breadcrumb from './Breadcrumb';
+import {useSelector} from "react-redux";
 
-function CategoryPage({selectedCategory, categories, products}) {
+function CategoryPage({selectedCategory, products}) {
 
     const [sort, setSort] = useState('latest')
     const [currentPage,setCurrentPage] = useState(1)
@@ -17,24 +16,6 @@ function CategoryPage({selectedCategory, categories, products}) {
             name: selectedCategory.category_name,
         },
     ]
-
-    const renderCategories = () => {
-        return categories.map(
-            category => {
-                return (
-                    <div key={category._id} className='cards mx-4'>
-                        <Link href={`/categories/${category._id}`}>
-                            <h2 className={category._id === selectedCategory._id ? "active-category" : ""}>
-                                {category.category_name}
-                            </h2>
-                        </Link>
-                        <p>{category.productIds?.length} PRODUCTS</p>
-                    </div>
-                )
-            }
-        )
-
-    }
 
     const renderProducts = () => {
         const currentProducts = products.slice(firstIndex,lastIndex)
@@ -114,17 +95,9 @@ function CategoryPage({selectedCategory, categories, products}) {
 
     return (
         <div className='categories-container'>
-            <div className='container-fluid img-background' style={{backgroundImage: `url('${gadgets.src}')`}}>
-                <div className='secondary-container'>
-                    <div className='container categories-list mt-5'>
-                        {renderCategories()}
-                    </div>
-                </div>
-            </div>
-
             <div className='main-container row d-flex justify-content-center'>
                 <div className='products-container p-5'>
-                    <div className='d-flex justify-content-between mt-3 mx-2'>
+                    <div className='d-flex justify-content-between align-items-baseline mt-3 mx-2'>
                         <Breadcrumb breadcrumbArray={breadcrumbArray} />
                         <div className='filter'>
                             <div className="dropdown me-5">
@@ -140,12 +113,12 @@ function CategoryPage({selectedCategory, categories, products}) {
                         </div>
                     </div>
                     <hr className='hr-medium-width'/>
-                    <div className='row mx-3'>
+                    <div className='row'>
                         {renderProducts()}
                     </div>
-                    <div className='pagination-container'>
+                    {products.length > 10 ? (     <div className='pagination-container'>
                         {renderPaginationControls()}
-                    </div>
+                    </div>) : null}
                 </div>
             </div>
         </div>

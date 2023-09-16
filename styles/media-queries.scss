@@ -96,6 +96,13 @@
 
 //medium
 @media (max-width: 991.98px) {
+
+  .navbar{
+    .unread-span{
+      position: revert;
+    }
+  }
+
   .cart-container {
     display: flex;
     align-items: center;

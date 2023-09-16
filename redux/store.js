@@ -3,6 +3,7 @@ import adminReducer from "./features/admin"
 import categoriesReducer from './features/categories'
 import cartReducer from './features/cart'
 import deliveryPriceReducer from './features/deliveryCost'
+import searchSliceReducer from './features/search'
 
 
 export const store = configureStore({
@@ -11,5 +12,6 @@ export const store = configureStore({
         categories:categoriesReducer,
         cart:cartReducer,
         deliveryPrice:deliveryPriceReducer,
+        search:searchSliceReducer,
     }
 })
