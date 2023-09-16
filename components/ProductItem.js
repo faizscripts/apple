@@ -42,7 +42,7 @@ function ProductItem({productId, images, price, productName}) {
     }
 
     return(
-        <div className='col-lg-2 col-md-4 col-sm-5  d-flex mt-4'>
+        <div className='col-lg-2 col-md-3 col-sm-4 col-6  d-flex mt-4'>
             <div>
                 <Image
                     onClick={navigateToProductViewPage}
