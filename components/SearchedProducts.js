@@ -53,7 +53,7 @@ function SearchedProducts({ products}) {
         if (filteredProducts.length === 0 && showNoResults) {
             return (
                 <div style={{ height: '500px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                    <h1 style={{ fontSize: '25px' }}>There are no results for "{searchTerm}".</h1>
+                    <h1 style={{ fontSize: '25px' }}>There are no results for {searchTerm}.</h1>
                     <ul style={{ listStyle: 'none', padding: '0', margin: '0', textAlign: 'center' }}>
                         <li>- Check your spelling for typing errors</li>
                         <li>- Try searching with short and simple keywords</li>

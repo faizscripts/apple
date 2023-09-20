@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function Loader() {
    return(
        <div className='loader'>
-           <Image src={LoaderGif} height='300' width='300'></Image>
+           <Image src={LoaderGif} alt="loader" height='300' width='300'></Image>
        </div>
    )
 }
