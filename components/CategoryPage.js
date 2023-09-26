@@ -96,7 +96,7 @@ function CategoryPage({selectedCategory, products}) {
     return (
         <div className='categories-container'>
             <div className='main-container row d-flex justify-content-center'>
-                <div className='products-container p-5'>
+                <div className='products-container'>
                     <div className='d-flex justify-content-between align-items-baseline mt-3 mx-2'>
                         <Breadcrumb breadcrumbArray={breadcrumbArray} />
                         <div className='filter'>

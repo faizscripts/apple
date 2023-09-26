@@ -1,10 +1,10 @@
 import LandingItem from "../components/elements/LandingItem";
-import heroImage2 from "../public/images/landing/iphone14.jpg";
-import section2 from "../public/images/landing/heroSec2.jpg";
+import heroImage2 from "../public/images/landing/hero_iphone15pro.jpg";
+import section2 from "../public/images/landing/iphone-15-background-2.jpg";
 import section3 from "../public/images/landing/heroSec3.jpg";
 import LandingSmallItem from "../components/elements/LandingSmallItem";
-import section4 from "../public/images/landing/heroSec4.jpg";
-import section5 from "../public/images/landing/heroSec5.jpg";
+import section4 from "../public/images/landing/watch-series-ultra.jpg";
+import section5 from "../public/images/landing/watch-series-9-background.jpg";
 import section6 from "../public/images/landing/heroSec6.jpg";
 import section7 from "../public/images/landing/heroSec7.jpg";
 import userLayout from "../layout/UserLayout";
@@ -14,13 +14,13 @@ function HomePage() {
     return (
             <>
                 <div className='landing'>
-                        <LandingItem title='iPhone 14 Pro'
-                                     subhead='Pro. Beyond.'
+                        <LandingItem title='iPhone 15 Pro'
+                                     subhead='Titanium. So strong. So light. So pro.'
                                      image={heroImage2.src}
                                      textColor='text-white'/>
 
-                        <LandingItem title='iPhone 14'
-                                     subhead='Bigger and Bigger.'
+                        <LandingItem title='iPhone 15'
+                                     subhead='New Camera. New Design, Newphoria.'
                                      image={section2.src}/>
 
                         <LandingItem title='AirPods Pro'
@@ -31,11 +31,13 @@ function HomePage() {
                         <div className="row">
 
                             <LandingSmallItem title='WATCH'
-                                              subhead='Adventure awaits.'
+                                              subSubhead='Ultra 2'
+                                              subhead='Next level adventure.'
                                               image={section4.src}/>
 
                             <LandingSmallItem title='WATCH'
-                                              subhead='A healthy leap ahead.'
+                                              subSubhead='Series 9'
+                                              subhead='Smarter. Brighter. Mightier.'
                                               image={section5.src}
                                               textColor='text-white'/>
 

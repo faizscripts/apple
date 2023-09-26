@@ -38,10 +38,7 @@ function Footer() {
                                  aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                 <div className="accordion-body">
                                     <ul>
-                                        <li className='mt-2 accordion-li'>Macbook</li>
-                                        <li className='mt-2 accordion-li'>Ipad</li>
-                                        <li className='mt-2 accordion-li'>Iphone</li>
-                                        <li className='mt-2 accordion-li'>Accessories</li>
+                                        {renderCategories()}
                                     </ul>
                                 </div>
                             </div>
@@ -115,15 +112,8 @@ function Footer() {
                 </div>
                 </div>
                 <hr/>
-                <div className='footer-bottom row'>
-                    <p className='col-md-12 col-lg-5'>Apple Express &copy; {new Date().getFullYear()} </p>
-                    <div className='d-flex col-md-12 col-lg-7'>
-                        <p className='me-5 p-border-right'>Terms & Conditions</p>
-                        <p className='me-5 p-border-right'>Returns & Refunds Policy</p>
-                        <p className='me-5 p-border-right'>Privacy Policy</p>
-                        <p className='me-5 p-border-right'>Shipping</p>
-                        <p className='me-5'>Faqs</p>
-                    </div>
+                <div className='footer-bottom d-flex justify-content-center'>
+                    <p className='text-center'>Apple Express &copy; {new Date().getFullYear()} </p>
                 </div>
             </div>
         </div>
