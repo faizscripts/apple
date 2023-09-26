@@ -1,19 +1,47 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react'
+import {toast} from "react-toastify";
 import Image from 'next/image';
 import mongoose from 'mongoose';
 import parse from 'html-react-parser';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import connectDB from '../../utils/db';
 import UserLayout from '../../layout/UserLayout';
 import { Product } from '../../models/admin/products';
 import Slideshow from '../../components/elements/Slideshow';
 import { Category } from '../../models/admin/categories';
 import Breadcrumb from '../../components/Breadcrumb';
+import {useDispatch,useSelector} from "react-redux";
+import {addToCart, initializeCart} from "../../redux/features/cart";
+import Link from "next/link";
+import ReactWhatsapp from "react-whatsapp";
 
 function ProductViewComponent({ product, category }) {
 
-    const [count,setCount]=useState(0)
+    const dispatch= useDispatch()
+
+    const cartItems = useSelector((state) => state.cart.cartItems);
+
+    useEffect(() => {
+        dispatch(initializeCart());
+    }, [dispatch]);
+
+    const { _id, product_name, product_images, price } = product;
+
+    const addProductToCart = () => {
+        const existingProduct = cartItems.find(item => item.productId === _id);
+
+        if (existingProduct) {
+            toast.info(`${product_name} already exists in the cart`, {
+                position: "top-right",
+            });
+        } else {
+            dispatch(addToCart({
+                productId: _id,
+                productName: product_name,
+                images: product_images,
+                price: price,
+            }));
+        }
+    }
 
     const breadcrumbArray = [
         {
@@ -25,19 +53,6 @@ function ProductViewComponent({ product, category }) {
         }
     ]
 
-    function decrementCount (){
-        if (count === 0){
-            return 0
-        } else{
-            setCount(prevCount => prevCount-1)
-        }
-
-    }
-
-    function addCount (){
-        setCount(prevCount => prevCount+1)
-    }
-
     function renderThumbnails() {
         return product.product_images.map(
             (productImage) => {
@@ -46,44 +61,43 @@ function ProductViewComponent({ product, category }) {
                         key={productImage._id}
                         src={`https://monza.co.ke/img/products/${productImage.filename}`}
                         alt={productImage._id}
-                        height="100"
-                        width="100" />
+                        height="80"
+                        width="80" />
                 )
             }
         )
     }
 
+    const message = `I'm interested in ${product_name}. The link is http://apple-express.co.ke/view/${_id}`;
+    const phoneNumber = '+254705063256';
+
     return(
         <div className='product-view-container row'>
             <div className='product-img col-lg-6 col-md-12'>
-                <Slideshow productImages={product.product_images} />
+                <Slideshow productImages={product_images} />
                 <div className='slideshow-container'>
                     {renderThumbnails()}
                 </div>
             </div>
             <div className='product-description col-lg-5 col-md-12'>
-                <Breadcrumb breadcrumbArray={breadcrumbArray} />
+                <div className='view-breadcrumb'>
+                    <Breadcrumb breadcrumbArray={breadcrumbArray} />
+                </div>
                 <div className="header-container">
-                    <h1 className='mt-3'>{product.product_name}</h1>
-                    <h1 className='mt-3 pv-price'>Ksh {product.price}</h1>
+                    <h1 className='mt-3'>{product_name}</h1>
+                    <h1 className='mt-3 pv-price'>Ksh {price}</h1>
                     <div className={product.description ? 'd-block' : 'd-none'}>
                         <h5 className='mt-3 mb-4'>Key Features:</h5>
                         {parse(product.description)}
                     </div>
-                    <div className='mt-4 d-flex'>
-                        <div className="no-items">
-                            <div className="minus text-black-50" onClick={decrementCount}>
-                                <FontAwesomeIcon icon={faMinus} className='icon-symbols'/>
-                            </div>
-                            <div className='text-black-50'>
-                                <p1 className="icon-no">{count}</p1>
-                            </div>
-                            <div className="add text-black-50" onClick={addCount}>
-                                <FontAwesomeIcon icon={faPlus} className='icon-symbols'/>
-                            </div>
-                        </div>
-                        <button className="btn btn-primary me-2" type="submit">ADD TO CART</button>
-                        <button type="button" className="btn btn-success">ORDER ON WHATSAPP</button>
+                    <div className='mt-4 buttons-view-container'>
+                        <Link href='/cart'>
+                            <button type="button" className="btn btn-primary me-2 button-view" onClick={addProductToCart}>CHECKOUT </button>
+                        </Link>
+                        <button className="btn btn-primary me-2 view-text-button button-view" type="submit" onClick={addProductToCart}>ADD TO CART</button>
+                        <ReactWhatsapp message={message} number={phoneNumber} className="btn btn-success view-text-button button-view">
+                           ORDER ON WHATSAPP
+                        </ReactWhatsapp>
                     </div>
                 </div>
             </div>

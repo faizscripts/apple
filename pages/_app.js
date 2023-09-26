@@ -7,11 +7,12 @@ import {store} from "../redux/store";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from "../components/Loader";
-
+import { useRouter } from "next/router";
 
 function MyApp({Component, pageProps}) {
 
     const [loading, setLoading] = useState(true);
+    const router = useRouter();
 
     useEffect(() => {
         setTimeout(() => {
@@ -39,10 +40,36 @@ function MyApp({Component, pageProps}) {
         }
     }
 
+    const pageTitle = getPageTitle(router.pathname, router.query);
+
+    function getPageTitle(route, query) {
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        if (route === "/") {
+            return "Home | Apple";
+        }
+        else if (route.startsWith("/search/") && query.searchId) {
+            return `${capitalizeFirstLetter(query.searchId)} | Apple`;
+        }
+        else if (route.startsWith("/categories/") && query.categoryId) {
+            return `Categories | Apple`;
+        }
+        else if (route === '/admin/login'){
+            return "Admin | Apple"
+        }
+        else {
+            const pageName = route.replace("/", "");
+            return `${capitalizeFirstLetter(pageName)} | Apple`;
+        }
+    }
+
+
     return (
         <>
             <Head>
-                <title>Apple</title>
+                <title>{pageTitle}</title>
                 <meta charSet="utf-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <meta name="format-detection" content="telephone=no"/>

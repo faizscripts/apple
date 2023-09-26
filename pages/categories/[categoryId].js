@@ -6,7 +6,6 @@ import UserLayout from '../../layout/UserLayout';
 import { Product } from '../../models/admin/products';
 
 function CategoryPageComponent({ category, categories, products }) {
-
     return(
         <CategoryPage selectedCategory={category} categories={categories} products={products}>
         </CategoryPage>

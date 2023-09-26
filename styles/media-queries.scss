@@ -107,6 +107,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+
     .added-products{
       width: 100%;
       margin-bottom: 30px;
@@ -149,7 +150,7 @@
     .hr-medium-width{
       display: block;
       width: 100%;
-      margin-top: 30px;
+      margin-top: 10px;
     }
 
     .filter-header{
@@ -235,11 +236,25 @@
 
     .product-img{
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
+      margin-top: 73px;
     }
 
+    .product-description{
+      margin: 0;
+    }
+
+    .view-breadcrumb{
+      margin-left: 28px;
+    }
+
+    .view-text-button{
+      font-size: 14px;
+    }
+
+
     .slideshow-container{
-      display: flex;
+      display: flow;
       justify-content: center;
       margin-bottom: 50px;
       flex-direction: column;
@@ -600,6 +615,39 @@
 //small
 @media (max-width: 767.98px) {
 
+  .categories-container{
+    .products-container{
+      padding: 20px 30px;
+    }
+  }
+
+  .landing-section {
+    height: 386px;
+    margin-top: -13px;
+    .backgroundImg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 97%;
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      flex-grow: 1;
+    }
+
+
+    .headline {
+      font-size: 40px;
+      line-height: 1.08349;
+
+    }
+
+    .subhead {
+      font-size: 20px;
+    }
+  }
+
   .cart-container{
     display: flex;
     align-items: normal;
@@ -754,6 +802,17 @@
     }
   }
 
+  .product-view-container{
+    .buttons-view-container{
+      flex-direction: column;
+      align-items: center;
+    }
+    .button-view{
+      width: 200px;
+      margin-top: 15px;
+    }
+  }
+
   #add-product{
     .card-header{
       font-size: 1.25rem;
@@ -765,4 +824,20 @@
     }
   }
 
+  .Toastify{
+    .Toastify__toast-container{
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      justify-content: end;
+    }
+
+    .Toastify__toast-body {
+        font-size: 14px;
+      }
+
+    .Toastify__toast-theme--light{
+      width: 282px;
+    }
+  }
 }

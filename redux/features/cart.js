@@ -103,7 +103,6 @@ const cartSlice = createSlice({
             localStorage.setItem('cartColor', JSON.stringify(state.cartColor));
         },
 
-
         increasedCart(state, action) {
             const productId = action.payload.productId;
             const itemIndex = state.cartItems.findIndex(
@@ -118,6 +117,35 @@ const cartSlice = createSlice({
             }
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
         },
+
+        decreaseCount(state, action) {
+            const productId = action.payload.productId;
+            const itemIndex = state.cartItems.findIndex(
+                (item) => item.productId === productId
+            );
+
+            if (itemIndex >= 0 && state.cartItems[itemIndex].cartQuantity > 1) {
+                state.cartItems[itemIndex].cartQuantity -= 1;
+                toast.info(`${action.payload.productName} is decreased in cart`, {
+                    position: "top-right",
+                });
+            } else if (itemIndex >= 0 && state.cartItems[itemIndex].cartQuantity === 1) {
+                const nextCartItems = state.cartItems.filter(
+                    (item) => item.productId !== productId
+                );
+
+                state.cartItems = nextCartItems;
+                state.cartColor = nextCartItems.length > 0;
+
+                toast.error(`${action.payload.productName} is removed from cart`, {
+                    position: "top-right",
+                });
+            }
+
+            localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+            localStorage.setItem('cartColor', JSON.stringify(state.cartColor));
+        },
+
 
 
         getTotals(state){
@@ -139,7 +167,7 @@ const cartSlice = createSlice({
     },
 });
 
-export const { addToCart, initializeCart,removeCartItem, decreaseCart,increasedCart,getTotals } = cartSlice.actions;
+export const { addToCart, initializeCart,removeCartItem, decreaseCart,increasedCart,getTotals,decreaseCount } = cartSlice.actions;
 
 export default cartSlice.reducer;
 

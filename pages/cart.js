@@ -15,6 +15,8 @@ function Cart() {
     const cartItems = useSelector((state) => state.cart.cartItems);
     const dispatch=useDispatch()
 
+    console.log(cartItems)
+
     useEffect(() => {
         dispatch(initializeCart());
     }, [dispatch]);
@@ -64,7 +66,7 @@ function Cart() {
                 ) :
                     (
                     <>
-                        <div className='cart-full col-8'>
+                        <div className='cart-full col-lg-8 col-md-10'>
                         <h1 className='text-start mb-5'>Cart ({cartItems.length})</h1>
                         {cartItems && cartItems.map(cartItem => (
                             <div key={cartItem.productId} className=' added-products'>
@@ -98,7 +100,7 @@ function Cart() {
                             </div>
                         ))}
                         </div>
-                        <div className='total-container col-4'>
+                        <div className='total-container col-lg-4'>
                             <h1>CART SUMMARY</h1>
                             <hr/>
                             <div className='d-flex justify-content-between align-items-center mx-2'>
