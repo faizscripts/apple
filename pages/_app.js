@@ -15,14 +15,9 @@ function MyApp({Component, pageProps}) {
     const router = useRouter();
 
     useEffect(() => {
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000);
-    }, []);
-
-    useEffect(() => {
         window.bootstrap = require('bootstrap');
-    }, [])
+        setLoading(false);
+    }, []);
 
     function renderLayout() {
         if (Component.pageLayout) {
@@ -65,7 +60,6 @@ function MyApp({Component, pageProps}) {
         }
     }
 
-
     return (
         <>
             <Head>
@@ -76,11 +70,7 @@ function MyApp({Component, pageProps}) {
                 <meta name="description" content="Your one stop shop for all your apple products and the best prices"/>
                 <meta name="keywords" content="apple, ecommerce, best, deals, kenya"/>
             </Head>
-            {loading ? (
-                <Loader />
-            ) : (
-                renderLayout()
-            )}
+            {loading ? <Loader /> : renderLayout()}
             <ToastContainer/>
         </>
     )

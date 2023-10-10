@@ -99,7 +99,7 @@ body {
   }
 
   .top-title {
-    margin-top: 52px;
+    margin-top: 25px;
     text-align: center;
     z-index: 3;
   }
@@ -245,9 +245,11 @@ body {
 }
 
 .navbar.navbar-expand-lg {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 10px;
   background-color: black;
-  position: inherit;
-  //z-index: 999;
   width: 100%;
 
   .input-field {

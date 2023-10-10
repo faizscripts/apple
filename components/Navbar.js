@@ -14,8 +14,14 @@ import debounce from 'lodash.debounce';
 function Navbar() {
     const collapseRef = useRef(null);
     const dispatch = useDispatch();
-    const searchTerm = useSelector((state) => state.search.searchTerm);
     const router = useRouter();
+    const searchTerm = useSelector((state) => state.search.searchTerm);
+    const categories = useSelector((state) => state.categories)
+    const cartItems = useSelector((state) => state.cart.cartItems);
+
+    useEffect(() => {
+        dispatch(initializeCart());
+    }, [dispatch]);
 
     const handleSearchInputChange = (e) => {
         dispatch(setSearchTerm(e.target.value));
@@ -29,22 +35,14 @@ function Navbar() {
         }
     };
 
-
     const debouncedSearchHandler = debounce((value) => {
         searchHandler(value);
-    }, 2000); // Adjust the debounce delay time as needed (in milliseconds)
+    }, 2000);
 
     const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent the default form submission
-        debouncedSearchHandler(searchTerm); // Use the debounced searchHandler
+        e.preventDefault();
+        debouncedSearchHandler(searchTerm);
     };
-
-    const categories = useSelector((state) => state.categories)
-    const cartItems = useSelector((state) => state.cart.cartItems);
-
-    useEffect(() => {
-        dispatch(initializeCart());
-    }, [dispatch]);
 
     const closeNavbar = () => {
         if (collapseRef.current) {

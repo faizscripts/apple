@@ -76,7 +76,7 @@ function Footer() {
                                 <div className="accordion-body">
                                     <ul>
                                         <li className='mt-2 accordion-li'>Apple Express Ltd</li>
-                                        <li className='mt-2 accordion-li'><FontAwesomeIcon icon={faPhone} aria-hidden="false" className="phone"></FontAwesomeIcon>  +254 723 456 789</li>
+                                        <li className='mt-2 accordion-li'><a href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}></a><FontAwesomeIcon icon={faPhone} aria-hidden="false" className="phone"></FontAwesomeIcon>  {process.env.NEXT_PUBLIC_PHONE}</li>
                                         <li className='mt-2 accordion-li'><FontAwesomeIcon icon={faLocation} aria-hidden='false' className='arrow-location'/> Nairobi, Kenya</li>
                                         <li className='mt-2 accordion-li'><FontAwesomeIcon icon={faEnvelope} aria-hidden='false' className='envelope'/> info@appleexpress.co.ke</li>
                                     </ul>
@@ -104,7 +104,7 @@ function Footer() {
                         <h1>Contacts</h1>
                         <ul>
                             <li>Apple Express Ltd</li>
-                            <li><FontAwesomeIcon icon={faPhone} aria-hidden="false" className="phone"></FontAwesomeIcon>  +254 723 456 789</li>
+                            <li><a href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}><FontAwesomeIcon icon={faPhone} aria-hidden="false" className="phone"></FontAwesomeIcon> {process.env.NEXT_PUBLIC_PHONE}</a></li>
                             <li><FontAwesomeIcon icon={faLocation} aria-hidden='false' className='arrow-location'/> Nairobi, Kenya</li>
                             <li><FontAwesomeIcon icon={faEnvelope} aria-hidden='false' className='envelope'/> info@appleexpress.co.ke</li>
                         </ul>

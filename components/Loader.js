@@ -1,5 +1,6 @@
-import LoaderGif from '../public/Spinner-1s-200px.gif'
 import Image from 'next/image';
+import LoaderGif from '../public/loader.gif'
+
 export default function Loader() {
    return(
        <div className='loader'>
