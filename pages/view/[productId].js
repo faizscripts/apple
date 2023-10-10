@@ -68,8 +68,7 @@ function ProductViewComponent({ product, category }) {
         )
     }
 
-    const message = `I'm interested in ${product_name}. The link is http://apple-express.co.ke/view/${_id}`;
-    const phoneNumber = '+254705063256';
+    const message = `I'm interested in ${product_name}. The link is https://apple-express.co.ke/view/${_id}`;
 
     return(
         <div className='product-view-container row'>
@@ -95,7 +94,7 @@ function ProductViewComponent({ product, category }) {
                             <button type="button" className="btn btn-primary me-2 button-view" onClick={addProductToCart}>CHECKOUT </button>
                         </Link>
                         <button className="btn btn-primary me-2 view-text-button button-view" type="submit" onClick={addProductToCart}>ADD TO CART</button>
-                        <ReactWhatsapp message={message} number={phoneNumber} className="btn btn-success view-text-button button-view">
+                        <ReactWhatsapp message={message} number={process.env.NEXT_PUBLIC_PHONE} className="btn btn-success view-text-button button-view">
                            ORDER ON WHATSAPP
                         </ReactWhatsapp>
                     </div>

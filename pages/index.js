@@ -1,13 +1,13 @@
-import LandingItem from "../components/elements/LandingItem";
-import heroImage2 from "../public/images/landing/hero_iphone15pro.jpg";
-import section2 from "../public/images/landing/iphone-15-background-2.jpg";
-import section3 from "../public/images/landing/heroSec3.jpg";
-import LandingSmallItem from "../components/elements/LandingSmallItem";
-import section4 from "../public/images/landing/watch-series-ultra.jpg";
-import section5 from "../public/images/landing/watch-series-9-background.jpg";
-import section6 from "../public/images/landing/heroSec6.jpg";
-import section7 from "../public/images/landing/heroSec7.jpg";
 import userLayout from "../layout/UserLayout";
+import LandingItem from "../components/elements/LandingItem";
+import LandingSmallItem from "../components/elements/LandingSmallItem";
+import section1 from "../public/images/landing/section1.jpg";
+import section2 from "../public/images/landing/section2.jpg";
+import section3 from "../public/images/landing/section3.jpg";
+import section4 from "../public/images/landing/section4.jpg";
+import section5 from "../public/images/landing/section5.jpg";
+import section6 from "../public/images/landing/section6.jpg";
+import section7 from "../public/images/landing/section7.jpg";
 
 function HomePage() {
 
@@ -16,7 +16,7 @@ function HomePage() {
                 <div className='landing'>
                         <LandingItem title='iPhone 15 Pro'
                                      subhead='Titanium. So strong. So light. So pro.'
-                                     image={heroImage2.src}
+                                     image={section1.src}
                                      textColor='text-white'/>
 
                         <LandingItem title='iPhone 15'
