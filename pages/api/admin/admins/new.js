@@ -1,4 +1,4 @@
-import connectDB from "../../../../utils/db";
+ import connectDB from "../../../../utils/db";
 import { Admin, validate } from "../../../../models/admin/admins";
 import _ from "lodash"
 import bcrypt from "bcrypt"

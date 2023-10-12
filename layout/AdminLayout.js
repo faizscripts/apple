@@ -25,6 +25,13 @@ function AdminLayout ({ children }) {
         await router.push("/admin/login")
     }
 
+    const pageTitle = getPageTitle(router.pathname, router.query);
+
+    function getPageTitle(route, query) {
+        const adminRoute = route.replace(/^\/admin\//, "");
+        return adminRoute;
+    }
+
     return (
         <>
             <section id="admin" ref={ sidebarPanel }>
@@ -103,7 +110,7 @@ function AdminLayout ({ children }) {
                             <button onClick={sidebarToggle} className="btn btn-primary rounded-circle" id="sidebarToggle">
                                 <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
                             </button>
-                            <div className="navbar-brand">title</div>
+                            <div className="navbar-brand">{pageTitle}</div>
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
                             </button>

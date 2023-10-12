@@ -42,6 +42,9 @@ function Navbar() {
     const handleSubmit = (e) => {
         e.preventDefault();
         debouncedSearchHandler(searchTerm);
+        if (collapseRef.current) {
+            collapseRef.current.classList.remove("show");
+        }
     };
 
     const closeNavbar = () => {
