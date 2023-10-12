@@ -20,6 +20,7 @@ function Login() {
         try {
             setProcessing(true)
             const response = await axios.post("/api/admin/login", {email, password})
+            console.log(response)
 
             if (response.data._id) {
                 dispatch(setAdmin({adminCredentials: response.data}))
@@ -31,6 +32,7 @@ function Login() {
             }
         } catch (e) {
             let unexpected = {unexpected: 'An unexpected error occurred!'}
+            console.log(e)
             setFormError(unexpected)
             setProcessing(false)
         }

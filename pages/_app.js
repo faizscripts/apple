@@ -51,8 +51,9 @@ function MyApp({Component, pageProps}) {
         else if (route.startsWith("/categories/") && query.categoryId) {
             return `Categories | Apple`;
         }
-        else if (route === '/admin/login'){
-            return "Admin | Apple"
+        else if (route.startsWith("/admin/")) {
+            const adminRoute = route.replace("/admin/", "");
+            return `${capitalizeFirstLetter(adminRoute)} | Apple`
         }
         else {
             const pageName = route.replace("/", "");
