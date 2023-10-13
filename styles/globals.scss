@@ -1440,6 +1440,10 @@ body {
   .login-heading {
     align-items: center;
   }
+
+  .card-form-body{
+    width: 800px;
+  }
 }
 
 #admin {
@@ -2195,6 +2199,19 @@ body {
   .special-heading{
     margin: 1.5rem 0 0 1rem;
     color: red;
+  }
+
+  .search{
+    color: #000;
+    position: absolute;
+    min-width: 31px;
+    padding-top: 12px;
+  }
+
+  .input-search{
+    height: 38px;
+    padding-left: 30px;
+    width: 229px;
   }
 }
 
