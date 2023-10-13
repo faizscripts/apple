@@ -645,6 +645,12 @@
       font-size: 0.8rem;
     }
   }
+
+  #login {
+    .card-form-body{
+      width: 700px;
+    }
+  }
 }
 
 //small
@@ -841,6 +847,12 @@
       .order {
         width: 95%;
       }
+    }
+  }
+
+  #login {
+    .card-form-body{
+      width: 100%;
     }
   }
 

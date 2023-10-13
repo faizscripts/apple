@@ -50,7 +50,7 @@ function Login() {
                 <div className="card-header">
                     Admin Login
                 </div>
-                <div className="card-body">
+                <div className="card-body card-form-body">
                     <form onSubmit={onFormSubmit}>
                         {printError(formError.unexpected)}
                         <div className="mb-3 form-group">

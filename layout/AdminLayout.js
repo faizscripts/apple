@@ -9,7 +9,6 @@ function AdminLayout ({ children }) {
 
     const sidebarPanel = useRef()
     const router = useRouter()
-
     const sidebarToggle = (event) => {
         event.preventDefault()
         sidebarPanel.current.classList.toggle('toggled');
@@ -25,9 +24,9 @@ function AdminLayout ({ children }) {
         await router.push("/admin/login")
     }
 
-    const pageTitle = getPageTitle(router.pathname, router.query);
+    const pageTitle = getPageTitle(router.pathname);
 
-    function getPageTitle(route, query) {
+    function getPageTitle(route) {
         const adminRoute = route.replace(/^\/admin\//, "");
         return adminRoute;
     }
