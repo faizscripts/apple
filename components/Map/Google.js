@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 import {GoogleMap, LoadScript, MarkerF, Autocomplete, DirectionsRenderer} from '@react-google-maps/api';
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import {useState} from "react";
@@ -7,17 +7,16 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useDispatch} from "react-redux";
 import {setCost} from "../../redux/features/deliveryCost";
 
+const libraries = ['places']
+
 const MapWithAutocomplete = () => {
-    const [directionResponse, setDirectionsResponse] = useState(null);
-    const [distance,setDistance] = useState('')
-
-    const center = { lat: -1.2836946, lng: 36.8287868};
-
     const destinationRef = useRef()
-
     const dispatch = useDispatch()
+    const [directionResponse, setDirectionsResponse] = useState(null);
 
-   async function calculateRoute(e){
+    const center = { lat: -1.2829502, lng: 36.8179796};
+
+    async function calculateRoute(e){
         e.preventDefault()
 
         if (destinationRef.current.value === ''){
@@ -32,17 +31,13 @@ const MapWithAutocomplete = () => {
              travelMode:google.maps.TravelMode.DRIVING,
          })
 
-       const calculatedDistanceInMeters = results.routes[0].legs[0].distance.value;
+       const calculatedDistance = results.routes[0].legs[0].distance.value / 1000;
 
-       const calculatedDistanceInKilometers = calculatedDistanceInMeters / 1000;
+       const deliveryFee = calculateDeliveryFee(calculatedDistance);
+        console.log('distance', calculatedDistance)
+        console.log('deliveryFee', deliveryFee)
 
-       const costInKsh = Math.max(calculatedDistanceInKilometers * 70, 100);
-
-       const roundedCostInKsh = Math.ceil(costInKsh);
-       setDistance(`${calculatedDistanceInKilometers} kilometers`);
-
-       dispatch(setCost(roundedCostInKsh))
-       console.log(distance)
+       dispatch(setCost(deliveryFee))
 
        setDirectionsResponse(results);
 }
@@ -50,7 +45,6 @@ const MapWithAutocomplete = () => {
     function clearRoute(e) {
         e.preventDefault();
         setDirectionsResponse(null);
-        setDistance('');
         destinationRef.current.value = '';
     }
 
@@ -68,26 +62,43 @@ const MapWithAutocomplete = () => {
         width: renderWidth(),
     };
 
+    const calculateDeliveryFee = (distance) => {
+        if (distance <= 2) {
+            return 100;
+        } else if (distance <= 4) {
+            return 200;
+        } else if (distance <= 6) {
+            return 250;
+        } else if (distance <= 8) {
+            return 300;
+        } else if (distance <= 10) {
+            return 350;
+        } else if (distance <= 17) {
+            return 400;
+        } else {
+            return 500;
+        }
+    };
+
     return (
         <LoadScript
             googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
-            libraries={['places']}
-        >
+            libraries={libraries}>
             <div className='mb-3 position-relative d-flex'>
                 <Autocomplete
-                    onLoad={(autocomplete) => console.log(autocomplete)}
                     options={{
                         types: ['geocode'],
                         componentRestrictions: { country: 'ke' },
-                    }}
-                >
-                    <input style={{height:'100%',marginRight:'150px',width:'100%'}} type="text" ref={destinationRef} placeholder="Search places"/>
+                    }}>
+                    <input style={{height:'100%',marginRight:'150px',width:'100%'}} type="text" ref={destinationRef} placeholder="Search places" className="form-control" />
                 </Autocomplete>
-                <button type="submit" className="btn btn-primary mx-2" id="confirm info" onClick={calculateRoute}>Confirm Info
+                <button type="submit" className="btn btn-primary mx-2" id="confirm info" onClick={calculateRoute}>
+                    Confirm
                 </button>
                 <button type="button" className="btn btn-danger" onClick={clearRoute}><FontAwesomeIcon icon={faMultiply}/></button>
             </div>
             <GoogleMap
+                mapContainerClassName="custom-map-styles"
                 mapContainerStyle={mapStyles}
                 center={center}
                 zoom={15}
@@ -96,11 +107,8 @@ const MapWithAutocomplete = () => {
                     zoomControl: false,
                     mapTypeControl: false,
                     fullscreenControl: false,
-                }}
-            >
-                <MarkerF
-                    position={center}
-                />
+                }}>
+                <MarkerF position={center}/>
                 {directionResponse !== null && (
                     <DirectionsRenderer directions={directionResponse}/>
                 )}

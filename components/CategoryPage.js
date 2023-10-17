@@ -36,14 +36,21 @@ function CategoryPage({selectedCategory, products}) {
                 currentProducts.sort((a, b) => a.dateCreated - b.dateCreated);
         }
 
-        return currentProducts.map((product) => {
+        return currentProducts.map((product, index) => {
+            let startOffset = ((index + 1) % 5 === 1) ? <div className="d-none d-lg-block col-lg-1 "></div> : null;
+            let endOffset = ((index + 1) % 5 === 0) ? <div className="d-none d-lg-block col-lg-1"></div> : null;
+
             return (
-                <ProductItem
-                    key={product._id}
-                    productId={product._id}
-                    price={product.price}
-                    productName={product.product_name}
-                    images={product.product_images} />
+                <>
+                    {startOffset}
+                    <ProductItem
+                        key={product._id}
+                        productId={product._id}
+                        price={product.price}
+                        productName={product.product_name}
+                        images={product.product_images} />
+                    {endOffset}
+                </>
             );
         });
     };
@@ -57,7 +64,7 @@ function CategoryPage({selectedCategory, products}) {
                     {currentPage > 1 && (
                         <li className="page-item">
                             <a
-                                className="page-link text-dark"
+                                className="page-link"
                                 href="#"
                                 onClick={() => setCurrentPage(currentPage - 1)}>
                                 Previous
@@ -70,7 +77,7 @@ function CategoryPage({selectedCategory, products}) {
                             key={index}
                             className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
                             <a
-                                className='page-link text-black'
+                                className='page-link'
                                 href="#"
                                 onClick={() => setCurrentPage(index + 1)}>
                                 {index + 1}
@@ -81,7 +88,7 @@ function CategoryPage({selectedCategory, products}) {
                     {currentPage < totalPages && (
                         <li className="page-item">
                             <a
-                                className="page-link text-dark"
+                                className="page-link"
                                 href="#"
                                 onClick={() => setCurrentPage(currentPage + 1)}>
                                 Next

@@ -15,8 +15,6 @@ function Cart() {
     const cartItems = useSelector((state) => state.cart.cartItems);
     const dispatch=useDispatch()
 
-    console.log(cartItems)
-
     useEffect(() => {
         dispatch(initializeCart());
     }, [dispatch]);
@@ -37,7 +35,6 @@ function Cart() {
         dispatch(increasedCart({ productId: cartItem.productId,  productName: cartItem.productName }));
     }
 
-
     function addCommasToNumber(number) {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
@@ -46,7 +43,6 @@ function Cart() {
         const formattedInteger = addCommasToNumber(Math.floor(number));
         return `Ksh ${formattedInteger}`;
     }
-
 
     return (
         <div className='cart-container'>
@@ -67,36 +63,36 @@ function Cart() {
                     (
                     <>
                         <div className='cart-full col-lg-8 col-md-10'>
-                        <h1 className='text-start mb-5'>Cart ({cartItems.length})</h1>
-                        {cartItems && cartItems.map(cartItem => (
+                        <h1>Cart ({cartItems.length})</h1>
+                        {cartItems && cartItems.map((cartItem, index) => (
                             <div key={cartItem.productId} className=' added-products'>
-                                <div>
-                                    <div className='d-flex justify-content-between'>
-                                        <div className='d-flex justify-content-center align-items-center'>
-                                            <Image src={`https://monza.co.ke/img/products/${cartItem.images[0]?.filename}`}  height="150"
-                                                   width="150" alt="Added product image"/>
-                                            <div className='ml-3'>
-                                                <p>{cartItem.productName}</p>
-                                                <span>In stock</span>
-                                            </div>
+                                <div className='d-flex justify-content-between'>
+                                    <div className='d-flex justify-content-center align-items-center'>
+                                        <div className="cart-image-container">
+                                            <Image src={`https://monza.co.ke/img/products/${cartItem.images[0]?.filename}`} layout="fill" alt="Added product image"/>
                                         </div>
-                                        <h2 className='me-2'>{formatNumber(cartItem.price)}</h2>
+                                        <div className='ml-3'>
+                                            <p>{cartItem.productName}</p>
+                                            <p className="d-md-none">{formatNumber(cartItem.price)}</p>
+                                        </div>
                                     </div>
-                                    <div className='d-flex justify-content-between mt-2'>
-                                        <p className='delete ms-2 mt-1' onClick={()=>handleRemoveFromCart(cartItem)}><FontAwesomeIcon icon={faTrash}/> REMOVE</p>
-                                        <div className="no-items me-2">
-                                            <div className="minus text-black-50" onClick={()=>handleDecreasedCart(cartItem)}>
-                                                <FontAwesomeIcon icon={faMinus} className='icon-symbols'/>
-                                            </div>
-                                            <div className='text-black-50'>
-                                                <p1 className="icon-no">{cartItem.cartQuantity}</p1>
-                                            </div>
-                                            <div className="add text-black-50" onClick={()=>handleIncreasedCart(cartItem)}>
-                                                <FontAwesomeIcon icon={faPlus} className='icon-symbols'/>
-                                            </div>
+                                    <h2 className='d-none me-2 d-md-flex align-items-center'>{formatNumber(cartItem.price)}</h2>
+                                </div>
+                                <div className='d-flex justify-content-between mt-2'>
+                                    <p className='delete ms-2 mt-1' onClick={()=>handleRemoveFromCart(cartItem)}><FontAwesomeIcon icon={faTrash}/> REMOVE</p>
+                                    <div className="no-items me-2">
+                                        <div className="minus text-black-50" onClick={()=>handleDecreasedCart(cartItem)}>
+                                            <FontAwesomeIcon icon={faMinus} className='icon-symbols'/>
+                                        </div>
+                                        <div className='text-black-50'>
+                                            <p1 className="icon-no">{cartItem.cartQuantity}</p1>
+                                        </div>
+                                        <div className="add text-black-50" onClick={()=>handleIncreasedCart(cartItem)}>
+                                            <FontAwesomeIcon icon={faPlus} className='icon-symbols'/>
                                         </div>
                                     </div>
                                 </div>
+                                {index + 1 !== cartItems.length ? <hr/> : null}
                             </div>
                         ))}
                         </div>
