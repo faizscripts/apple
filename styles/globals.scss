@@ -28,7 +28,7 @@ body {
     color: $red;
     margin-bottom: 1rem;
   }
-  
+
   .home-breadcrumb {
     cursor: pointer;
     color: #0d6efd;
@@ -275,6 +275,10 @@ body {
   .bag {
     color: white;
     font-size: 24px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -309,6 +313,27 @@ body {
 
   .products-container{
     padding: 20px 57px;
+  }
+
+  .categories-product-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+
+    .card {
+      width: 200px;
+    }
+  }
+
+  .pagination-container {
+    .page-link {
+      color: black;
+    }
+
+    .active .page-link {
+      color: white;
+    }
+
   }
 
   .accordion-container{
@@ -422,9 +447,9 @@ body {
     transition: all 1s;
     margin-left: -25px;
   }
-  
+
   .hover-item {
-    cursor: pointer; 
+    cursor: pointer;
   }
 
 
@@ -466,9 +491,15 @@ body {
   }
 
   .product-header {
-    font-size: 14px;
+    font-size: 13px;
     text-align: center;
     cursor: pointer;
+    height: 46.8px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 
   .toggle-side-bar{
@@ -832,22 +863,23 @@ body {
 
 .cart-container {
   display: flex;
-  position: relative;
-  height: 100%;
-  margin-top: 20px;
+  justify-content: center;
+  margin: 20px 0;
 
   h1{
     font-size: 18px;
     margin: 10px;
   }
 
-  .cart-full{
-    margin: 0 17px;
+  .added-products {
+    padding: 0 3rem;
   }
 
-  .added-products {
-    height: 100%;
-    width: 60%;
+  .cart-image-container {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    margin-right: 1rem;
   }
 
   img {
@@ -1264,11 +1296,14 @@ body {
       width: 30rem;
       font-weight: 600;
     }
+
+    .custom-map-styles {
+      width: 100% !important;
+    }
   }
 
 
   #checkout-sidebar {
-
     flex-basis: 30vw;
     margin-top: 2rem;
 
@@ -1277,6 +1312,22 @@ body {
       top: 6rem;
       z-index: 2;
 
+    }
+
+    .checkout-cart-image {
+      position: relative;
+      height: 4rem;
+      width: 4rem;
+      flex: 0 0 4rem;
+    }
+
+    .product-name {
+      height: 46.8px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
     }
 
     #help-button {
@@ -1918,7 +1969,7 @@ body {
   .table-icon{
     font-size: 1.5rem;
     font-weight: 500;
-    
+
     &:hover {
       cursor: pointer;
     }

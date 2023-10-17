@@ -91,7 +91,7 @@ function ProductViewComponent({ product, category }) {
                     </div>
                     <div className='mt-4 buttons-view-container'>
                         <Link href='/cart'>
-                            <button type="button" className="btn btn-primary me-2 button-view" onClick={addProductToCart}>CHECKOUT </button>
+                            <button type="button" className="btn btn-primary me-2 view-text-button button-view" onClick={addProductToCart}>CHECKOUT </button>
                         </Link>
                         <button className="btn btn-primary me-2 view-text-button button-view" type="submit" onClick={addProductToCart}>ADD TO CART</button>
                         <ReactWhatsapp message={message} number={process.env.NEXT_PUBLIC_PHONE} className="btn btn-success view-text-button button-view">

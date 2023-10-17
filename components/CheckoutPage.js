@@ -1,8 +1,8 @@
-import Google from "./Map/Google";
-import {useSelector} from "react-redux";
-import {useEffect} from "react";
-import {getTotals, initializeCart} from "../redux/features/cart";
-import {useDispatch} from "react-redux";
+import Google from './Map/Google';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getTotals, initializeCart } from '../redux/features/cart';
+import Image from 'next/image';
 
 function CheckoutPage() {
 
@@ -10,17 +10,17 @@ function CheckoutPage() {
 
     const deliveryPrice =  useSelector(state=>state.deliveryPrice)
     const productPrice = useSelector(state=>state.cart.cartTotalAmount)
-
-    const total = productPrice + deliveryPrice
+    const cartItems = useSelector((state) => state.cart.cartItems);
 
     useEffect(() => {
         dispatch(initializeCart());
     }, [dispatch]);
 
-
     useEffect(()=>{
         dispatch(getTotals())
     },[dispatch])
+
+    const total = productPrice + deliveryPrice
 
     const onButtonClick = (e) => {
         e.preventDefault()
@@ -31,17 +31,35 @@ function CheckoutPage() {
     }
 
     function formatNumber(number) {
-        const formattedInteger = addCommasToNumber(Math.floor(number));
-        return formattedInteger;
+        return addCommasToNumber(Math.floor(number));
+    }
+
+    function renderCartItems() {
+        return cartItems.map(
+            (cartItem, index) => {
+                return (
+                    <div key={cartItem.productId}>
+                        <div className="d-flex gap-2">
+                            <div className="checkout-cart-image">
+                                <Image src={`https://monza.co.ke/img/products/${cartItem.images[0]?.filename}`} layout="fill" alt="Added product image"/>
+                            </div>
+                            <div className="d-flex flex-column">
+                                <p className="product-name">{cartItem.productName}</p>
+                                <p>ksh. {formatNumber(cartItem.price)}</p>
+                            </div>
+                        </div>
+                        {index + 1 !== cartItems.length ? <hr/> : null}
+                    </div>
+                )
+            }
+        )
     }
 
     return(
         <div id="checkout-body" className="container-fluid">
 
-            {/*Main Information*/}
-
             <div id="checkout-main" className="container-fluid">
-                {/*Contact*/}
+
                 <div className="card">
                     <div className="card-header text-center">
                         CONTACT INFORMATION
@@ -67,9 +85,6 @@ function CheckoutPage() {
                                     <label htmlFor="phone" className="form-label">Phone number</label>
                                     <input type="number" className="form-control" id="phone" name="phone"
                                            placeholder="0712345678" required/>
-                                    <div className="form-text">For M-Pesa payments, please enter a safaricom number in the
-                                        format 0712345678/ 0123456789.
-                                    </div>
                                 </div>
                             </div>
                             <div className="mb-3 map-element">
@@ -79,8 +94,6 @@ function CheckoutPage() {
                         </form>
                     </div>
                 </div>
-
-                {/*Payment Method*/}
 
                 <div className="card">
                     <div className="card-header text-center">
@@ -115,21 +128,18 @@ function CheckoutPage() {
 
             </div>
 
-
-            {/*sidebar*/}
-
             <div id="checkout-sidebar" className="container-fluid">
                 <div className="text-center" id="divForHelp">
                     <button className="btn btn-warning" id="help-button">NEED HELP?</button>
                 </div>
 
                 <div className="card">
-                    <div className="card-header ">
+                    <div className="card-header">
                         YOUR CART
                     </div>
                     <div className="card-body">
                         <div className="checkoutCart">
-                            {/*${renderedYourCart(cart)}*/}
+                            {renderCartItems()}
                             <div className="text-center mt-3">
                                 <button className="btn btn-sm btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#cart">Modify Cart
@@ -143,4 +153,5 @@ function CheckoutPage() {
         </div>
     )
 }
+
 export default CheckoutPage

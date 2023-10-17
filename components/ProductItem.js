@@ -42,16 +42,16 @@ function ProductItem({productId, images, price, productName}) {
     }
 
     return(
-        <div className='col-lg-2 col-md-3 col-sm-4 col-6  d-flex mt-4'>
-            <div>
+        <div className='col-lg-2 col-md-3 col-sm-4 col-6 categories-product-container'>
+            <div className="card">
                 <Image
                     onClick={navigateToProductViewPage}
                     style={{cursor: "pointer"}}
                     src={`https://monza.co.ke/img/products/${images[0]?.filename}`}
                     alt={productName}
-                    height="180"
-                    width="180"/>
-                <div className='products-description'>
+                    height="200"
+                    width="200"/>
+                <div className='card-body products-description'>
                     <h3 onClick={navigateToProductViewPage} className='product-header'>{productName}</h3>
                     <div className="d-flex justify-content-between">
                         <div className='text-center'>{formatNumber(price)}</div>
