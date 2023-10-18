@@ -11,13 +11,30 @@ import { useRouter } from "next/router";
 
 function MyApp({Component, pageProps}) {
 
-    const [loading, setLoading] = useState(true);
     const router = useRouter();
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         window.bootstrap = require('bootstrap');
-        setLoading(false);
+
+        router.events.on('routeChangeStart', handleStart);
+        router.events.on('routeChangeComplete', handleComplete);
+        router.events.on('routeChangeError', handleComplete);
+
+        return () => {
+            router.events.off('routeChangeStart', handleStart);
+            router.events.off('routeChangeComplete', handleComplete);
+            router.events.off('routeChangeError', handleComplete);
+        };
     }, []);
+
+    const handleStart = () => {
+        setLoading(true);
+    };
+
+    const handleComplete = () => {
+        setLoading(false);
+    };
 
     function renderLayout() {
         if (Component.pageLayout) {

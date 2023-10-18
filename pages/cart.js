@@ -50,14 +50,9 @@ function Cart() {
                 cartItems.length === 0 ? (
                     <div className="cart-empty">
                         <h1>Your cart is currently empty</h1>
-                        <div className="start-shopping">
-                            <Link href='/'>
-                                <div className="start-shopping" style={{textAlign:'center',cursor:'pointer'}}>
-                                    <FontAwesomeIcon icon={faArrowLeft} />
-                                    <span style={{color:'black',marginLeft:'10px'}}>Start Shopping</span>
-                                </div>
-                            </Link>
-                        </div>
+                        <Link href='/'>
+                            <p className="start-shopping">Start Shopping</p>
+                        </Link>
                     </div>
                 ) :
                     (
