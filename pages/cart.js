@@ -80,7 +80,7 @@ function Cart() {
                                             <FontAwesomeIcon icon={faMinus} className='icon-symbols'/>
                                         </div>
                                         <div className='text-black-50'>
-                                            <p1 className="icon-no">{cartItem.cartQuantity}</p1>
+                                            <span className="icon-no">{cartItem.cartQuantity}</span>
                                         </div>
                                         <div className="add text-black-50" onClick={()=>handleIncreasedCart(cartItem)}>
                                             <FontAwesomeIcon icon={faPlus} className='icon-symbols'/>
