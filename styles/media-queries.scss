@@ -424,11 +424,6 @@
         font-size: 0.7rem;
       }
 
-
-      .btn-sm {
-        font-size: 0.7rem;
-      }
-
     }
   }
 
@@ -677,6 +672,9 @@
       flex-grow: 1;
     }
 
+    &:first-of-type {
+      padding-top: 1.5rem;
+    }
 
     .headline {
       font-size: 40px;

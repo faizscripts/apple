@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 function MyApp({Component, pageProps}) {
 
     const router = useRouter();
+    const [initialLoad, setInitialLoad] = useState(true);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -21,6 +22,10 @@ function MyApp({Component, pageProps}) {
         router.events.on('routeChangeComplete', handleComplete);
         router.events.on('routeChangeError', handleComplete);
 
+        if (router.isReady) {
+            setInitialLoad(false);
+        }
+
         return () => {
             router.events.off('routeChangeStart', handleStart);
             router.events.off('routeChangeComplete', handleComplete);
@@ -28,12 +33,15 @@ function MyApp({Component, pageProps}) {
         };
     }, []);
 
-    const handleStart = () => {
-        setLoading(true);
+    const handleStart = (url) => {
+        if (url !== router.asPath) {
+            setLoading(true);
+        }
     };
 
     const handleComplete = () => {
         setLoading(false);
+        setInitialLoad(false);
     };
 
     function renderLayout() {
@@ -62,11 +70,14 @@ function MyApp({Component, pageProps}) {
         if (route === "/") {
             return "Home | Apple";
         }
-        else if (route.startsWith("/search/") && query.searchId) {
+        else if (route.startsWith("/search/")) {
             return `${capitalizeFirstLetter(query.searchId)} | Apple`;
         }
-        else if (route.startsWith("/categories/") && query.categoryId) {
+        else if (route.startsWith("/categories/")) {
             return `Categories | Apple`;
+        }
+        else if (route.startsWith("/view/")) {
+            return `View | Apple`;
         }
         else if (route.startsWith("/admin/")) {
             const adminRoute = route.replace("/admin/", "");
@@ -88,7 +99,7 @@ function MyApp({Component, pageProps}) {
                 <meta name="description" content="Your one stop shop for all your apple products and the best prices"/>
                 <meta name="keywords" content="apple, ecommerce, best, deals, kenya"/>
             </Head>
-            {loading ? <Loader /> : renderLayout()}
+            {initialLoad || loading ? <Loader /> : renderLayout()}
             <ToastContainer/>
         </>
     )

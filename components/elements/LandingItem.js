@@ -1,14 +1,9 @@
 import Image from "next/image";
 
-
-
 function LandingItem({title, image,textColor,subhead,pTag}) {
 
     return(
-        <div>
-
-            <div className="landing-section">
-
+        <div className="landing-section">
                 <div className="backgroundImg"
                      style={{backgroundImage: `url('${image}')`}}>
                 </div>
@@ -23,8 +18,6 @@ function LandingItem({title, image,textColor,subhead,pTag}) {
                     </div>
                 </div>
             </div>
-
-        </div>
     )
 }
 

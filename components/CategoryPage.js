@@ -1,7 +1,7 @@
+import React from 'react';
 import { useState } from 'react';
 import ProductItem from './ProductItem';
 import Breadcrumb from './Breadcrumb';
-import {useSelector} from "react-redux";
 
 function CategoryPage({selectedCategory, products}) {
 
@@ -41,16 +41,15 @@ function CategoryPage({selectedCategory, products}) {
             let endOffset = ((index + 1) % 5 === 0) ? <div className="d-none d-lg-block col-lg-1"></div> : null;
 
             return (
-                <>
+                <React.Fragment key={product._id}>
                     {startOffset}
                     <ProductItem
-                        key={product._id}
                         productId={product._id}
                         price={product.price}
                         productName={product.product_name}
                         images={product.product_images} />
                     {endOffset}
-                </>
+                </React.Fragment>
             );
         });
     };

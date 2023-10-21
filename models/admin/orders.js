@@ -5,10 +5,6 @@ const ordersSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    customerId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Customer'
-    },
     products: [{
         productId: {
             type: mongoose.Schema.Types.ObjectId,
@@ -32,13 +28,6 @@ const ordersSchema = new mongoose.Schema({
     orderStatus: String,
     shippingDate: {
         type: Date,
-    },
-    mpesa: String,
-    mpesaDetails: {
-        amount: Number,
-        mpesaCode: String,
-        transactionDate: String,
-        phone: Number
     },
     orderType: {
         type: String,

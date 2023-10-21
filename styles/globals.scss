@@ -1309,7 +1309,6 @@ body {
     }
   }
 
-
   #checkout-sidebar {
     flex-basis: 30vw;
     margin-top: 2rem;
@@ -1319,6 +1318,16 @@ body {
       top: 6rem;
       z-index: 2;
 
+    }
+
+    .checkout-cart-item {
+      display: flex;
+      gap: 10px;
+      margin: 0.5rem 0;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #ced4da;
+      }
     }
 
     .checkout-cart-image {
@@ -1335,6 +1344,7 @@ body {
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
+      margin-bottom: 0.5rem;
     }
 
     #help-button {
@@ -1375,10 +1385,6 @@ body {
 
     hr {
       color: rgba(0, 0, 0, 0.5);
-    }
-
-    .btn-sm {
-      font-size: 0.75rem;
     }
 
   }
@@ -2273,6 +2279,23 @@ body {
   right: 0;
   bottom: 0;
   z-index: 9999;
+}
+
+.map-suggestions {
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  padding-left: 0.2rem;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #ced4da;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: #0d6efd;
+    color: white;
+  }
 }
 
 @import "media-queries";

@@ -1,9 +1,9 @@
-import { useRef } from "react";
-import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faPlus } from "@fortawesome/free-solid-svg-icons";
-import {useRouter} from "next/router";
-import axios from "axios";
+import { useRef } from 'react';
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from 'next/router';
+import axios from 'axios';
 
 function AdminLayout ({ children }) {
 
@@ -27,8 +27,7 @@ function AdminLayout ({ children }) {
     const pageTitle = getPageTitle(router.pathname);
 
     function getPageTitle(route) {
-        const adminRoute = route.replace(/^\/admin\//, "");
-        return adminRoute;
+        return route.replace(/^\/admin\//, "");
     }
 
     return (
@@ -46,9 +45,6 @@ function AdminLayout ({ children }) {
                             </li>
                             <li onClick={() => sidebarItemClick('/admin/categories/')} className="list-group-item list-group-item-action">
                                     Categories
-                                </li>
-                            <li onClick={() => sidebarItemClick('/admin/customers/')} className="list-group-item list-group-item-action">
-                                    Customers
                                 </li>
                             <li onClick={() => sidebarItemClick('/admin/dashboard/')} className="list-group-item list-group-item-action">
                                     Dashboard
