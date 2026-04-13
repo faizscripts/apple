@@ -14,7 +14,7 @@ function LandingItem({title, image,textColor,subhead,pTag}) {
                     <p className="text-muted subParagraph" aria-label={pTag} role="text">{pTag}</p>
                     <div className="cta-links">
                         <a href="https://www.apple.com/iphone-14-pro/" aria-label="Learn more about iphone 14 pro" className="links-to-buy">Buy <Image
-                            src="/images/landing/right-arrow-blue.svg" alt="" width="12px" height="12px"/></a>
+                            src="/images/landing/right-arrow-blue.svg" alt="" width="12" height="12"/></a>
                     </div>
                 </div>
             </div>
